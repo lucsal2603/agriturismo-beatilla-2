@@ -1,25 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.agriturismobeatilla.it/</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/" />
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://www.agriturismobeatilla.it/en/</loc>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/" />
-    <lastmod>2026-07-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/en/" />
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/frammenti-cascina.jpg</image:loc>
+      <image:caption>La cascina dell&apos;Agriturismo Beatilla con la scritta dipinta a mano</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/frammenti-animali.jpg</image:loc>
+      <image:caption>Un cavallo bianco al pascolo all&apos;alba nella campagna di Beatilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-pomodoro.jpg</image:loc>
+      <image:caption>Camera Pomodoro</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-mandarino.jpg</image:loc>
+      <image:caption>Camera Mandarino</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-lampone.jpg</image:loc>
+      <image:caption>Suite Lampone</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-pallina.jpg</image:loc>
+      <image:caption>Appartamento Pallina</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-jahara.jpg</image:loc>
+      <image:caption>Loft Country Jahara</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/esperienze-colazione.jpg</image:loc>
+      <image:caption>La colazione Breakfast Basket</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/esperienze-ristorante.jpg</image:loc>
+      <image:caption>La sala dell&apos;Art Gallery Restaurant Corte Barco</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/esperienze-studio.jpg</image:loc>
+      <image:caption>Lo Studio Bornoffi durante un Art Workshop</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/arte-artista.jpg</image:loc>
+      <image:caption>L&apos;artista Luca Bornoffi nel suo studio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/frammenti-staff.jpg</image:loc>
+      <image:caption>L&apos;ospitalità Beatilla</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/</loc>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/en/" />
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/frammenti-cascina.jpg</image:loc>
+      <image:caption>La cascina dell&apos;Agriturismo Beatilla con la scritta dipinta a mano</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/frammenti-animali.jpg</image:loc>
+      <image:caption>Un cavallo bianco al pascolo all&apos;alba nella campagna di Beatilla</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-pomodoro.jpg</image:loc>
+      <image:caption>Camera Pomodoro</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-mandarino.jpg</image:loc>
+      <image:caption>Camera Mandarino</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-lampone.jpg</image:loc>
+      <image:caption>Suite Lampone</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-pallina.jpg</image:loc>
+      <image:caption>Appartamento Pallina</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/alloggi-jahara.jpg</image:loc>
+      <image:caption>Loft Country Jahara</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/esperienze-colazione.jpg</image:loc>
+      <image:caption>La colazione Breakfast Basket</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/esperienze-ristorante.jpg</image:loc>
+      <image:caption>La sala dell&apos;Art Gallery Restaurant Corte Barco</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/esperienze-studio.jpg</image:loc>
+      <image:caption>Lo Studio Bornoffi durante un Art Workshop</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/arte-artista.jpg</image:loc>
+      <image:caption>L&apos;artista Luca Bornoffi nel suo studio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.agriturismobeatilla.it/img/frammenti-staff.jpg</image:loc>
+      <image:caption>L&apos;ospitalità Beatilla</image:caption>
+    </image:image>
   </url>
-
+  <url>
+    <loc>https://www.agriturismobeatilla.it/privacy.html</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/en/privacy.html" />
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/privacy.html</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/en/privacy.html" />
+  </url>
 </urlset>
