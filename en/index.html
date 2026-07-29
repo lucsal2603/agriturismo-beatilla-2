@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- ===================== SEO · BASE ===================== -->
-  <title>Agriturismo Beatilla · Art Eco Design Farm · Mantova</title>
-  <meta name="description" content="Agriturismo Beatilla: art eco design farm a Marmirolo, alle porte di Mantova. Alloggi d'autore decorati dall'artista Luca Bornoffi, workshop ed esperienze d'arte nella campagna mantovana." />
-  <meta name="keywords" content="agriturismo Mantova, agriturismo Marmirolo, art eco design farm, camere Mantova, agriturismo con ristorante Mantova, vacanze campagna mantovana, agriturismo Beatilla, workshop arte Mantova, Luca Bornoffi" />
+  <title>Agriturismo Beatilla · Art Eco Design Farm · Mantua, Italy</title>
+  <meta name="description" content="Agriturismo Beatilla: an art eco design farm in Marmirolo, on the edge of Mantua, Italy. Designer apartments and rooms decorated by artist Luca Bornoffi, art workshops and countryside experiences." />
+  <meta name="keywords" content="farm stay Mantua, agriturismo Mantua Italy, art eco design farm, where to stay near Mantua, countryside hotel Lombardy, Beatilla, art workshop Italy, Luca Bornoffi" />
   <meta name="author" content="Agriturismo Beatilla" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#FAF8F4" />
-  <link rel="canonical" href="https://www.agriturismobeatilla.it/" />
+  <link rel="canonical" href="https://www.agriturismobeatilla.it/en/" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23E87722'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23FFFFFF' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23E87722'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23FFFFFF' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
   <meta name="application-name" content="Agriturismo Beatilla" />
@@ -24,41 +24,41 @@
   <link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/" />
   <link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/" />
   <link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/" />
-  <link rel="preload" as="image" href="img/frammenti-animali.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="../img/frammenti-animali.jpg" fetchpriority="high" />
 
   <script>
-    /* Lingua automatica: se il dispositivo NON e in italiano si passa alla
-       versione inglese. La scelta fatta a mano con il pulsante IT/EN vince
-       sempre e viene ricordata. Sta qui in cima, prima che la pagina venga
-       disegnata, per non far vedere un lampo della lingua sbagliata. */
+    /* Automatic language: an Italian device goes to the Italian version.
+       A manual choice made with the IT/EN button always wins and is
+       remembered. This runs before the page is painted, so nobody sees a
+       flash of the wrong language. */
     (function () {
       try {
-        var scelta = localStorage.getItem('beatilla-lingua');
-        var italiano = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().indexOf('it') === 0;
-        if (scelta === 'en' || (!scelta && !italiano)) location.replace('en/');
+        var choice = localStorage.getItem('beatilla-lingua');
+        var italian = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().indexOf('it') === 0;
+        if (choice === 'it' || (!choice && italian)) location.replace('../');
       } catch (e) {}
     })();
   </script>
 
   <!-- ===================== SEO · GEO (local) ===================== -->
   <meta name="geo.region" content="IT-MN" />
-  <meta name="geo.placename" content="Marmirolo, Mantova" />
+  <meta name="geo.placename" content="Marmirolo, Mantua" />
   <meta name="geo.position" content="45.200963;10.761172" />
   <meta name="ICBM" content="45.200963, 10.761172" />
 
   <!-- ===================== SEO · OPEN GRAPH ===================== -->
   <meta property="og:type" content="website" />
-  <meta property="og:locale" content="it_IT" />
-  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="it_IT" />
   <meta property="og:site_name" content="Agriturismo Beatilla" />
-  <meta property="og:title" content="Agriturismo Beatilla · Art Eco Design Farm a Marmirolo (Mantova)" />
-  <meta property="og:description" content="Art eco design farm nella campagna di Marmirolo, alle porte di Mantova. Alloggi d'autore, workshop ed esperienze d'arte." />
-  <meta property="og:url" content="https://www.agriturismobeatilla.it/" />
+  <meta property="og:title" content="Agriturismo Beatilla · Art Eco Design Farm in Marmirolo (Mantua, Italy)" />
+  <meta property="og:description" content="An art eco design farm in the countryside of Marmirolo, on the edge of Mantua, Italy. Designer stays, art workshops and experiences." />
+  <meta property="og:url" content="https://www.agriturismobeatilla.it/en/" />
   <meta property="og:image" content="https://www.agriturismobeatilla.it/img/frammenti-animali.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="800" />
-  <meta property="og:image:alt" content="Un cavallo bianco al pascolo nella campagna dell'Agriturismo Beatilla" />
+  <meta property="og:image:alt" content="A white horse grazing in the countryside at Agriturismo Beatilla" />
   <meta property="og:image" content="https://www.agriturismobeatilla.it/img/frammenti-cascina.jpg" />
   <meta property="og:image" content="https://www.agriturismobeatilla.it/img/esperienze-ristorante.jpg" />
 
@@ -67,7 +67,7 @@
   <meta property="business:contact_data:locality" content="Marmirolo" />
   <meta property="business:contact_data:region" content="MN" />
   <meta property="business:contact_data:postal_code" content="46045" />
-  <meta property="business:contact_data:country_name" content="Italia" />
+  <meta property="business:contact_data:country_name" content="Italy" />
   <meta property="business:contact_data:phone_number" content="+390376466480" />
   <meta property="business:contact_data:website" content="https://www.agriturismobeatilla.it/" />
   <meta property="place:location:latitude" content="45.200963" />
@@ -75,10 +75,10 @@
 
   <!-- ===================== SEO · TWITTER CARD ===================== -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Agriturismo Beatilla · Art Eco Design Farm a Marmirolo (Mantova)" />
-  <meta name="twitter:description" content="Art eco design farm nella campagna di Marmirolo, alle porte di Mantova. Alloggi d'autore, workshop ed esperienze d'arte." />
+  <meta name="twitter:title" content="Agriturismo Beatilla · Art Eco Design Farm in Marmirolo (Mantua, Italy)" />
+  <meta name="twitter:description" content="An art eco design farm in the countryside of Marmirolo, on the edge of Mantua, Italy. Designer stays, art workshops and experiences." />
   <meta name="twitter:image" content="https://www.agriturismobeatilla.it/img/frammenti-animali.jpg" />
-  <meta name="twitter:image:alt" content="Un cavallo bianco al pascolo nella campagna dell'Agriturismo Beatilla" />
+  <meta name="twitter:image:alt" content="A white horse grazing in the countryside at Agriturismo Beatilla" />
 
   <!-- ===================== SEO · DATI STRUTTURATI (JSON-LD) ===================== -->
   <script type="application/ld+json">
@@ -90,16 +90,16 @@
         "@id": "https://www.agriturismobeatilla.it/#website",
         "url": "https://www.agriturismobeatilla.it/",
         "name": "Agriturismo Beatilla",
-        "inLanguage": "it-IT",
+        "inLanguage": "en",
         "publisher": { "@id": "https://www.agriturismobeatilla.it/#agriturismo" }
       },
       {
         "@type": "WebPage",
-        "@id": "https://www.agriturismobeatilla.it/#webpage",
+        "@id": "https://www.agriturismobeatilla.it/en/#webpage",
         "url": "https://www.agriturismobeatilla.it/",
         "name": "Agriturismo Beatilla · Art Eco Design Farm · Mantova",
-        "description": "Agriturismo Beatilla: art eco design farm a Marmirolo, alle porte di Mantova. Alloggi d'autore decorati dall'artista Luca Bornoffi, workshop ed esperienze d'arte nella campagna mantovana.",
-        "inLanguage": "it-IT",
+        "description": "Agriturismo Beatilla: an art eco design farm in Marmirolo, on the edge of Mantua, Italy. Designer apartments and rooms decorated by artist Luca Bornoffi, art workshops and countryside experiences.",
+        "inLanguage": "en",
         "isPartOf": { "@id": "https://www.agriturismobeatilla.it/#website" },
         "about": { "@id": "https://www.agriturismobeatilla.it/#agriturismo" },
         "mainEntity": { "@id": "https://www.agriturismobeatilla.it/#agriturismo" },
@@ -111,7 +111,7 @@
         "@id": "https://www.agriturismobeatilla.it/#agriturismo",
         "name": "Agriturismo Beatilla",
         "alternateName": "Beatilla Art Eco Design Farm",
-        "description": "Art eco design farm nella campagna di Marmirolo, alle porte di Mantova. Alloggi d'autore decorati dall'artista Luca Bornoffi, workshop ed esperienze d'arte.",
+        "description": "An art eco design farm in the countryside of Marmirolo, on the edge of Mantua, Italy. Designer stays decorated by artist Luca Bornoffi, art workshops and experiences.",
         "url": "https://www.agriturismobeatilla.it/",
         "image": [
           "https://www.agriturismobeatilla.it/img/frammenti-animali.jpg",
@@ -138,7 +138,7 @@
           "longitude": 10.761172
         },
         "hasMap": "https://maps.google.com/maps?q=45.200963,10.761172",
-        "mainEntityOfPage": { "@id": "https://www.agriturismobeatilla.it/#webpage" },
+        "mainEntityOfPage": { "@id": "https://www.agriturismobeatilla.it/en/#webpage" },
         "containedInPlace": {
           "@type": "AdministrativeArea",
           "name": "Marmirolo, Provincia di Mantova",
@@ -193,8 +193,8 @@
           "@type": "ReserveAction",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it",
-            "inLanguage": "it-IT",
+            "urlTemplate": "https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=en",
+            "inLanguage": "en",
             "actionPlatform": [
               "http://schema.org/DesktopWebPlatform",
               "http://schema.org/MobileWebPlatform"
@@ -229,94 +229,94 @@
       },
       {
         "@type": "FAQPage",
-        "@id": "https://www.agriturismobeatilla.it/#faq",
+        "@id": "https://www.agriturismobeatilla.it/en/#faq",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "A che ora sono il check-in e il check-out?",
+            "name": "What are the check-in and check-out times?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Il check-in è disponibile dalle 15:00, mentre il check-out è entro le 10:00. Per garantirvi un alloggio preparato con la massima cura, vi chiediamo gentilmente di rispettare l'orario di arrivo."
+              "text": "Check-in is available from 15:00 and check-out is by 10:00. So that we can prepare your stay with the greatest care, we kindly ask you to respect the arrival time."
             }
           },
           {
             "@type": "Question",
-            "name": "La colazione è inclusa?",
+            "name": "Is breakfast included?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sì. Ogni mattina vi consegneremo la nostra Breakfast Basket, un cestino preparato con prodotti freschi fatti in casa, consegnata direttamente in camera all'orario desiderato dalle 7:30 alle 9:45."
+              "text": "Yes. Every morning we bring you our Breakfast Basket, prepared with fresh homemade produce and delivered straight to your room at the time you choose, between 7:30 and 9:45."
             }
           },
           {
             "@type": "Question",
-            "name": "C'è il parcheggio?",
+            "name": "Is there parking?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sì. È disponibile un parcheggio scoperto gratuito all'interno della struttura. Su richiesta è disponibile anche un parcheggio coperto a pagamento."
+              "text": "Yes. Free open-air parking is available on site. Covered parking is also available on request, for a fee."
             }
           },
           {
             "@type": "Question",
-            "name": "Il ristorante è aperto anche a chi non soggiorna a Beatilla?",
+            "name": "Is the restaurant open to people not staying at Beatilla?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sì. Il ristorante sarà felice di accogliere anche gli ospiti esterni, su prenotazione. Per prenotazioni: +39 339 222 6468."
+              "text": "Yes. The restaurant is happy to welcome outside guests too, by reservation. To book: +39 339 222 6468."
             }
           },
           {
             "@type": "Question",
-            "name": "Beatilla è adatto a famiglie con bambini?",
+            "name": "Is Beatilla suitable for families with children?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Assolutamente sì. Disponiamo di lettini per i più piccoli, ampi spazi all'aperto e un grande giardino dove trascorrere momenti di relax in famiglia."
+              "text": "Absolutely. We have cots for younger children, wide outdoor spaces and a large garden for relaxed family time."
             }
           },
           {
             "@type": "Question",
-            "name": "Sono ammessi gli animali domestici?",
+            "name": "Are pets allowed?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No, al momento non è possibile ospitare animali domestici."
+              "text": "No, at the moment we are not able to host pets."
             }
           },
           {
             "@type": "Question",
-            "name": "È possibile noleggiare biciclette?",
+            "name": "Can I hire a bike?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sì. Mettiamo a disposizione biciclette su prenotazione, ideali per esplorare il Bosco della Fontana, Mantova, Borghetto sul Mincio e la ciclabile fino al Lago di Garda."
+              "text": "Yes. Bikes are available on request, ideal for exploring the Bosco della Fontana, Mantua, Borghetto sul Mincio and the cycle path to Lake Garda."
             }
           },
           {
             "@type": "Question",
-            "name": "Dove si trova Beatilla?",
+            "name": "Where is Beatilla?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Beatilla si trova a Marmirolo, nel cuore della campagna mantovana, a pochi minuti dal centro storico di Mantova e dal Bosco della Fontana. È una posizione ideale per visitare il territorio tra Mantova, il Lago di Garda e le colline moreniche."
+              "text": "Beatilla is in Marmirolo, in the heart of the countryside near Mantua, minutes from the historic centre and from the Bosco della Fontana. It is an ideal base for the area between Mantua, Lake Garda and the morainic hills."
             }
           },
           {
             "@type": "Question",
-            "name": "Gli appartamenti dispongono di una cucina?",
+            "name": "Do the apartments have a kitchen?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sì. Tutti gli appartamenti sono dotati di cucina attrezzata con stoviglie ed elettrodomestici."
+              "text": "Yes. All apartments have a fully equipped kitchen with crockery and appliances."
             }
           },
           {
             "@type": "Question",
-            "name": "È disponibile il Wi-Fi?",
+            "name": "Is Wi-Fi available?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sì, il Wi-Fi è gratuito e disponibile in tutta la struttura."
+              "text": "Yes, Wi-Fi is free and available throughout the property."
             }
           },
           {
             "@type": "Question",
-            "name": "Posso prenotare esperienze durante il soggiorno?",
+            "name": "Can I book experiences during my stay?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sì. Organizziamo Workshop d'arte, visite alla fattoria, escursioni, noleggio biciclette e altre esperienze su prenotazione."
+              "text": "Yes. We arrange art workshops, farm visits, excursions, bike hire and other experiences on request."
             }
           }
         ]
@@ -1153,17 +1153,17 @@
   <!-- ===================== 1. NAVIGATION ===================== -->
   <header class="nav" id="nav">
     <a class="nav__brand" href="#top">Agriturismo Beatilla</a>
-    <nav class="nav__links" aria-label="Navigazione principale">
-      <a href="#storia">Chi siamo</a>
-      <a href="#camere">Camere</a>
-      <a href="#esperienze">Esperienze</a>
-      <a href="#servizi">Servizi</a>
+    <nav class="nav__links" aria-label="Main navigation">
+      <a href="#storia">About us</a>
+      <a href="#camere">Stays</a>
+      <a href="#esperienze">Experiences</a>
+      <a href="#servizi">Amenities</a>
       <a href="#workshop">Art Studio</a>
-      <a href="#cosa-visitare">Cosa visitare</a>
-      <a class="nav__lang" data-lingua="en" href="en/" hreflang="en" aria-label="English version">EN</a>
-      <a class="nav__cta" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener">Prenota</a>
+      <a href="#cosa-visitare">What to see</a>
+      <a class="nav__lang" data-lingua="it" href="../" hreflang="it" aria-label="Versione italiana">IT</a>
+      <a class="nav__cta" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=en" target="_blank" rel="noopener">Book</a>
     </nav>
-    <button class="nav__toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false" aria-controls="navOverlay">
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
       <span class="nav__toggle-box" aria-hidden="true">
         <span class="nav__toggle-bar"></span>
         <span class="nav__toggle-bar"></span>
@@ -1173,35 +1173,35 @@
   </header>
 
   <!-- Pulsante prenota fisso per schermi piccoli -->
-  <a class="book-fab" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener" aria-label="Prenota una camera">
+  <a class="book-fab" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=en" target="_blank" rel="noopener" aria-label="Book a stay">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
-    Prenota
+    Book
   </a>
 
-  <a class="wa-fab" href="https://wa.me/393478444484?text=Ciao%21%20Vi%20scrivo%20dal%20vostro%20sito%2C%20vorrei%20qualche%20informazione." target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.234.54 0 8.23 3.69 8.24 8.23 0 4.54-3.7 8.24-8.24 8.24z"/></svg></a>
+  <a class="wa-fab" href="https://wa.me/393478444484?text=Hello%21%20I%27m%20writing%20from%20your%20website%2C%20I%27d%20like%20some%20information." target="_blank" rel="noopener" aria-label="Message us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.234.54 0 8.23 3.69 8.24 8.23 0 4.54-3.7 8.24-8.24 8.24z"/></svg></a>
 
   <main id="top">
 
     <!-- ===================== 2. HERO ===================== -->
     <section class="hero">
       <div class="hero__media img-slot">
-        <img src="img/frammenti-animali.jpg" alt="Un cavallo bianco al pascolo nella campagna dell'Agriturismo Beatilla" />
+        <img src="../img/frammenti-animali.jpg" alt="A white horse grazing in the countryside at Agriturismo Beatilla" />
       </div>
       <div class="hero__video" aria-hidden="true">
         <video
-          data-src="hero-video.mp4"
+          data-src="../hero-video.mp4"
           poster="img/frammenti-animali.jpg"
           muted playsinline preload="none"></video>
       </div>
       <div class="hero__overlay"></div>
       <div class="hero__inner">
-        <p class="label hero__label">Mantova · Dal 1498</p>
+        <p class="label hero__label">Mantua · Since 1498</p>
         <h1 class="hero__title">
-          <span class="line"><span class="word">Dove</span> <span class="word">il</span> <span class="word">tempo</span></span>
-          <span class="line"><span class="word">rallenta</span></span>
+          <span class="line"><span class="word">Where</span> <span class="word">time</span></span>
+          <span class="line"><span class="word">slows</span> <span class="word">down</span></span>
         </h1>
       </div>
-      <a class="hero__scroll" href="#storia" aria-label="Scorri verso il basso">
+      <a class="hero__scroll" href="#storia" aria-label="Scroll down">
         <svg viewBox="0 0 24 36" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2v28M5 23l7 7 7-7"/></svg>
       </a>
     </section>
@@ -1209,31 +1209,31 @@
     <!-- ===================== 3. INTRO / CHI SIAMO ===================== -->
     <section class="intro" id="storia">
       <div class="container">
-        <p class="label intro__label">Chi siamo</p>
+        <p class="label intro__label">About us</p>
         <p class="intro__lead">
-          <span class="reveal-line"><span>Alle porte di Mantova, accanto allo</span></span>
-          <span class="reveal-line"><span>storico Bosco della Fontana e</span></span>
-          <span class="reveal-line"><span>immerso nel Parco del Mincio,</span></span>
-          <span class="reveal-line"><span>Beatilla &egrave; un luogo dove arte,</span></span>
-          <span class="reveal-line"><span>natura ed eco-design si incontrano.</span></span>
+          <span class="reveal-line"><span>On the edge of Mantua, beside the</span></span>
+          <span class="reveal-line"><span>historic Bosco della Fontana and</span></span>
+          <span class="reveal-line"><span>within the Mincio Park, Beatilla</span></span>
+          <span class="reveal-line"><span>is a place where art, nature</span></span>
+          <span class="reveal-line"><span>and eco-design meet.</span></span>
         </p>
         <p class="intro__body">
-          Pi&ugrave; di un agriturismo, &egrave; uno spazio pensato per chi desidera rallentare,
-          respirare e vivere la campagna in modo autentico.
+          More than a farm stay, it is a place made for anyone who wants to slow down,
+          breathe and live the countryside for what it really is.
         </p>
         <p class="intro__body">
-          Ogni ambiente nasce dall'incontro tra materiali naturali, recupero creativo, colori e
-          dettagli realizzati a mano. Un progetto ideato dall'artista internazionale ed eco-designer
+          Every room comes from the meeting of natural materials, creative reuse, colour and
+          handmade detail. The project was conceived by the international artist and eco-designer
           <a href="https://www.lucabornoffi.com" target="_blank" rel="noopener">Luca Bornoffi</a>,
-          che dalle sue collaborazioni con hotel di lusso in tutto il mondo ha portato qui il suo
-          concept di ospitalit&agrave;, riscoprendo lo stile &laquo;homemade&raquo; &mdash; uno degli
-          agriturismi pi&ugrave; eco sostenibili del territorio.
+          who brought here the hospitality concept he developed working with luxury hotels around
+          the world, rediscovering the &laquo;homemade&raquo; style &mdash; one of the most
+          sustainable farm stays in the area.
         </p>
         <p class="intro__body">
-          Beatilla offre appartamenti e camere immersi nel verde, progettati per accogliere coppie,
-          famiglie e viaggiatori in cerca di tranquillit&agrave;. A pochi minuti da Mantova e collegata
-          alla pista ciclabile Mantova&ndash;Peschiera, la nostra cascina &egrave; il punto di partenza
-          ideale per scoprire il territorio o semplicemente concedersi una pausa.
+          Beatilla offers apartments and rooms surrounded by green, made to welcome couples,
+          families and travellers looking for quiet. Minutes from Mantua and on the
+          Mantua&ndash;Peschiera cycle path, our farmhouse is the ideal base to explore the area
+          &mdash; or simply to stop for a while.
         </p>
       </div>
     </section>
@@ -1241,15 +1241,15 @@
     <!-- ===================== 4. FULL-BLEED IMAGE BREAK ===================== -->
     <section class="break">
       <div class="img-slot" data-parallax>
-        <img src="img/frammenti-cascina.jpg" alt="La cascina di Beatilla immersa nel verde della campagna mantovana" />
+        <img src="../img/frammenti-cascina.jpg" alt="The Beatilla farmhouse surrounded by the green countryside near Mantua" />
       </div>
       <div class="break__overlay"></div>
       <div class="break__inner">
-        <p class="label break__label">Il nostro motto</p>
+        <p class="label break__label">Our motto</p>
         <blockquote class="break__motto" data-words>&laquo;Mi casa es tu casa&raquo;</blockquote>
         <p class="break__sub">
-          Un incontro di colori dove arte, natura, eco-design, riciclo e accoglienza sono i protagonisti
-          della nostra storia. La nostra missione &egrave; farvi sentire a casa e regalarvi un sorriso.
+          A meeting of colours where art, nature, eco-design, reuse and hospitality are the heart of
+          our story. Our mission is to make you feel at home &mdash; and to give you a smile.
         </p>
       </div>
     </section>
@@ -1258,77 +1258,77 @@
     <section class="rooms" id="camere">
       <div class="container">
         <div class="rooms__head" data-fade>
-          <p class="label">Soggiornare</p>
-          <h2 data-words>I nostri alloggi</h2>
+          <p class="label">Stay</p>
+          <h2 data-words>Our stays</h2>
         </div>
 
         <article class="room room--a">
           <div class="room__media">
             <div class="img-slot" data-room-img="left">
-              <img src="img/alloggi-pomodoro.jpg" alt="La Camera Pomodoro: arredi dipinti a mano nelle tonalit&agrave; del rosso e opere d'arte contemporanea" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-pomodoro.jpg" alt="The Pomodoro Room: hand-painted furniture in shades of red and contemporary artworks" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
             <span class="room__num">01</span>
-            <h3 class="room__title">Camera Pomodoro</h3>
-            <p class="room__desc">Calda, vivace e accogliente: le tonalit&agrave; del rosso, gli arredi dipinti a mano e le opere d'arte contemporanea creano un ambiente ricco di energia e personalit&agrave;.</p>
-            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
+            <h3 class="room__title">Pomodoro Room</h3>
+            <p class="room__desc">Warm, lively and welcoming: shades of red, hand-painted furniture and contemporary artworks make a room full of energy and character.</p>
+            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=en" target="_blank" rel="noopener">Discover <span>&rarr;</span></a>
           </div>
         </article>
 
         <article class="room room--b room--reverse">
           <div class="room__media">
             <div class="img-slot" data-room-img="right">
-              <img src="img/alloggi-mandarino.jpg" alt="La Camera Mandarino: spazio luminoso con travi a vista e colori ispirati agli agrumi" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-mandarino.jpg" alt="The Mandarino Room: a bright space with exposed beams and citrus-inspired colours" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
             <span class="room__num">02</span>
-            <h3 class="room__title">Camera Mandarino</h3>
-            <p class="room__desc">Luce, semplicit&agrave; e armonia: uno spazio luminoso dove il design incontra la quiete della campagna, tra travi a vista, dettagli artigianali e colori ispirati agli agrumi.</p>
-            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
+            <h3 class="room__title">Mandarino Room</h3>
+            <p class="room__desc">Light, simplicity and harmony: a bright space where design meets the quiet of the countryside, with exposed beams, handcrafted details and citrus-inspired colours.</p>
+            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=en" target="_blank" rel="noopener">Discover <span>&rarr;</span></a>
           </div>
         </article>
 
         <article class="room room--c">
           <div class="room__media">
             <div class="img-slot" data-room-img="left">
-              <img src="img/alloggi-lampone.jpg" alt="La Suite Lampone: appartamento indipendente con soggiorno, cucina e camera da letto" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-lampone.jpg" alt="The Lampone Suite: a self-contained apartment with living room, kitchen and bedroom" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
             <span class="room__num">03</span>
-            <h3 class="room__title">Suite Lampone</h3>
-            <p class="room__desc">Pi&ugrave; spazio per sentirsi a casa: un appartamento indipendente con soggiorno, cucina e camera da letto, dove arte e design accompagnano ogni momento del soggiorno.</p>
-            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
+            <h3 class="room__title">Lampone Suite</h3>
+            <p class="room__desc">More room to feel at home: a self-contained apartment with living room, kitchen and bedroom, where art and design follow you through the whole stay.</p>
+            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=en" target="_blank" rel="noopener">Discover <span>&rarr;</span></a>
           </div>
         </article>
 
         <article class="room room--d room--reverse">
           <div class="room__media">
             <div class="img-slot" data-room-img="right">
-              <img src="img/alloggi-pallina.jpg" alt="L'Appartamento Pallina: colori audaci, ambienti luminosi e opere di Luca Bornoffi" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-pallina.jpg" alt="The Pallina Apartment: bold colours, bright spaces and works by Luca Bornoffi" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
             <span class="room__num">04</span>
-            <h3 class="room__title">Appartamento Pallina</h3>
-            <p class="room__desc">Il volto pi&ugrave; contemporaneo di Beatilla: colori audaci, ambienti luminosi e opere di Luca Bornoffi trasformano questo appartamento in una vera esperienza tra arte ed eco-design.</p>
-            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
+            <h3 class="room__title">Pallina Apartment</h3>
+            <p class="room__desc">Beatilla at its most contemporary: bold colours, bright spaces and works by Luca Bornoffi turn this apartment into a real experience of art and eco-design.</p>
+            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=en" target="_blank" rel="noopener">Discover <span>&rarr;</span></a>
           </div>
         </article>
 
         <article class="room room--e">
           <div class="room__media">
             <div class="img-slot" data-room-img="left">
-              <img src="img/alloggi-jahara.jpg" alt="Il Loft Country Jahara: pietra, legno e soffitti con travi a vista" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-jahara.jpg" alt="The Jahara Country Loft: stone, wood and beamed ceilings" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
             <span class="room__num">05</span>
-            <h3 class="room__title">Loft Country Jahara</h3>
-            <p class="room__desc">L'anima pi&ugrave; autentica della cascina: pietra, legno e soffitti con travi a vista raccontano la tradizione rurale, reinterpretata con lo stile artistico che caratterizza Beatilla.</p>
-            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
+            <h3 class="room__title">Jahara Country Loft</h3>
+            <p class="room__desc">The most authentic soul of the farmhouse: stone, wood and beamed ceilings tell of rural tradition, reinterpreted through the artistic style that runs through Beatilla.</p>
+            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&amp;board=bb&amp;o=2.0.0.0&amp;c=EUR&amp;lang=en" target="_blank" rel="noopener">Discover <span>&rarr;</span></a>
           </div>
         </article>
       </div>
@@ -1338,52 +1338,52 @@
     <section class="gallery" id="gallery">
       <div class="gallery__pin" id="galleryPin">
         <div class="gallery__head" data-fade>
-          <p class="label">Frammenti</p>
-          <h2 data-words>Vita in campagna</h2>
+          <p class="label">Fragments</p>
+          <h2 data-words>Life in the countryside</h2>
         </div>
         <div class="gallery__scroller" id="galleryScroller">
           <div class="gallery__track" id="galleryTrack">
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="img/frammenti-animali.jpg" alt="Un cavallo bianco al pascolo nella campagna di Beatilla" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-animali.jpg" alt="A white horse grazing in the countryside at Beatilla" loading="lazy" decoding="async" />
             </div>
             <figcaption class="gallery__cap">La dolce vita Beatilla</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="img/frammenti-giardino.jpg" alt="Il giardino shabby chic tra persiane turchesi e piante" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-giardino.jpg" alt="The shabby chic garden, with turquoise shutters and plants" loading="lazy" decoding="async" />
             </div>
-            <figcaption class="gallery__cap">Giardino Shabby Chic</figcaption>
+            <figcaption class="gallery__cap">Shabby Chic Garden</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="img/frammenti-aperitivo.jpg" alt="Ospiti a tavola in corte per l&rsquo;aperitivo" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-aperitivo.jpg" alt="Guests at the table in the courtyard for aperitivo" loading="lazy" decoding="async" />
             </div>
-            <figcaption class="gallery__cap">Aperitivo in Corte</figcaption>
+            <figcaption class="gallery__cap">Aperitivo in the Courtyard</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="img/frammenti-cascina.jpg" alt="La cascina di Beatilla immersa nel verde della campagna mantovana" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-cascina.jpg" alt="The Beatilla farmhouse surrounded by the green countryside near Mantua" loading="lazy" decoding="async" />
             </div>
-            <figcaption class="gallery__cap">La nostra cascina</figcaption>
+            <figcaption class="gallery__cap">Our farmhouse</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="img/frammenti-staff.jpg" alt="Lo staff di Beatilla che accoglie gli ospiti" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-staff.jpg" alt="The Beatilla team welcoming guests" loading="lazy" decoding="async" />
             </div>
-            <figcaption class="gallery__cap">L'ospitalit&agrave; Beatilla</figcaption>
+            <figcaption class="gallery__cap">Beatilla hospitality</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="img/frammenti-api.jpg" alt="Le arnie delle api di Beatilla" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-api.jpg" alt="The beehives at Beatilla" loading="lazy" decoding="async" />
             </div>
-            <figcaption class="gallery__cap">Le nostre api</figcaption>
+            <figcaption class="gallery__cap">Our bees</figcaption>
           </figure>
             <figure class="gallery__item gallery__item--fine">
               <div class="gallery__fine">
-                <p class="gallery__fine-e">E poi</p>
-                <p class="gallery__fine-frase">Tutto quello che le foto<br>non sanno raccontare.</p>
-                <a class="gallery__fine-cta" href="#prenota">Venite a viverlo <span>&rarr;</span></a>
+                <p class="gallery__fine-e">And then</p>
+                <p class="gallery__fine-frase">Everything photographs<br>cannot tell you.</p>
+                <a class="gallery__fine-cta" href="#prenota">Come and live it <span>&rarr;</span></a>
               </div>
             </figure>
           </div>
@@ -1397,17 +1397,17 @@
         <div class="stats__grid">
           <div class="stat">
             <div class="stat__num"><span data-count="14">0</span></div>
-            <div class="stat__label">Alloggi</div>
+            <div class="stat__label">Stays</div>
           </div>
           <div class="stats__divider" aria-hidden="true"></div>
           <div class="stat">
             <div class="stat__num"><span data-count="10">0</span></div>
-            <div class="stat__label">Ettari</div>
+            <div class="stat__label">Hectares</div>
           </div>
           <div class="stats__divider" aria-hidden="true"></div>
           <div class="stat">
             <div class="stat__num"><span data-count="500">0</span></div>
-            <div class="stat__label">Anni di storia</div>
+            <div class="stat__label">Years of history</div>
           </div>
         </div>
       </div>
@@ -1417,37 +1417,37 @@
     <section class="exp" id="esperienze">
       <div class="container">
         <div class="exp__head" data-fade>
-          <p class="label">Da vivere</p>
-          <h2 data-words>Esperienze</h2>
+          <p class="label">To experience</p>
+          <h2 data-words>Experiences</h2>
         </div>
         <div class="exp__grid">
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img src="img/esperienze-colazione.jpg" alt="Il cestino della colazione Breakfast Basket con prodotti fatti in casa" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/esperienze-colazione.jpg" alt="The Breakfast Basket with homemade produce" data-img-parallax loading="lazy" decoding="async" />
             </div>
             <span class="label cat">&laquo;Beatillino&raquo; Art Gallery Breakfast</span>
             <h3>Breakfast Room Beatillino</h3>
           </article>
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img src="img/esperienze-studio.jpg" alt="L'artista Luca Bornoffi al lavoro nel suo studio tra tele e colori" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/esperienze-studio.jpg" alt="Artist Luca Bornoffi at work in his studio among canvases and colours" data-img-parallax loading="lazy" decoding="async" />
             </div>
             <span class="label cat">Where Creativity Begins</span>
             <h3>Studio Bornoffi</h3>
           </article>
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img src="img/esperienze-ristorante.jpg" alt="La sala del ristorante Art Gallery con le opere alle pareti" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/esperienze-ristorante.jpg" alt="The Art Gallery Restaurant dining room, with works on the walls" data-img-parallax loading="lazy" decoding="async" />
             </div>
             <span class="label cat">Lunch &amp; Dinner</span>
             <h3>Art Gallery Restaurant</h3>
           </article>
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img src="img/esperienze-giardino.jpg" alt="Un angolo del giardino shabby chic tra persiane turchesi e piante" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/esperienze-giardino.jpg" alt="A corner of the shabby chic garden, with turquoise shutters and plants" data-img-parallax loading="lazy" decoding="async" />
             </div>
-            <span class="label cat">Un angolo di quiete</span>
-            <h3>Giardino Shabby Chic</h3>
+            <span class="label cat">A quiet corner</span>
+            <h3>Shabby Chic Garden</h3>
           </article>
         </div>
       </div>
@@ -1457,87 +1457,87 @@
     <section class="services" id="servizi">
       <div class="container">
         <div class="services__head">
-          <p class="label" data-fade>Comfort &amp; ospitalità</p>
-          <h2 data-words>Servizi</h2>
-          <p class="services__intro" data-fade>Tutto ci&ograve; che rende il soggiorno semplice e sereno: una colazione che vi aspetta alla porta, una passeggiata nella natura o un giro in bicicletta, pensiamo a ogni dettaglio perch&eacute; possiate sentirvi a casa.</p>
+          <p class="label" data-fade>Comfort &amp; hospitality</p>
+          <h2 data-words>Amenities</h2>
+          <p class="services__intro" data-fade>Everything that makes a stay simple and calm: breakfast waiting at your door, a walk in nature or a bike ride &mdash; we think of every detail so you can feel at home.</p>
         </div>
         <div class="services__grid" id="servicesGrid">
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M4 8h12v5a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Z"/><path d="M16 9h2.5a2.5 2.5 0 0 1 0 5H16"/><path d="M7 4.5c0 .8-.8 1.2-.8 2s.8 1.2.8 2"/><path d="M10.5 4.5c0 .8-.8 1.2-.8 2s.8 1.2.8 2"/></svg></span>
-            <div><h3>Colazione "Breakfast Basket" servita in camera</h3><p>Un cestino di prodotti fatti in casa, preparato con cura vi aspetta direttamente alla porta del vostro alloggio all'orario desiderato.</p></div>
+            <div><h3>&laquo;Breakfast Basket&raquo; served in your room</h3><p>A basket of homemade produce, prepared with care, waiting at the door of your stay at the time you choose.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M5 9h11v4a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V9Z"/><path d="M16 10h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v3M11.5 3v3"/></svg></span>
-            <div><h3>Room Break con Nespresso</h3><p>Macchina del caffè in camera per una pausa profumata in qualsiasi momento della giornata.</p></div>
+            <div><h3>Nespresso room break</h3><p>A coffee machine in your room for a fragrant break at any time of day.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/><path d="M3 12h18"/></svg></span>
-            <div><h3>Appartamenti attrezzati</h3><p>Soluzioni per 2-4 persone con cucina attrezzata per cucinare, ideali per famiglie e soggiorni prolungati.</p></div>
+            <div><h3>Fully equipped apartments</h3><p>Options for 2&ndash;4 people with a fully equipped kitchen, ideal for families and longer stays.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17 10 7h4l2 4"/><path d="M10 7h6"/><path d="M16 11h2"/></svg></span>
-            <div><h3>Noleggio biciclette</h3><p>Pedalate lungo la ciclabile Mantova-Peschiera, a soli 15 minuti dal Parco del Mincio.</p></div>
+            <div><h3>Bike hire</h3><p>Ride the Mantua&ndash;Peschiera cycle path, just 15 minutes from the Mincio Park.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M6 11h12"/><path d="M9 6.5v1M9 14.5v3"/></svg></span>
-            <div><h3>Frigo bar</h3><p>Negli alloggi e nella nostra reception, troverete diversi tipi di bevande, per fare una merenda o un aperitivo in giardino.</p></div>
+            <div><h3>Fridge bar</h3><p>In the apartments and at reception you will find a range of drinks, for a snack or an aperitivo in the garden.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M12 20c-4-4-7-6.5-7-10a3.5 3.5 0 0 1 7-1 3.5 3.5 0 0 1 7 1c0 3.5-3 6-7 10Z"/></svg></span>
-            <div><h3>Giardino</h3><p>Un ampio spazio verde dove rilassarsi, giocare in famiglia e vivere la natura.</p></div>
+            <div><h3>Garden</h3><p>A wide green space to relax, play as a family and enjoy nature.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M5 11 12 5l7 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span>
-            <div><h3>Parcheggio gratuito</h3><p>Parcheggio scoperto gratuito all'interno della struttura. Parcheggio coperto disponibile su richiesta a pagamento.</p></div>
+            <div><h3>Free parking</h3><p>Free open-air parking on site. Covered parking available on request, for a fee.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M5 12.5c4-4 10-4 14 0"/><path d="M8 15.5c2.4-2.2 5.6-2.2 8 0"/><circle cx="12" cy="18.5" r="1"/></svg></span>
-            <div><h3>Wi-Fi gratuito</h3><p>Connessione veloce e gratuita in tutta la struttura, per restare in contatto o lavorare in vacanza.</p></div>
+            <div><h3>Free Wi-Fi</h3><p>Fast, free connection throughout the property, to stay in touch or work while away.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M3 18V8a2 2 0 0 1 2-2h6v12"/><path d="M11 12h8a2 2 0 0 1 2 2v4"/><path d="M3 18h18"/><path d="M6 21v-3M18 21v-3"/></svg></span>
-            <div><h3>Box letto per bimbi</h3><p>Culle e lettini disponibili su richiesta, per il riposo sereno dei più piccoli.</p></div>
+            <div><h3>Cots for children</h3><p>Cots and small beds available on request, so the little ones sleep well.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M4 5h7v14H4z"/><path d="M13 5h7v14h-7z"/><path d="M11 5v14"/></svg></span>
-            <div><h3>Sala lettura "Beatillino"</h3><p>Uno spazio raccolto dove leggere, rilassarsi e lasciarsi ispirare dall'arte che vi circonda.</p></div>
+            <div><h3>&laquo;Beatillino&raquo; reading room</h3><p>A quiet space to read, unwind and take in the art around you.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M3 17c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/><path d="M3 12c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/><path d="M12 3v6"/></svg></span>
-            <div><h3>Visite ed escursioni fluviali</h3><p>Itinerari in barca lungo il Mincio per scoprire la natura e i borghi d'acqua del territorio.</p></div>
+            <div><h3>River trips and excursions</h3><p>Boat routes along the Mincio to discover the nature and waterside villages of the area.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17h12"/><path d="M9 9h6l3 8M9 9 6 17M9 9V6h3"/></svg></span>
-            <div><h3>Ciclabile Mantova-Peschiera</h3><p>A pochi minuti uno dei percorsi cicloturistici più belli d'Italia, lungo il fiume fino al Garda.</p></div>
+            <div><h3>Mantua&ndash;Peschiera cycle path</h3><p>Minutes away, one of the finest cycle routes in Italy, following the river all the way to Lake Garda.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M4 16c3-2 5-2 8 0s5 2 8 0"/><path d="M4 11c3-2 5-2 8 0s5 2 8 0"/><circle cx="18" cy="5" r="2"/></svg></span>
-            <div><h3>Escursioni sul Garda</h3><p>Il lago più grande d'Italia a soli 30 minuti: spiagge, borghi e panorami indimenticabili.</p></div>
+            <div><h3>Trips to Lake Garda</h3><p>Italy&rsquo;s largest lake just 30 minutes away: beaches, villages and unforgettable views.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="m4 20 5-2 3 1 3-2 5 2"/><path d="m4 20 4-9 3 4 3-7 6 12"/></svg></span>
-            <div><h3>Trekking e passeggiate</h3><p>Passeggiate tra i sentieri del Bosco della Fontana, nel cuore di una delle riserve naturali pi&ugrave; suggestive del territorio.</p></div>
+            <div><h3>Walks and hiking</h3><p>Walks along the paths of the Bosco della Fontana, at the heart of one of the most striking nature reserves in the area.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M3 21V9a2 2 0 0 1 2-2h3l2-3h4l2 3h3a2 2 0 0 1 2 2v12Z"/><circle cx="9" cy="14" r="2"/><path d="M15 12h3M15 15h3"/></svg></span>
-            <div><h3>Farm Visiting</h3><p>Scoprite la vita dell'agriturismo tra orti, animali e i ritmi autentici della campagna.</p></div>
+            <div><h3>Farm visiting</h3><p>Discover life on the farm among vegetable gardens, animals and the real rhythms of the countryside.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><circle cx="13" cy="6" r="2"/><path d="M5 21l3-7 4-2 2 3 3 1"/><path d="m12 12 2-3 3 1 3-1"/><path d="m8 14-3 2"/></svg></span>
-            <div><h3>Equitazione</h3><p>Passeggiate a cavallo organizzate in collaborazione con un maneggio nelle vicinanze.</p></div>
+            <div><h3>Horse riding</h3><p>Horse rides arranged together with a nearby riding school.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 7l1 13h14l1-13"/><path d="M9 4h6v3H9z"/><path d="M10 11v6M14 11v6"/></svg></span>
-            <div><h3>Concierge</h3><p>Vi aiutiamo a scoprire il territorio, consigliandovi ristoranti, luoghi da visitare ed esperienze da non perdere.</p></div>
+            <div><h3>Concierge</h3><p>We help you discover the area, suggesting restaurants, places to visit and experiences not to miss.</p></div>
           </article>
           <article class="service" data-card>
             <span class="service__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v6"/><path d="M12 9 7 7M12 9l5-2"/><path d="m9 21 3-8 3 8"/></svg></span>
-            <div><h3>Yoga all'aperto</h3><p>Sessioni nel verde per ritrovare equilibrio e armonia immersi nella quiete della natura. Su richiesta.</p></div>
+            <div><h3>Outdoor yoga</h3><p>Sessions in the green to find balance and calm, surrounded by nature. On request.</p></div>
           </article>
         </div>
         <div class="services__more">
           <button class="services__toggle" id="servicesToggle" type="button" aria-expanded="false" aria-controls="servicesGrid">
-            <span class="services__toggle-label">Tutti i servizi</span>
+            <span class="services__toggle-label">All amenities</span>
             <svg class="services__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
         </div>
@@ -1550,22 +1550,23 @@
 
         <div class="workshop__grid">
           <div class="workshop__text" data-fade>
-            <p class="label">Esperienza d'arte</p>
+            <p class="label">Art experience</p>
             <h2 data-words>Art Workshop</h2>
-            <p>Dopo aver scoperto il percorso artistico dell'artista internazionale
+            <p>After discovering the artistic path of the international artist
               <a href="https://www.lucabornoffi.com" target="_blank" rel="noopener">Luca Bornoffi</a>
-              e la filosofia della sua serie <em>Circles of Life</em>, vivrete un'esperienza immersiva
-              tra tele, colori e materiali, creando un'opera unica che porterete con voi.</p>
-            <p>Il workshop &egrave; aperto a tutti, anche a chi non ha mai dipinto. Pi&ugrave; che
-              imparare una tecnica, vivrete il piacere di esprimervi liberamente in un luogo dove arte
-              e natura dialogano ogni giorno.</p>
-            <p>Tutto il materiale &egrave; incluso. Disponibile su prenotazione.</p>
-            <a class="workshop__cta" href="mailto:info@agriturismobeatilla.it?subject=Prenotazione%20Art%20Workshop">Prenota la tua esperienza <span>&rarr;</span></a>
-            <p class="workshop__note">Per richiedere maggiori informazioni, contattateci: <a href="mailto:info@agriturismobeatilla.it">info@agriturismobeatilla.it</a></p>
+              and the philosophy of his <em>Circles of Life</em> series, you will take part in an
+              immersive experience among canvases, colours and materials, creating a unique piece
+              to take home with you.</p>
+            <p>The workshop is open to everyone, including those who have never painted. More than
+              learning a technique, you will enjoy expressing yourself freely in a place where art
+              and nature talk to each other every day.</p>
+            <p>All materials are included. Available on request.</p>
+            <a class="workshop__cta" href="mailto:info@agriturismobeatilla.it?subject=Art%20Workshop%20booking">Book your experience <span>&rarr;</span></a>
+            <p class="workshop__note">For more information, get in touch: <a href="mailto:info@agriturismobeatilla.it">info@agriturismobeatilla.it</a></p>
           </div>
           <div class="workshop__media">
             <div class="img-slot">
-              <img src="img/arte-workshop.jpg" alt="Un momento dell'Art Workshop nello studio, tra tele, colori e pennelli" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/arte-workshop.jpg" alt="A moment from the Art Workshop in the studio, among canvases, colours and brushes" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -1573,38 +1574,37 @@
         <div class="workshop__grid workshop__grid--rovescia">
           <div class="workshop__media">
             <div class="img-slot">
-              <img src="img/arte-residency.jpg" alt="Lo spazio della Beatilla Art Residency, dedicato agli artisti ospiti" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/arte-residency.jpg" alt="The Beatilla Art Residency space, for visiting artists" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="workshop__text" data-fade>
             <h2 data-words>Art Residency</h2>
             <p class="workshop__claim">More than an artist residency. A place to create, share and belong.</p>
-            <p>Beatilla Art Residency nasce per offrire ad artisti e professionisti creativi il tempo,
-              lo spazio e la tranquillit&agrave; necessari per sviluppare la propria ricerca artistica.
-              Immersa nella campagna mantovana, &egrave; un luogo dove arte, natura ed eco-design
-              convivono ogni giorno, trasformando la quotidianit&agrave; in fonte d'ispirazione.</p>
-            <p>Accogliamo artisti di ogni disciplina, favorendo sia il lavoro individuale sia lo
-              scambio culturale attraverso esperienze condivise, ospitalit&agrave; e vita rurale.</p>
-            <p class="workshop__note">Per candidature e informazioni: <a href="mailto:info@agriturismobeatilla.it?subject=Beatilla%20Art%20Residency">info@agriturismobeatilla.it</a></p>
+            <p>Beatilla Art Residency was created to give artists and creative professionals the time,
+              the space and the quiet they need to develop their own research. Set in the countryside
+              near Mantua, it is a place where art, nature and eco-design live side by side every
+              day, turning ordinary life into a source of inspiration.</p>
+            <p>We welcome artists from every discipline, supporting both individual work and cultural
+              exchange through shared experiences, hospitality and rural life.</p>
+            <p class="workshop__note">For applications and information: <a href="mailto:info@agriturismobeatilla.it?subject=Beatilla%20Art%20Residency">info@agriturismobeatilla.it</a></p>
           </div>
         </div>
 
         <div class="workshop__artist" data-fade>
-          <p class="label">L'artista</p>
-          <blockquote class="workshop__quote">&laquo;Spesso dimentichiamo da dove vengono i colori.&raquo;</blockquote>
-          <p>Luca Bornoffi (Mantova, 1980) &egrave; un artista contemporaneo la cui ricerca nasce da un
-            profondo legame con la natura. Cresciuto in campagna, tra cavalli e paesaggi rurali, ha
-            sviluppato una sensibilit&agrave; particolare per il colore, inteso come fonte di armonia,
-            energia e benessere.</p>
-          <p>La sua pratica artistica prende forma nella serie <em>Circles of Life</em>: composizioni
-            astratte di cerchi, trasparenze e colori che evocano connessioni, incontri e l'imperfetto
-            ritmo della vita. Per Bornoffi il colore non &egrave; soltanto un elemento visivo, ma un
-            linguaggio capace di trasformare la percezione degli spazi e delle emozioni.</p>
-          <p>Dopo aver viaggiato in oltre 60 Paesi, ha dato vita a Beatilla Holiday Farm Eco Design, un
-            luogo interamente decorato con le sue opere e arredato con mobili di recupero. Le sue opere
-            fanno parte di collezioni ed esposizioni in tutto il mondo e sono presenti su Artsy, Artnet
-            e Artsper.</p>
-          <a class="link-more" href="https://www.lucabornoffi.com" target="_blank" rel="noopener">Scopri il suo lavoro <span>&rarr;</span></a>
+          <p class="label">The artist</p>
+          <blockquote class="workshop__quote">&laquo;We often forget where colours come from.&raquo;</blockquote>
+          <p>Luca Bornoffi (Mantua, 1980) is a contemporary artist whose work grows out of a deep bond
+            with nature. Raised in the countryside, among horses and rural landscapes, he developed a
+            particular feeling for colour, understood as a source of harmony, energy and wellbeing.</p>
+          <p>His practice takes shape in the <em>Circles of Life</em> series: abstract
+            compositions of circles, transparencies and colours that evoke connection, encounter and
+            the imperfect rhythm of life. For Bornoffi colour is not only something you see, but a
+            language able to change how spaces and emotions are perceived.</p>
+          <p>After travelling in more than 60 countries, he created Beatilla Holiday Farm Eco Design, a
+            place decorated entirely with his own work and furnished with reclaimed pieces. His works
+            are part of collections and exhibitions worldwide and are listed on Artsy, Artnet and
+            Artsper.</p>
+          <a class="link-more" href="https://www.lucabornoffi.com" target="_blank" rel="noopener">See his work <span>&rarr;</span></a>
         </div>
 
       </div>
@@ -1613,31 +1613,31 @@
     <!-- ===================== 10. IMMAGINE FULL-BLEED ===================== -->
     <section class="video">
       <div class="img-slot">
-        <img src="img/arte-artista.jpg" alt="L'artista Luca Bornoffi nel suo studio, tra le tele della serie Circles of Life" data-img-parallax />
+        <img src="../img/arte-artista.jpg" alt="Artist Luca Bornoffi in his studio, among the canvases of the Circles of Life series" data-img-parallax />
       </div>
     </section>
 
     <!-- ===================== 11. TESTIMONIALS ===================== -->
     <section class="testi">
       <div class="container">
-        <p class="label" data-fade>Ospiti</p>
+        <p class="label" data-fade>Guests</p>
         <div class="testi__viewport" id="testiViewport">
           <figure class="testi__item active">
-            <blockquote class="testi__quote">«Un luogo dove il tempo si ferma davvero. Ci siamo sentiti a casa, tra silenzi e sapori che non dimenticheremo.»</blockquote>
+            <blockquote class="testi__quote">&laquo;A place where time really does stop. We felt at home, among silences and flavours we will not forget.&raquo;</blockquote>
             <figcaption class="testi__who">
               <div class="testi__name">Giulia &amp; Marco</div>
               <div class="testi__city">Milano</div>
             </figcaption>
           </figure>
           <figure class="testi__item">
-            <blockquote class="testi__quote">«La colazione con i prodotti della terra, la cena in sala, le passeggiate tra le risaie. Tutto autentico, tutto curato.»</blockquote>
+            <blockquote class="testi__quote">&laquo;Breakfast with produce from the land, dinner in the dining room, walks through the fields. All genuine, all cared for.&raquo;</blockquote>
             <figcaption class="testi__who">
               <div class="testi__name">Famiglia Conti</div>
               <div class="testi__city">Verona</div>
             </figcaption>
           </figure>
           <figure class="testi__item">
-            <blockquote class="testi__quote">«Accoglienza genuina e una cucina che racconta il territorio. Torneremo, senza dubbio, in ogni stagione.»</blockquote>
+            <blockquote class="testi__quote">&laquo;Genuine hospitality and a kitchen that tells the story of the area. We will be back, in every season.&raquo;</blockquote>
             <figcaption class="testi__who">
               <div class="testi__name">Hannah Weber</div>
               <div class="testi__city">München</div>
@@ -1652,64 +1652,64 @@
     <section class="visit" id="cosa-visitare">
       <div class="container">
         <div class="visit__head">
-          <p class="label" data-fade>Il territorio</p>
-          <h2 data-words>Cosa visitare</h2>
-          <p class="visit__intro" data-fade>Mantova, Citt&agrave; Patrimonio dell'Umanit&agrave; UNESCO e Capitale Italiana della Cultura 2016, &egrave; una delle citt&agrave; pi&ugrave; belle d'Italia: palazzi, musei, chiese e piazze raccontano secoli di arte e storia gonzaghesca. Da non perdere i celebri tortelli di zucca e la storica torta sbrisolona, autentiche eccellenze della tradizione gastronomica mantovana.</p>
+          <p class="label" data-fade>The area</p>
+          <h2 data-words>What to see</h2>
+          <p class="visit__intro" data-fade>Mantua, a UNESCO World Heritage city and Italian Capital of Culture in 2016, is one of the most beautiful cities in Italy: palaces, museums, churches and squares tell centuries of Gonzaga art and history. Do not miss the famous pumpkin tortelli and the traditional sbrisolona cake, true highlights of Mantuan cooking.</p>
         </div>
         <div class="visit__grid">
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="img/territorio-mantova.jpg" alt="Lo skyline di Mantova al tramonto riflesso sui laghi" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-mantova.jpg" alt="The Mantua skyline at sunset, reflected in the lakes" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">5 km &middot; 5 min</span>
-            <h3>Mantova</h3>
-            <p>Il Palazzo Ducale con la Camera degli Sposi del Mantegna, Palazzo Te, Piazza delle Erbe, la Rotonda di San Lorenzo e la Basilica di Sant'Andrea: un museo a cielo aperto.</p>
+            <h3>Mantua</h3>
+            <p>The Ducal Palace with Mantegna&rsquo;s Camera degli Sposi, Palazzo Te, Piazza delle Erbe, the Rotonda di San Lorenzo and the Basilica of Sant&rsquo;Andrea: an open-air museum.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="img/territorio-bosco-fontana.jpg" alt="La palazzina di caccia gonzaghesca nel Bosco della Fontana" data-img-parallax loading="lazy" decoding="async" /></div>
-            <span class="visit__tag">A piedi</span>
+            <div class="img-slot"><img src="../img/territorio-bosco-fontana.jpg" alt="The Gonzaga hunting lodge in the Bosco della Fontana" data-img-parallax loading="lazy" decoding="async" /></div>
+            <span class="visit__tag">On foot</span>
             <h3>Bosco della Fontana</h3>
-            <p>La pi&ugrave; grande foresta della Pianura Padana, con il castello cinquecentesco riserva di caccia dei Gonzaga. Ci si arriva direttamente a piedi dall'agriturismo.</p>
+            <p>The largest forest of the Po Valley, with the sixteenth-century hunting lodge of the Gonzaga family. You can walk there straight from the farm.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="img/territorio-borghetto.jpg" alt="Gli antichi mulini ad acqua di Borghetto sul Mincio" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-borghetto.jpg" alt="The old watermills of Borghetto sul Mincio" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">~20 min</span>
             <h3>Borghetto sul Mincio</h3>
-            <p>Raggiungibile anche in bicicletta da Beatilla. Uno dei borghi pi&ugrave; belli d'Italia, tra mulini ad acqua, vicoli storici e scorci sul fiume Mincio.</p>
+            <p>Reachable by bike from Beatilla. One of the most beautiful villages in Italy, with watermills, old lanes and views over the river Mincio.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="img/territorio-verona.jpg" alt="Veduta di Verona con l'Adige e i tetti del centro storico" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-verona.jpg" alt="A view of Verona with the river Adige and the rooftops of the old town" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">~30 min</span>
             <h3>Verona</h3>
-            <p>La citt&agrave; di Romeo e Giulietta, Patrimonio UNESCO, tra l'Arena, piazze eleganti e un centro storico ricco di fascino.</p>
+            <p>The city of Romeo and Juliet, a UNESCO site, with the Arena, elegant squares and a historic centre full of charm.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="img/territorio-peschiera.jpg" alt="I canali fioriti e le mura fortificate di Peschiera del Garda" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-peschiera.jpg" alt="The flowering canals and fortified walls of Peschiera del Garda" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">~25 min</span>
             <h3>Peschiera del Garda</h3>
-            <p>Raggiungibile anche in bicicletta da Beatilla. Citt&agrave; fortificata Patrimonio UNESCO, dove canali, bastioni veneziani e il Lago di Garda si incontrano.</p>
+            <p>Reachable by bike from Beatilla. A fortified UNESCO town where canals, Venetian bastions and Lake Garda meet.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="img/territorio-sirmione.jpg" alt="Il castello scaligero di Sirmione sul Lago di Garda" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-sirmione.jpg" alt="The Scaliger castle of Sirmione on Lake Garda" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">~30 min</span>
             <h3>Sirmione</h3>
-            <p>La perla del Lago di Garda, con il Castello Scaligero, le Grotte di Catullo e le sue rinomate terme.</p>
+            <p>The pearl of Lake Garda, with the Scaliger Castle, the Grotte di Catullo and its renowned thermal baths.</p>
           </article>
         </div>
-        <p class="visit__note" data-fade>A pochi minuti anche le Colline Moreniche con i loro vigneti, il Parco Giardino Sigurt&agrave;, uno dei giardini pi&ugrave; belli d'Europa, e Gardaland per i pi&ugrave; piccoli.</p>
+        <p class="visit__note" data-fade>Also minutes away: the Morainic Hills with their vineyards, Parco Giardino Sigurt&agrave;, one of the finest gardens in Europe, and Gardaland for younger guests.</p>
       </div>
     </section>
 
     <!-- ===================== 12. PRENOTA / CONTATTI ===================== -->
     <section class="contact" id="prenota">
       <div class="contact__left" data-slide="left">
-        <p class="label" style="color:var(--accent)">Contatti</p>
-        <h2 data-words>Vieni a trovarci</h2>
+        <p class="label" style="color:var(--accent)">Contact</p>
+        <h2 data-words>Come and find us</h2>
         <div class="contact__info">
           <div class="contact__row">
-            <span class="k">Indirizzo</span>
-            <span class="v">Corte Barco · Strada Mantova 21<br>46045 Marmirolo (MN), Italia</span>
+            <span class="k">Address</span>
+            <span class="v">Corte Barco · Strada Mantova 21<br>46045 Marmirolo (MN), Italy</span>
           </div>
           <div class="contact__row">
-            <span class="k">Telefono</span>
+            <span class="k">Phone</span>
             <span class="v contact__phones">
               <a href="tel:+393493601493">Luca · +39 349 360 1493</a>
               <a href="tel:+393478444484">Beatrice · +39 347 844 4484</a>
@@ -1718,10 +1718,10 @@
           </div>
           <div class="contact__row">
             <span class="k">WhatsApp</span>
-            <a class="v contact__wa" href="https://wa.me/393478444484?text=Ciao%21%20Vi%20scrivo%20dal%20vostro%20sito%2C%20vorrei%20qualche%20informazione." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.234.54 0 8.23 3.69 8.24 8.23 0 4.54-3.7 8.24-8.24 8.24z"/></svg> +39 347 844 4484</a>
+            <a class="v contact__wa" href="https://wa.me/393478444484?text=Hello%21%20I%27m%20writing%20from%20your%20website%2C%20I%27d%20like%20some%20information." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.234.54 0 8.23 3.69 8.24 8.23 0 4.54-3.7 8.24-8.24 8.24z"/></svg> +39 347 844 4484</a>
           </div>
           <div class="contact__row">
-            <span class="k">Ristorante</span>
+            <span class="k">Restaurant</span>
             <a class="v" href="tel:+393392226468">Corte Barco · +39 339 222 6468</a>
           </div>
           <div class="contact__row">
@@ -1737,32 +1737,32 @@
           <a href="https://instagram.com/agriturismobeatilla" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
           </a>
-          <a href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener" aria-label="Prenota ora">
+          <a href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=en" target="_blank" rel="noopener" aria-label="Book now">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
           </a>
         </div>
       </div>
 
       <div class="contact__right" data-slide="right">
-        <h3>Richiedi disponibilità</h3>
+        <h3>Check availability</h3>
         <form id="contactForm" novalidate>
           <div class="field">
-            <label for="cf-name">Nome</label>
-            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Il tuo nome" required />
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
           </div>
           <div class="field">
             <label for="cf-email">Email</label>
-            <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="nome@esempio.it" required />
+            <input id="cf-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required />
           </div>
           <div class="field">
-            <label for="cf-dates">Date del soggiorno</label>
-            <input id="cf-dates" name="dates" type="text" placeholder="es. 12 – 15 luglio" />
+            <label for="cf-dates">Dates of stay</label>
+            <input id="cf-dates" name="dates" type="text" placeholder="e.g. 12 &ndash; 15 July" />
           </div>
           <div class="field">
-            <label for="cf-msg">Messaggio</label>
-            <textarea id="cf-msg" name="message" placeholder="Raccontaci cosa cerchi"></textarea>
+            <label for="cf-msg">Message</label>
+            <textarea id="cf-msg" name="message" placeholder="Tell us what you are looking for"></textarea>
           </div>
-          <button class="form__submit" type="submit">Invia richiesta</button>
+          <button class="form__submit" type="submit">Send request</button>
           <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -1780,33 +1780,33 @@
       </div>
       <div class="gethere__content container">
         <div class="gethere__head" data-fade>
-          <p class="label">Come raggiungerci</p>
-          <h2 data-words>Dove siamo</h2>
+          <p class="label">Getting here</p>
+          <h2 data-words>Where we are</h2>
         </div>
         <div class="gethere__grid">
           <div class="directions" data-fade>
             <div class="route">
-              <p class="route__from">Dall'autostrada A22 (Modena&ndash;Brennero)</p>
-              <p class="route__desc">Uscita Mantova Nord, seguite la direzione Brescia. Dopo circa 8 km, alla rotonda proseguite per Brescia; dopo 500 m svoltate a sinistra verso Bosco Fontana e prendete la prima a destra dopo 200 m.</p>
+              <p class="route__from">From the A22 motorway (Modena&ndash;Brenner)</p>
+              <p class="route__desc">Exit at Mantova Nord and follow signs for Brescia. After about 8 km, at the roundabout continue towards Brescia; after 500 m turn left towards Bosco Fontana and take the first right after 200 m.</p>
             </div>
             <div class="route">
-              <p class="route__from">Da Mantova</p>
-              <p class="route__desc">Direzione Brescia. A Cittadella svoltate a sinistra per Brescia &ndash; Lago di Garda; dopo circa 3 km, alla rotonda proseguite dritto per Brescia. Dopo 500 m a sinistra verso Bosco Fontana, poi la prima a destra dopo 200 m.</p>
+              <p class="route__from">From Mantua</p>
+              <p class="route__desc">Head towards Brescia. At Cittadella turn left for Brescia &ndash; Lake Garda; after about 3 km, at the roundabout continue straight towards Brescia. After 500 m turn left towards Bosco Fontana, then take the first right after 200 m.</p>
             </div>
             <div class="route">
-              <p class="route__from">Da Brescia</p>
-              <p class="route__desc">Percorrete la SS Goitese in direzione Mantova: dopo Montichiari, Castiglione delle Stiviere e Goito, superate Marmirolo. Dopo circa 3 km svoltate a destra verso Bosco Fontana e prendete la prima a destra dopo 200 m.</p>
+              <p class="route__from">From Brescia</p>
+              <p class="route__desc">Follow the SS Goitese towards Mantua: after Montichiari, Castiglione delle Stiviere and Goito, pass Marmirolo. After about 3 km turn right towards Bosco Fontana and take the first right after 200 m.</p>
             </div>
-            <p class="gethere__tip">Suggerimento: impostate il navigatore satellitare su <strong>&ldquo;Corte Barco&rdquo;</strong>.</p>
+            <p class="gethere__tip">Tip: set your satnav to <strong>&ldquo;Corte Barco&rdquo;</strong>.</p>
           </div>
           <div class="distances" data-fade>
-            <h3 class="distances__title">Distanze</h3>
+            <h3 class="distances__title">Distances</h3>
             <div class="distances__list">
-              <div class="distances__item"><span class="distances__place">Mantova</span><span class="distances__val">5 km · 5 min</span></div>
-              <div class="distances__item"><span class="distances__place">Aeroporto Villafranca di Verona</span><span class="distances__val">20 km · 25 min</span></div>
-              <div class="distances__item"><span class="distances__place">Lago di Garda</span><span class="distances__val">25 km · 30 min</span></div>
+              <div class="distances__item"><span class="distances__place">Mantua</span><span class="distances__val">5 km · 5 min</span></div>
+              <div class="distances__item"><span class="distances__place">Verona Villafranca Airport</span><span class="distances__val">20 km · 25 min</span></div>
+              <div class="distances__item"><span class="distances__place">Lake Garda</span><span class="distances__val">25 km · 30 min</span></div>
               <div class="distances__item"><span class="distances__place">Verona</span><span class="distances__val">30 km · 40 min</span></div>
-              <div class="distances__item"><span class="distances__place">Venezia</span><span class="distances__val">100 km · 2 h</span></div>
+              <div class="distances__item"><span class="distances__place">Venice</span><span class="distances__val">100 km · 2 h</span></div>
             </div>
           </div>
         </div>
@@ -1817,69 +1817,69 @@
     <section class="faq" id="faq" aria-labelledby="faq-title">
       <div class="container">
         <div class="faq__head" data-fade>
-          <p class="label">Domande frequenti</p>
-          <h2 id="faq-title" data-words>Tutto quello che serve sapere</h2>
+          <p class="label">Frequently asked questions</p>
+          <h2 id="faq-title" data-words>Everything you need to know</h2>
         </div>
 
         <div class="faq__list" data-fade>
           <details class="faq__item">
-            <summary class="faq__q">A che ora sono il check-in e il check-out?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Il check-in è disponibile dalle 15:00, mentre il check-out è entro le 10:00. Per garantirvi un alloggio preparato con la massima cura, vi chiediamo gentilmente di rispettare l'orario di arrivo.</p></div>
+            <summary class="faq__q">What are the check-in and check-out times?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Check-in is available from 15:00 and check-out is by 10:00. So that we can prepare your stay with the greatest care, we kindly ask you to respect the arrival time.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">La colazione è inclusa?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Sì. Ogni mattina vi consegneremo la nostra Breakfast Basket, un cestino preparato con prodotti freschi fatti in casa, consegnata direttamente in camera all'orario desiderato dalle 7:30 alle 9:45.</p></div>
+            <summary class="faq__q">Is breakfast included?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Yes. Every morning we bring you our Breakfast Basket, prepared with fresh homemade produce and delivered straight to your room at the time you choose, between 7:30 and 9:45.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">C'è il parcheggio?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Sì. È disponibile un parcheggio scoperto gratuito all'interno della struttura. Su richiesta è disponibile anche un parcheggio coperto a pagamento.</p></div>
+            <summary class="faq__q">Is there parking?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Yes. Free open-air parking is available on site. Covered parking is also available on request, for a fee.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">Il ristorante è aperto anche a chi non soggiorna a Beatilla?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Sì. Il ristorante sarà felice di accogliere anche gli ospiti esterni, su prenotazione. Per prenotazioni: +39 339 222 6468.</p></div>
+            <summary class="faq__q">Is the restaurant open to people not staying at Beatilla?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Yes. The restaurant is happy to welcome outside guests too, by reservation. To book: +39 339 222 6468.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">Beatilla è adatto a famiglie con bambini?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Assolutamente sì. Disponiamo di lettini per i più piccoli, ampi spazi all'aperto e un grande giardino dove trascorrere momenti di relax in famiglia.</p></div>
+            <summary class="faq__q">Is Beatilla suitable for families with children?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Absolutely. We have cots for younger children, wide outdoor spaces and a large garden for relaxed family time.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">Sono ammessi gli animali domestici?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>No, al momento non è possibile ospitare animali domestici.</p></div>
+            <summary class="faq__q">Are pets allowed?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>No, at the moment we are not able to host pets.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">È possibile noleggiare biciclette?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Sì. Mettiamo a disposizione biciclette su prenotazione, ideali per esplorare il Bosco della Fontana, Mantova, Borghetto sul Mincio e la ciclabile fino al Lago di Garda.</p></div>
+            <summary class="faq__q">Can I hire a bike?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Yes. Bikes are available on request, ideal for exploring the Bosco della Fontana, Mantua, Borghetto sul Mincio and the cycle path to Lake Garda.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">Dove si trova Beatilla?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Beatilla si trova a Marmirolo, nel cuore della campagna mantovana, a pochi minuti dal centro storico di Mantova e dal Bosco della Fontana. È una posizione ideale per visitare il territorio tra Mantova, il Lago di Garda e le colline moreniche.</p></div>
+            <summary class="faq__q">Where is Beatilla?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Beatilla is in Marmirolo, in the heart of the countryside near Mantua, minutes from the historic centre and from the Bosco della Fontana. It is an ideal base for the area between Mantua, Lake Garda and the morainic hills.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">Gli appartamenti dispongono di una cucina?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Sì. Tutti gli appartamenti sono dotati di cucina attrezzata con stoviglie ed elettrodomestici.</p></div>
+            <summary class="faq__q">Do the apartments have a kitchen?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Yes. All apartments have a fully equipped kitchen with crockery and appliances.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">È disponibile il Wi-Fi?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Sì, il Wi-Fi è gratuito e disponibile in tutta la struttura.</p></div>
+            <summary class="faq__q">Is Wi-Fi available?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Yes, Wi-Fi is free and available throughout the property.</p></div>
           </details>
 
           <details class="faq__item">
-            <summary class="faq__q">Posso prenotare esperienze durante il soggiorno?<span class="faq__icon" aria-hidden="true"></span></summary>
-            <div class="faq__a"><p>Sì. Organizziamo Workshop d'arte, visite alla fattoria, escursioni, noleggio biciclette e altre esperienze su prenotazione.</p></div>
+            <summary class="faq__q">Can I book experiences during my stay?<span class="faq__icon" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Yes. We arrange art workshops, farm visits, excursions, bike hire and other experiences on request.</p></div>
           </details>
         </div>
 
         <div class="faq__cta" data-fade>
-          <p>Avete ancora qualche domanda? Contattateci, saremo lieti di aiutarvi.</p>
+          <p>Still have a question? Get in touch &mdash; we will be glad to help.</p>
           <a class="link-more" href="tel:+393478444484">+39 347 844 4484 <span>&rarr;</span></a>
         </div>
       </div>
@@ -1890,12 +1890,12 @@
   <footer class="footer">
     <div class="footer__inner">
       <span class="footer__brand">Agriturismo Beatilla</span>
-      <span class="footer__meta">Beatilla Soc. Agricola S.S. · P.IVA IT02135460208 · © 2026</span>
-      <nav class="footer__links" aria-label="Link footer">
-        <a href="#camere">Camere</a>
-        <a href="#esperienze">Esperienze</a>
+      <span class="footer__meta">Beatilla Soc. Agricola S.S. · VAT IT02135460208 · © 2026</span>
+      <nav class="footer__links" aria-label="Footer links">
+        <a href="#camere">Stays</a>
+        <a href="#esperienze">Experiences</a>
         <a href="#faq">FAQ</a>
-        <a href="#prenota">Contatti</a>
+        <a href="#prenota">Contact</a>
       </nav>
     </div>
   </footer>
@@ -1955,7 +1955,7 @@
       if (v.readyState >= 2) play(); else v.addEventListener('canplay', play, { once: true });
     })();
 
-    /* La scelta fatta a mano con il pulsante vince sull'automatismo */
+    /* A manual choice with the button wins over the automatic one */
     document.addEventListener('click', function (e) {
       var a = e.target.closest('[data-lingua]');
       if (a) { try { localStorage.setItem('beatilla-lingua', a.getAttribute('data-lingua')); } catch (err) {} }
@@ -1988,13 +1988,13 @@
       const open = () => {
         document.body.classList.add('menu-open');
         toggle.setAttribute('aria-expanded', 'true');
-        toggle.setAttribute('aria-label', 'Chiudi menu');
+        toggle.setAttribute('aria-label', 'Close menu');
         overlay.setAttribute('aria-hidden', 'false');
       };
       const close = () => {
         document.body.classList.remove('menu-open');
         toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Apri menu');
+        toggle.setAttribute('aria-label', 'Open menu');
         overlay.setAttribute('aria-hidden', 'true');
       };
       toggle.addEventListener('click', () => {
@@ -2038,10 +2038,10 @@
       const name = form.name.value.trim();
       const email = form.email.value.trim();
       if (!name || !email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-        status.textContent = 'Inserisci nome ed email validi per inviare la richiesta.';
+        status.textContent = 'Please enter a valid name and email to send your request.';
         return;
       }
-      status.textContent = 'Grazie, ' + name + '. Ti risponderemo al più presto.';
+      status.textContent = 'Thank you, ' + name + '. We will get back to you shortly.';
       form.reset();
     });
 
@@ -2249,7 +2249,7 @@
         if (inCorso) return;
         const stavaChiusa = grid.classList.contains('is-collapsed');
         btn.setAttribute('aria-expanded', String(stavaChiusa));
-        label.textContent = stavaChiusa ? 'Mostra meno' : 'Tutti i servizi';
+        label.textContent = stavaChiusa ? 'Show less' : 'All amenities';
 
         if (prefersReduced) {
           grid.classList.toggle('is-collapsed');
