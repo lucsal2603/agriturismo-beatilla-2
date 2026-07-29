@@ -745,12 +745,28 @@
     .exp { padding-block: var(--section-y); }
     .exp__head { text-align: center; margin-bottom: clamp(3rem, 7vh, 5rem); }
     .exp__head h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-top: 1rem; }
-    .exp__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); }
+    /* Le esperienze sono quattro: in tre colonne una restava spaiata e le foto
+       venivano strette. Due colonne larghe, con la seconda che scende di un
+       passo: le immagini raddoppiano e la griglia respira invece di sembrare
+       una tabella. */
+    .exp__grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: clamp(3.5rem, 7vh, 6rem) clamp(2.5rem, 5vw, 5rem);
+      align-items: start;
+      max-width: 1180px; margin-inline: auto;
+    }
     .exp__card { will-change: transform, opacity; }
-    .exp__card .img-slot { width: 100%; aspect-ratio: 3 / 4; margin-bottom: 1.6rem; }
-    .exp__card .cat { display: block; margin-bottom: 1rem; }
-    .exp__card h3 { font-size: 1.8rem; margin-top: 0; line-height: 1.2; transition: color .3s var(--ease); }
+    .exp__card:nth-child(even) { margin-top: clamp(3rem, 9vw, 7rem); }
+    .exp__card .img-slot { width: 100%; aspect-ratio: 3 / 4; margin-bottom: 1.8rem; }
+    .exp__card .cat { display: block; margin-bottom: .9rem; }
+    .exp__card h3 {
+      font-size: clamp(1.9rem, 2.6vw, 2.6rem); margin-top: 0; line-height: 1.15;
+      transition: color .3s var(--ease);
+    }
     .exp__card:hover h3 { color: var(--accent); }
+    /* la foto si avvicina appena quando ci passi sopra */
+    .exp__card .img-slot > img { transition: transform 1.1s var(--ease); }
+    .exp__card:hover .img-slot > img { transform: scale(1.03); }
 
     .services { padding-block: var(--section-y); background: var(--bg); }
     .services__head { text-align: center; margin-bottom: clamp(3rem, 7vh, 5rem); }
@@ -1021,7 +1037,8 @@
       .nav__toggle { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
       /* Aree di tocco adeguate (min 44px) per i link "Scopri" */
       .link-more { min-height: 44px; }
-      .exp__grid { grid-template-columns: 1fr; }
+      .exp__grid { grid-template-columns: 1fr; gap: clamp(2.6rem, 6vh, 3.6rem); max-width: none; }
+      .exp__card:nth-child(even) { margin-top: 0; }
       /* Servizi: due per riga invece che impilati, icona sopra e testo sotto per stare comodi nelle colonne strette */
       .services__grid { grid-template-columns: repeat(2, 1fr); gap: 1.4rem 1rem; }
       .service { flex-direction: column; gap: .55rem; padding: 1.2rem 0; }
