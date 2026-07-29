@@ -678,15 +678,35 @@
        6. HORIZONTAL SCROLL GALLERY
        ============================================================ */
     .gallery { position: relative; }
-    .gallery__head { padding: var(--section-y) var(--gutter) 0; text-align: center; }
+    /* Il titolo sta DENTRO la parte agganciata: resta sotto gli occhi per tutto
+       lo scorrimento orizzontale, invece di sparire prima che le foto partano. */
+    .gallery__head { flex: none; padding: clamp(1.8rem, 5vh, 3.4rem) var(--gutter) 0; text-align: center; }
     .gallery__head h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 1rem; }
     /* Pin nativo con position:sticky: resta agganciato DENTRO la sezione galleria,
        quindi non può mai sovrapporsi alle Camere. L'altezza extra della sezione
        (per lo scroll orizzontale) viene impostata via JS. */
-    .gallery__pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; overflow: hidden; }
-    .gallery__track { display: flex; gap: 2rem; padding-inline: var(--gutter); will-change: transform; }
-    .gallery__item { flex: 0 0 auto; width: 400px; }
-    .gallery__item .img-slot { width: 400px; height: 600px; }
+    .gallery__pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; flex-direction: column; overflow: hidden; }
+    .gallery__scroller { flex: 1; display: flex; align-items: center; overflow: hidden; }
+    .gallery__track { display: flex; align-items: center; gap: 2rem; padding-inline: var(--gutter); will-change: transform; }
+    .gallery__item { flex: 0 0 auto; }
+    /* Le foto si adattano all'altezza dello schermo invece di misurare 400x600
+       fissi: su portatili bassi non vengono più tagliate. */
+    .gallery__item .img-slot { height: min(600px, calc(100svh - 250px)); aspect-ratio: 2 / 3; width: auto; }
+    /* In fondo alla striscia, invece del vuoto: una frase e l'invito. */
+    .gallery__item--fine { display: flex; align-items: center; }
+    .gallery__fine { min-width: min(420px, 40vw); padding-right: clamp(1rem, 4vw, 3rem); }
+    .gallery__fine-e { text-transform: uppercase; letter-spacing: .22em; font-size: .72rem; color: var(--accent); margin-bottom: 1.1rem; }
+    .gallery__fine-frase { font-family: var(--serif); font-size: clamp(1.5rem, 2.1vw, 2.3rem); line-height: 1.18; }
+    .gallery__fine-cta {
+      display: inline-flex; align-items: center; gap: .6rem; margin-top: 1.8rem;
+      padding: .9rem 1.7rem; border: 1px solid rgba(26,26,24,.28); border-radius: 100px;
+      font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+      transition: border-color .3s var(--ease);
+    }
+    .gallery__fine-cta:hover { border-color: var(--accent); }
+    .gallery__fine-cta span { transition: transform .3s var(--ease); }
+    .gallery__fine-cta:hover span { transform: translateX(4px); }
+    @media (max-width: 1024px) { .gallery__fine { min-width: min(300px, 62vw); } }
     /* Loop continuo della striscia su mobile (lo scorrimento esatto è --marquee-shift, calcolato in JS) */
     @keyframes gallery-marquee {
       from { transform: translateX(0); }
@@ -1019,8 +1039,11 @@
       .stats__divider { display: none; }
       /* horizontal gallery -> vertical stack */
       /* La vita in campagna: striscia che scorre in loop invece di impilare le foto in verticale */
-      .gallery__pin { position: static; height: auto; display: block; padding-block: 1.5rem; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scrollbar-width: none; }
-      .gallery__pin::-webkit-scrollbar { display: none; }
+      .gallery__pin { position: static; height: auto; display: block; padding-block: 1.5rem; overflow: visible; }
+      .gallery__head { padding: var(--section-y) var(--gutter) 0; }
+      .gallery__scroller { display: block; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scrollbar-width: none; }
+      .gallery__scroller::-webkit-scrollbar { display: none; }
+      .gallery__item--fine { display: none; }
       .gallery__track { flex-direction: row; width: max-content; transform: none; padding-inline: 0; gap: 1rem; align-items: flex-start; }
       .gallery__item { width: 60vw; max-width: 240px; margin: 0; }
       .gallery__item .img-slot { width: 100%; height: auto; aspect-ratio: 2 / 3; }
@@ -1238,12 +1261,13 @@
 
     <!-- ===================== 6. HORIZONTAL SCROLL GALLERY ===================== -->
     <section class="gallery" id="gallery">
-      <div class="gallery__head" data-fade>
-        <p class="label">Frammenti</p>
-        <h2 data-words>Vita in campagna</h2>
-      </div>
       <div class="gallery__pin" id="galleryPin">
-        <div class="gallery__track" id="galleryTrack">
+        <div class="gallery__head" data-fade>
+          <p class="label">Frammenti</p>
+          <h2 data-words>Vita in campagna</h2>
+        </div>
+        <div class="gallery__scroller" id="galleryScroller">
+          <div class="gallery__track" id="galleryTrack">
           <figure class="gallery__item">
             <div class="img-slot">
               <img src="img/frammenti-animali.jpg" alt="Un cavallo bianco al pascolo nella campagna di Beatilla" loading="lazy" decoding="async" />
@@ -1280,6 +1304,14 @@
             </div>
             <figcaption class="gallery__cap">Le nostre api</figcaption>
           </figure>
+            <figure class="gallery__item gallery__item--fine">
+              <div class="gallery__fine">
+                <p class="gallery__fine-e">E poi</p>
+                <p class="gallery__fine-frase">Tutto quello che le foto<br>non sanno raccontare.</p>
+                <a class="gallery__fine-cta" href="#prenota">Venite a viverlo <span>&rarr;</span></a>
+              </div>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -1996,14 +2028,16 @@
        GSAP qui muove solo il track in orizzontale, in base allo scroll. */
     const track = document.getElementById('galleryTrack');
     const pin = document.getElementById('galleryPin');
+    /* Lo scorrimento orizzontale avviene qui dentro, non nel pin: il titolo sta
+       nel pin e deve restare fermo mentre le foto scorrono. */
+    const scroller = document.getElementById('galleryScroller');
     const gallerySection = document.getElementById('gallery');
     const galleryHead = gallerySection ? gallerySection.querySelector('.gallery__head') : null;
     if (track && pin && gallerySection && !isMobile()) {
-      const getScrollX = () => Math.max(0, track.scrollWidth - pin.clientWidth);
+      const getScrollX = () => Math.max(0, track.scrollWidth - scroller.clientWidth);
       /* Allunga la sezione quel tanto che serve per far scorrere la striscia mentre è "stuck" */
       const sizeSection = () => {
-        const headH = galleryHead ? galleryHead.offsetHeight : 0;
-        gallerySection.style.height = (headH + pin.offsetHeight + getScrollX()) + 'px';
+        gallerySection.style.height = (pin.offsetHeight + getScrollX()) + 'px';
       };
       sizeSection();
       /* Reimposta l'altezza ad ogni ricalcolo, PRIMA che ScrollTrigger misuri le posizioni */
@@ -2012,8 +2046,7 @@
       /* Lo scroll orizzontale è ancorato alla SEZIONE (non al pin sticky: ScrollTrigger
          misura male gli elementi sticky). start = quando il pin si aggancia; end = +larghezza
          da scorrere. Così la striscia scorre esattamente mentre la sezione è "stuck". */
-      const headH = () => (galleryHead ? galleryHead.offsetHeight : 0);
-      const slideStart = () => Math.round(gallerySection.getBoundingClientRect().top + window.scrollY + headH());
+      const slideStart = () => Math.round(gallerySection.getBoundingClientRect().top + window.scrollY);
       const slide = gsap.fromTo(track, { x: 0 }, {
         x: () => -getScrollX(),
         ease: 'none',
@@ -2027,7 +2060,7 @@
       });
     } else if (track && pin && isMobile() && !prefersReduced) {
       /* MOBILE: striscia che scorre da sola MA che si può anche trascinare/scorrere a dito.
-         Uso lo scroll nativo del contenitore (.gallery__pin): triplico le foto (un set prima,
+         Uso lo scroll nativo del contenitore (.gallery__scroller): triplico le foto (un set prima,
          gli originali, un set dopo) così il loop è infinito in entrambe le direzioni; un rAF
          incrementa scrollLeft per il movimento automatico, che si mette in pausa appena tocchi. */
       const originals = Array.from(track.children);
@@ -2038,7 +2071,7 @@
       let setWidth = 0, userTouched = false;
       const measure = () => {
         const w = firstOriginal.offsetLeft - track.children[0].offsetLeft;
-        if (w > 0) { setWidth = w; if (!userTouched) pin.scrollLeft = setWidth; } // parti sugli originali; ricentra finché l'utente non interviene (font/immagini cambiano le misure)
+        if (w > 0) { setWidth = w; if (!userTouched) scroller.scrollLeft = setWidth; } // parti sugli originali; ricentra finché l'utente non interviene (font/immagini cambiano le misure)
       };
       measure();
       window.addEventListener('resize', measure);
@@ -2047,30 +2080,30 @@
       /* Riporta lo scroll dentro l'intervallo centrale: loop senza stacchi, sia auto sia a dito */
       const wrap = () => {
         if (setWidth <= 0) return;
-        if (pin.scrollLeft >= setWidth * 2) pin.scrollLeft -= setWidth;
-        else if (pin.scrollLeft < setWidth) pin.scrollLeft += setWidth;
+        if (scroller.scrollLeft >= setWidth * 2) scroller.scrollLeft -= setWidth;
+        else if (scroller.scrollLeft < setWidth) scroller.scrollLeft += setWidth;
       };
-      pin.addEventListener('scroll', wrap, { passive: true });
+      scroller.addEventListener('scroll', wrap, { passive: true });
 
       /* Pausa l'auto-scroll SOLO se l'utente interagisce in orizzontale con la galleria;
          lo scroll verticale della pagina (sopra la galleria) non deve fermare l'animazione. */
       let paused = false, resumeT;
       const pauseAuto = () => { userTouched = true; paused = true; clearTimeout(resumeT); resumeT = setTimeout(() => { paused = false; }, 2000); };
       let tsx = 0, tsy = 0, dir = 0; // dir: 0 indeciso, 1 orizzontale, -1 verticale
-      pin.addEventListener('touchstart', (e) => { const t = e.touches[0]; tsx = t.clientX; tsy = t.clientY; dir = 0; }, { passive: true });
-      pin.addEventListener('touchmove', (e) => {
+      scroller.addEventListener('touchstart', (e) => { const t = e.touches[0]; tsx = t.clientX; tsy = t.clientY; dir = 0; }, { passive: true });
+      scroller.addEventListener('touchmove', (e) => {
         if (dir === 1) { pauseAuto(); return; }
         if (dir === -1) return; // gesto verticale: è scroll di pagina, non fermare l'animazione
         const t = e.touches[0]; const dx = Math.abs(t.clientX - tsx), dy = Math.abs(t.clientY - tsy);
         if (dx > 8 || dy > 8) { dir = dx > dy ? 1 : -1; if (dir === 1) pauseAuto(); }
       }, { passive: true });
-      pin.addEventListener('wheel', (e) => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) pauseAuto(); }, { passive: true }); // solo trackpad/scroll orizzontale
+      scroller.addEventListener('wheel', (e) => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) pauseAuto(); }, { passive: true }); // solo trackpad/scroll orizzontale
 
       const SPEED = 0.45; // px per frame: scorrimento lento e riposante
       const tick = () => {
         if (!paused && setWidth > 0) {
-          pin.scrollLeft += SPEED;
-          if (pin.scrollLeft >= setWidth * 2) pin.scrollLeft -= setWidth;
+          scroller.scrollLeft += SPEED;
+          if (scroller.scrollLeft >= setWidth * 2) scroller.scrollLeft -= setWidth;
         }
         requestAnimationFrame(tick);
       };
