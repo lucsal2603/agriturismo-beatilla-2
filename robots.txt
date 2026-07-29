@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.agriturismobeatilla.it/sitemap.xml
