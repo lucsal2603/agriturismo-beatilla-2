@@ -1856,10 +1856,12 @@
       if (a) { try { localStorage.setItem('beatilla-lingua', a.getAttribute('data-lingua')); } catch (err) {} }
     });
 
-    /* ---------- Hero video: load only on desktop (saves ~7MB on mobile) ---------- */
+    /* ---------- Hero video: anche su telefono ----------
+       La foto resta come poster e si vede subito; il video (~4 MB) parte
+       dopo, quando la pagina è già utilizzabile. */
     (() => {
       const v = document.querySelector('.hero__video video');
-      if (!v || isMobile() || prefersReduced) return;
+      if (!v || prefersReduced) return;
       const src = v.getAttribute('data-src');
       if (!src) return;
       v.setAttribute('src', src);
