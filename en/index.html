@@ -27,7 +27,7 @@
   <link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/" />
   <link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/" />
   <link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/en/" />
-  <link rel="preload" as="image" href="../img/frammenti-animali.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="../img/frammenti-animali.webp" imagesrcset="../img/frammenti-animali-800.webp 800w, ../img/frammenti-animali.webp 1600w" imagesizes="100vw" fetchpriority="high" />
 
   <!-- ===================== SEO · GEO (local) ===================== -->
   <meta name="geo.region" content="IT-MN" />
@@ -1147,12 +1147,13 @@
     <!-- ===================== 2. HERO ===================== -->
     <section class="hero">
       <div class="hero__media img-slot">
-        <img src="../img/frammenti-animali.webp" alt="A white horse grazing at dawn in the countryside around Agriturismo Beatilla" />
+        <img src="../img/frammenti-animali.webp" srcset="../img/frammenti-animali-800.webp 800w, ../img/frammenti-animali.webp 1600w" sizes="100vw" alt="A white horse grazing at dawn in the countryside around Agriturismo Beatilla" />
       </div>
       <div class="hero__video" aria-hidden="true">
+        <!-- niente poster: dietro al video c'è già la stessa foto (.hero__media),
+             così non si scarica due volte -->
         <video
           data-src="../hero-video.mp4"
-          poster="../img/frammenti-animali.webp"
           muted loop playsinline preload="none"></video>
       </div>
       <div class="hero__overlay"></div>
@@ -1202,7 +1203,7 @@
     <!-- ===================== 4. FULL-BLEED IMAGE BREAK ===================== -->
     <section class="break">
       <div class="img-slot" data-parallax>
-        <img src="../img/frammenti-cascina.webp" alt="The Beatilla farmhouse with its hand-painted gable sign" />
+        <img src="../img/frammenti-cascina.webp" srcset="../img/frammenti-cascina-800.webp 800w, ../img/frammenti-cascina-1200.webp 1200w, ../img/frammenti-cascina.webp 1920w" sizes="100vw" alt="The Beatilla farmhouse with its hand-painted gable sign" />
       </div>
       <div class="break__overlay"></div>
       <div class="break__inner">
@@ -1226,7 +1227,7 @@
         <article class="room room--a">
           <div class="room__media">
             <div class="img-slot" data-room-img="left">
-              <img src="../img/alloggi-pomodoro.webp" alt="The Pomodoro Room: red-toned furniture and details, contemporary artworks" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-pomodoro.webp" srcset="../img/alloggi-pomodoro-800.webp 800w, ../img/alloggi-pomodoro.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="The Pomodoro Room: red-toned furniture and details, contemporary artworks" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
@@ -1240,7 +1241,7 @@
         <article class="room room--b room--reverse">
           <div class="room__media">
             <div class="img-slot" data-room-img="right">
-              <img src="../img/alloggi-mandarino.webp" alt="The Mandarino Room: natural light, exposed beams and citrus-inspired colours" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-mandarino.webp" srcset="../img/alloggi-mandarino-800.webp 800w, ../img/alloggi-mandarino.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="The Mandarino Room: natural light, exposed beams and citrus-inspired colours" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
@@ -1254,7 +1255,7 @@
         <article class="room room--c">
           <div class="room__media">
             <div class="img-slot" data-room-img="left">
-              <img src="../img/alloggi-lampone.webp" alt="The Lampone Apartment: independent apartment with bedroom, living room and kitchen" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-lampone.webp" srcset="../img/alloggi-lampone-800.webp 800w, ../img/alloggi-lampone.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="The Lampone Apartment: independent apartment with bedroom, living room and kitchen" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
@@ -1268,7 +1269,7 @@
         <article class="room room--d room--reverse">
           <div class="room__media">
             <div class="img-slot" data-room-img="right">
-              <img src="../img/alloggi-pallina.webp" alt="The Pallina Apartment: bright rooms, fitted kitchen and works by Luca Bornoffi" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-pallina.webp" srcset="../img/alloggi-pallina-800.webp 800w, ../img/alloggi-pallina.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="The Pallina Apartment: bright rooms, fitted kitchen and works by Luca Bornoffi" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
@@ -1282,7 +1283,7 @@
         <article class="room room--e">
           <div class="room__media">
             <div class="img-slot" data-room-img="left">
-              <img src="../img/alloggi-jahara.webp" alt="The Country Apartments: exposed wooden beams, mezzanine and kitchenette" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/alloggi-jahara.webp" srcset="../img/alloggi-jahara-800.webp 800w, ../img/alloggi-jahara.webp 1200w" sizes="(max-width: 980px) 92vw, 705px" alt="The Country Apartments: exposed wooden beams, mezzanine and kitchenette" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
@@ -1307,37 +1308,37 @@
         <div class="gallery__track" id="galleryTrack">
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="../img/frammenti-animali.webp" alt="A white horse grazing in Beatilla's countryside" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-animali.webp" srcset="../img/frammenti-animali-800.webp 800w, ../img/frammenti-animali.webp 1600w" sizes="(max-width: 768px) 60vw, 400px" alt="A white horse grazing in Beatilla's countryside" loading="lazy" decoding="async" />
             </div>
             <figcaption class="gallery__cap">The Beatilla dolce vita</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="../img/frammenti-reception.webp" alt="The straw hat hanging in a corner of Beatilla's reception" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-reception.webp" srcset="../img/frammenti-reception-800.webp 800w, ../img/frammenti-reception.webp 1000w" sizes="(max-width: 768px) 60vw, 400px" alt="The straw hat hanging in a corner of Beatilla's reception" loading="lazy" decoding="async" />
             </div>
             <figcaption class="gallery__cap">A view of the reception</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="../img/frammenti-giardino.webp" alt="The shabby-chic garden with wrought-iron table and plants" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-giardino.webp" srcset="../img/frammenti-giardino-800.webp 800w, ../img/frammenti-giardino.webp 1000w" sizes="(max-width: 768px) 60vw, 400px" alt="The shabby-chic garden with wrought-iron table and plants" loading="lazy" decoding="async" />
             </div>
             <figcaption class="gallery__cap">Shabby Chic Garden</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img class="gallery__img--cascina" src="../img/frammenti-cascina.webp" alt="The Beatilla sign painted on the farmhouse gable" loading="lazy" decoding="async" />
+              <img class="gallery__img--cascina" src="../img/frammenti-cascina.webp" srcset="../img/frammenti-cascina-800.webp 800w, ../img/frammenti-cascina-1200.webp 1200w, ../img/frammenti-cascina.webp 1920w" sizes="(max-width: 768px) 60vw, 400px" alt="The Beatilla sign painted on the farmhouse gable" loading="lazy" decoding="async" />
             </div>
             <figcaption class="gallery__cap">Our farmhouse</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="../img/frammenti-aperitivo.webp" alt="Aperitivo in the courtyard under the evening lights" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-aperitivo.webp" srcset="../img/frammenti-aperitivo-800.webp 800w, ../img/frammenti-aperitivo.webp 1000w" sizes="(max-width: 768px) 60vw, 400px" alt="Aperitivo in the courtyard under the evening lights" loading="lazy" decoding="async" />
             </div>
             <figcaption class="gallery__cap">Courtyard Aperitivo</figcaption>
           </figure>
           <figure class="gallery__item">
             <div class="img-slot">
-              <img src="../img/frammenti-staff.webp" alt="The Beatilla team welcoming guests at the table" loading="lazy" decoding="async" />
+              <img src="../img/frammenti-staff.webp" srcset="../img/frammenti-staff-800.webp 800w, ../img/frammenti-staff.webp 1000w" sizes="(max-width: 768px) 60vw, 400px" alt="The Beatilla team welcoming guests at the table" loading="lazy" decoding="async" />
             </div>
             <figcaption class="gallery__cap">Beatilla hospitality</figcaption>
           </figure>
@@ -1390,28 +1391,28 @@
         <div class="exp__grid">
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img src="../img/esperienze-colazione.webp" alt="The Breakfast Basket with homemade produce" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/esperienze-colazione.webp" srcset="../img/esperienze-colazione-800.webp 800w, ../img/esperienze-colazione.webp 1000w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="The Breakfast Basket with homemade produce" data-img-parallax loading="lazy" decoding="async" />
             </div>
             <span class="label cat">&ldquo;Beatillino&rdquo; Art Gallery Breakfast</span>
             <h3>Breakfast Room Beatillino</h3>
           </article>
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img src="../img/esperienze-studio.webp" alt="Artist Luca Bornoffi at work in his studio" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/esperienze-studio.webp" srcset="../img/esperienze-studio-800.webp 800w, ../img/esperienze-studio.webp 960w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="Artist Luca Bornoffi at work in his studio" data-img-parallax loading="lazy" decoding="async" />
             </div>
             <span class="label cat">Where Creativity Begins</span>
             <h3>Studio Bornoffi</h3>
           </article>
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img src="../img/esperienze-ristorante.webp" alt="The Art Gallery restaurant with artworks on the walls" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/esperienze-ristorante.webp" srcset="../img/esperienze-ristorante-800.webp 800w, ../img/esperienze-ristorante.webp 1000w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="The Art Gallery restaurant with artworks on the walls" data-img-parallax loading="lazy" decoding="async" />
             </div>
             <span class="label cat">Lunch &amp; Dinner</span>
             <h3>Art Gallery Restaurant</h3>
           </article>
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img src="../img/esperienze-giardino.webp" alt="A quiet corner of the shabby-chic garden, with turquoise shutters and plants" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/esperienze-giardino.webp" srcset="../img/esperienze-giardino-800.webp 800w, ../img/esperienze-giardino.webp 1000w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="A quiet corner of the shabby-chic garden, with turquoise shutters and plants" data-img-parallax loading="lazy" decoding="async" />
             </div>
             <span class="label cat">A quiet corner</span>
             <h3>Shabby Chic Garden</h3>
@@ -1527,7 +1528,7 @@
           </div>
           <div class="workshop__media">
             <div class="img-slot">
-              <img src="../img/arte-workshop.webp" alt="Paints, brushes and palette at Beatilla's Art Workshop" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/arte-workshop.webp" srcset="../img/arte-workshop-800.webp 800w, ../img/arte-workshop.webp 1125w" sizes="(max-width: 980px) 92vw, 566px" alt="Paints, brushes and palette at Beatilla's Art Workshop" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -1535,7 +1536,7 @@
         <div class="workshop__grid workshop__grid--reverse">
           <div class="workshop__media">
             <div class="img-slot">
-              <img src="../img/arte-residency.webp" alt="An artist at work on a Circles of Life canvas during the residency" data-img-parallax loading="lazy" decoding="async" />
+              <img src="../img/arte-residency.webp" srcset="../img/arte-residency-800.webp 800w, ../img/arte-residency.webp 1000w" sizes="(max-width: 980px) 92vw, 566px" alt="An artist at work on a Circles of Life canvas during the residency" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="workshop__text" data-fade>
@@ -1561,7 +1562,7 @@
     <!-- ===================== 10. IMMAGINE FULL-BLEED ===================== -->
     <section class="video">
       <div class="img-slot">
-        <img src="../img/arte-artista.webp" alt="Luca Bornoffi at work in his art studio at Beatilla, among canvases and colours" data-img-parallax />
+        <img src="../img/arte-artista.webp" srcset="../img/arte-artista-800.webp 800w, ../img/arte-artista.webp 1280w" sizes="100vw" alt="Luca Bornoffi at work in his art studio at Beatilla, among canvases and colours" data-img-parallax loading="lazy" decoding="async" />
       </div>
     </section>
 
@@ -1606,37 +1607,37 @@
         </div>
         <div class="visit__grid">
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="../img/territorio-mantova.webp" alt="Mantua's skyline at sunset reflected on the lakes" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-mantova.webp" srcset="../img/territorio-mantova-800.webp 800w, ../img/territorio-mantova.webp 1200w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 388px" alt="Mantua's skyline at sunset reflected on the lakes" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">5 km · 5 min</span>
             <h3>Mantova</h3>
             <p>The Ducal Palace with Mantegna's Camera degli Sposi, Palazzo Te, Piazza delle Erbe, the Rotonda di San Lorenzo and the Basilica of Sant'Andrea: an open-air museum.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="../img/territorio-bosco-fontana.webp" alt="The Gonzaga hunting lodge in the Bosco della Fontana" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-bosco-fontana.webp" srcset="../img/territorio-bosco-fontana-800.webp 800w, ../img/territorio-bosco-fontana.webp 1200w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 388px" alt="The Gonzaga hunting lodge in the Bosco della Fontana" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">On foot</span>
             <h3>Bosco della Fontana</h3>
             <p>The largest forest of the Po Valley, with a sixteenth-century castle once the Gonzagas' hunting reserve. You can walk there directly from the farm.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="../img/territorio-borghetto.webp" alt="The ancient watermills of Borghetto sul Mincio" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-borghetto.webp" srcset="../img/territorio-borghetto-800.webp 800w, ../img/territorio-borghetto.webp 1000w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 388px" alt="The ancient watermills of Borghetto sul Mincio" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">20 min</span>
             <h3>Borghetto sul Mincio</h3>
             <p>Also reachable by bike from Beatilla. One of Italy's most beautiful villages, with watermills, historic lanes and views over the Mincio river.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="../img/territorio-verona.webp" alt="View of Verona with the Adige river and the rooftops of the old town" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-verona.webp" srcset="../img/territorio-verona-800.webp 800w, ../img/territorio-verona.webp 1200w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 388px" alt="View of Verona with the Adige river and the rooftops of the old town" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">30 min</span>
             <h3>Verona</h3>
             <p>The city of Romeo and Juliet, a UNESCO site, with the Arena, elegant squares and a charming historic centre.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="../img/territorio-peschiera.webp" alt="The flower-lined canals and fortified walls of Peschiera del Garda" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-peschiera.webp" srcset="../img/territorio-peschiera-800.webp 800w, ../img/territorio-peschiera.webp 1200w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 388px" alt="The flower-lined canals and fortified walls of Peschiera del Garda" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">25 min</span>
             <h3>Peschiera del Garda</h3>
             <p>Also reachable by bike from Beatilla. A UNESCO-listed fortified town where canals, Venetian ramparts and Lake Garda meet.</p>
           </article>
           <article class="visit__card" data-card>
-            <div class="img-slot"><img src="../img/territorio-sirmione.webp" alt="Sirmione's Scaliger castle on Lake Garda" data-img-parallax loading="lazy" decoding="async" /></div>
+            <div class="img-slot"><img src="../img/territorio-sirmione.webp" srcset="../img/territorio-sirmione-800.webp 800w, ../img/territorio-sirmione.webp 1080w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 388px" alt="Sirmione's Scaliger castle on Lake Garda" data-img-parallax loading="lazy" decoding="async" /></div>
             <span class="visit__tag">30 min</span>
             <h3>Sirmione</h3>
             <p>The pearl of Lake Garda, with the Scaliger Castle, the Grottoes of Catullus and its renowned thermal baths.</p>
@@ -1858,17 +1859,24 @@
     });
 
     /* ---------- Hero video: anche su telefono ----------
-       La foto resta come poster e si vede subito; il video (~4 MB) parte
-       dopo, quando la pagina è già utilizzabile. */
+       La foto resta come poster e si vede subito; il video (~3,7 MB) parte
+       DOPO che il resto della pagina ha finito di scaricare, così foto e
+       caratteri non gli fanno la coda dietro. Chi naviga col risparmio dati
+       attivo resta sulla foto. */
     (() => {
       const v = document.querySelector('.hero__video video');
       if (!v || prefersReduced) return;
+      if (navigator.connection && navigator.connection.saveData) return;
       const src = v.getAttribute('data-src');
       if (!src) return;
-      v.setAttribute('src', src);
-      v.load();
-      const play = () => v.play().catch(() => {});
-      if (v.readyState >= 2) play(); else v.addEventListener('canplay', play, { once: true });
+      const avvia = () => {
+        v.setAttribute('src', src);
+        v.load();
+        const play = () => v.play().catch(() => {});
+        if (v.readyState >= 2) play(); else v.addEventListener('canplay', play, { once: true });
+      };
+      if (document.readyState === 'complete') avvia();
+      else window.addEventListener('load', avvia, { once: true });
     })();
 
     /* ---------- NAV: solid on scroll ---------- */
