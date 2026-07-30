@@ -378,6 +378,24 @@
       color: var(--accent);
     }
 
+    /* ============================================================
+       SCHERMATA DI CARICAMENTO
+       ============================================================ */
+    .loader {
+      position: fixed; inset: 0; z-index: 3000;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity .7s var(--ease), visibility .7s var(--ease);
+    }
+    .loader.via { opacity: 0; visibility: hidden; }
+    body.caricamento { overflow: hidden; } /* niente scroll dietro la schermata */
+    .loader__inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: var(--gutter); }
+    .loader__brand { font-family: var(--serif); font-size: clamp(1.5rem, 6vw, 2.4rem); color: var(--text); }
+    .loader__tag { font-size: var(--label-size); letter-spacing: var(--label-spacing); text-transform: uppercase; color: var(--accent); }
+    .loader__bar { width: min(190px, 52vw); height: 2px; margin-top: .8rem; background: rgba(26,26,24,.12); overflow: hidden; }
+    .loader__bar i { display: block; height: 100%; width: 0%; background: var(--accent); transition: width .35s var(--ease); }
+    @media (prefers-reduced-motion: reduce) { .loader { transition: none; } }
+
     /* Custom cursor — foglia */
     .cursor-dot, .cursor-leaf {
       position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
@@ -644,7 +662,19 @@
        ============================================================ */
     .break { height: 80vh; min-height: 460px; overflow: hidden; position: relative; }
     .break .img-slot { position: absolute; inset: -15% 0; height: 130%; will-change: transform; }
-    .break .img-slot > img { object-position: center 35%; } /* abbassa l'inquadratura per mostrare tutta la cascina */
+    /* La scritta «Beatilla» sul timpano sta al 37% della larghezza della foto:
+       l'inquadratura la porta al CENTRO dello schermo.
+       — Finestre strette (ratio < 14/9): la foto sborda in orizzontale e basta
+         spostare l'inquadratura con object-position.
+       — Finestre larghe: la foto è già tutta visibile in larghezza, quindi la
+         si ingrandisce quel tanto che basta per poterla scorrere fino al centro. */
+    .break .img-slot > img { object-position: 30% 50%; }
+    @media (min-aspect-ratio: 14/9) {
+      .break .img-slot > img {
+        transform: translate(13%, -21%) scale(1.5);
+        transform-origin: 37% 55%;
+      }
+    }
     .break__overlay { position: absolute; inset: 0; z-index: 1; background: var(--overlay); }
     .break__inner { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
     .break__label { color: rgba(255,255,255,.7); margin-bottom: 1.4rem; }
@@ -701,15 +731,19 @@
        6. HORIZONTAL SCROLL GALLERY
        ============================================================ */
     .gallery { position: relative; }
-    .gallery__head { padding: var(--section-y) var(--gutter) 0; text-align: center; }
+    /* Il titolo "Frammenti / Vita in campagna" sta DENTRO il pin, così resta
+       a schermo mentre le foto scorrono in orizzontale. Il pin è una colonna:
+       titolo in alto + striscia foto centrata nello spazio rimanente; sta
+       agganciato con position:sticky DENTRO la sezione, quindi non può mai
+       sovrapporsi alle Camere. L'altezza extra della sezione (per lo scroll
+       orizzontale) viene impostata via JS. */
+    .gallery__pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; flex-direction: column; overflow: hidden; }
+    .gallery__head { flex: none; padding: clamp(1.8rem, 5vh, 3.4rem) var(--gutter) 0; text-align: center; }
     .gallery__head h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 1rem; }
-    /* Pin nativo con position:sticky: resta agganciato DENTRO la sezione galleria,
-       quindi non può mai sovrapporsi alle Camere. L'altezza extra della sezione
-       (per lo scroll orizzontale) viene impostata via JS. */
-    .gallery__pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; align-items: center; overflow: hidden; }
-    .gallery__track { display: flex; gap: 2rem; padding-inline: var(--gutter); will-change: transform; }
-    .gallery__item { flex: 0 0 auto; width: 400px; }
-    .gallery__item .img-slot { width: 400px; height: 600px; }
+    .gallery__track { flex: 1; display: flex; align-items: center; gap: 2rem; padding-inline: var(--gutter); will-change: transform; }
+    .gallery__item { flex: 0 0 auto; }
+    /* immagine + didascalia devono stare nello schermo insieme al titolo */
+    .gallery__item .img-slot { height: min(600px, calc(100svh - 250px)); aspect-ratio: 2 / 3; width: auto; }
     /* Loop continuo della striscia su mobile (lo scorrimento esatto è --marquee-shift, calcolato in JS) */
     @keyframes gallery-marquee {
       from { transform: translateX(0); }
@@ -721,7 +755,9 @@
     .img-slot > img.gallery__img--cascina { object-position: 27% 50%; }
     /* Chiusura della striscia: dopo l'ultima foto, un invito al posto di un'immagine */
     .gallery__item--fine { display: flex; align-items: center; }
-    .gallery__fine { padding-right: clamp(1rem, 4vw, 3rem); }
+    .gallery__fine { min-width: min(420px, 40vw); padding-right: clamp(1rem, 4vw, 3rem); }
+    /* su tablet la chiusura si stringe: entra tutta senza allungare troppo la corsa */
+    @media (max-width: 1024px) { .gallery__fine { min-width: min(300px, 62vw); } }
     .gallery__fine-e { text-transform: uppercase; letter-spacing: .22em; font-size: .72rem; color: var(--accent); margin-bottom: 1.1rem; }
     .gallery__fine-frase { font-family: var(--serif); font-size: clamp(1.5rem, 2.1vw, 2.3rem); line-height: 1.18; }
     .gallery__fine-cta {
@@ -961,6 +997,12 @@
     .wa-fab:active { transform: scale(.94); }
     body.menu-open .wa-fab { opacity: 0; pointer-events: none; }
     @media (prefers-reduced-motion: reduce) { .wa-fab { transition: none; } }
+    /* Su schermi grandi "Prenota" sta nella barra in alto: l'angolo in basso
+       a destra è libero e il pulsante WhatsApp va lì, un filo più grande. */
+    @media (min-width: 769px) {
+      .wa-fab { left: auto; right: 1.4rem; width: 54px; height: 54px; }
+      .wa-fab svg { width: 29px; height: 29px; }
+    }
 
     /* ============================================================
        12b. FAQ
@@ -988,10 +1030,8 @@
     .faq__icon::after { left: 50%; top: 0; width: 1.5px; height: 100%; transform: translateX(-50%); }
     .faq__item[open] .faq__icon::after { transform: translateX(-50%) scaleY(0); opacity: 0; }
     .faq__item:not([open]) .faq__a { display: none; }
+    .faq__item[open] .faq__a { display: block; } /* l'apertura la anima JavaScript, come la tendina dei servizi */
     .faq__a p { padding: 0 2.5rem 1.7rem 0; max-width: 66ch; line-height: 1.75; color: rgba(26,26,24,.72); }
-    .faq__item[open] .faq__a { animation: faqReveal .45s var(--ease); }
-    @keyframes faqReveal { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-    @media (prefers-reduced-motion: reduce) { .faq__item[open] .faq__a { animation: none; } }
     .faq__cta { text-align: center; margin-top: clamp(2.5rem, 6vh, 4rem); }
     .faq__cta p { color: rgba(26,26,24,.7); margin-bottom: 1rem; }
 
@@ -1068,6 +1108,9 @@
       /* horizontal gallery -> vertical stack */
       /* La vita in campagna: striscia che scorre in loop invece di impilare le foto in verticale */
       .gallery__pin { position: static; height: auto; display: block; padding-block: 1.5rem; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scrollbar-width: none; }
+      /* il titolo sta dentro il contenitore del rullino: su telefono torna
+         un titolo normale sopra le foto */
+      .gallery__head { padding: 0 var(--gutter) 1.4rem; }
       .gallery__pin::-webkit-scrollbar { display: none; }
       /* Quando la striscia la muoviamo noi (translate) lo scroll nativo va
          spento: è lui che litigava col gesto e la faceva restare ferma. Alla
@@ -1103,13 +1146,25 @@
       .hero__scroll svg { animation: none; }
       .hero__media { transform: scale(1) !important; }
       .hero__video { display: none; }
-      /* Niente loop automatico: la striscia si scorre a mano */
+      /* Niente loop automatico: la striscia si scorre a mano (e la sezione
+         non tiene l'altezza-corsa impostata da JavaScript) */
+      .gallery { height: auto !important; }
       .gallery__track { animation: none !important; transform: none !important; }
-      .gallery__pin { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .gallery__pin { position: static; height: auto; overflow-x: auto; -webkit-overflow-scrolling: touch; }
     }
   </style>
 </head>
 <body>
+  <!-- Schermata di caricamento: resta finché video, foto e caratteri
+       non sono pronti, con un tetto di sicurezza. -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <span class="loader__brand">Agriturismo Beatilla</span>
+      <span class="loader__tag">Mantova · Dal 1498</span>
+      <div class="loader__bar"><i id="loaderBar"></i></div>
+    </div>
+  </div>
+
   <script>/* Evita il salto del pin orizzontale al ricaricamento: la pagina riparte sempre dall'alto */if('scrollRestoration' in history){history.scrollRestoration='manual';}</script>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -1299,11 +1354,11 @@
 
     <!-- ===================== 6. HORIZONTAL SCROLL GALLERY ===================== -->
     <section class="gallery" id="gallery">
-      <div class="gallery__head" data-fade>
-        <p class="label">Frammenti</p>
-        <h2 data-words>Vita in campagna</h2>
-      </div>
       <div class="gallery__pin" id="galleryPin">
+        <div class="gallery__head" data-fade>
+          <p class="label">Frammenti</p>
+          <h2 data-words>Vita in campagna</h2>
+        </div>
         <div class="gallery__track" id="galleryTrack">
           <figure class="gallery__item">
             <div class="img-slot">
@@ -1857,25 +1912,134 @@
       if (a) { try { localStorage.setItem('beatilla-lingua', a.getAttribute('data-lingua')); } catch (err) {} }
     });
 
+    /* Con il risparmio dati attivo il video non si scarica: resta la foto */
+    const RISPARMIO_DATI = !!(navigator.connection && navigator.connection.saveData);
+    /* Quello che deve partire quando la schermata di caricamento si toglie
+       (l'ingresso del titolo della home): lo assegna il blocco animazioni. */
+    let viaLoader = () => {};
+
+    /* ---------- SCHERMATA DI CARICAMENTO ----------
+       Resta finché TUTTO il sito è pronto: ogni immagine della pagina, il
+       video, i caratteri. Le immagini differite non partirebbero da sole
+       finché non ci si avvicina, quindi le precarichiamo qui: finiscono in
+       cache e la barra misura l'avanzamento vero. Tetto di sicurezza a 30
+       secondi solo per reti rotte: non si resta chiusi fuori per sempre. */
+    const loader = document.getElementById('loader');
+    const barra = document.getElementById('loaderBar');
+    if (loader) {
+      const attese = [];
+      let registrate = false, uscito = false;
+
+      /* Dichiarati PRIMA di registrare le attese: la prima immagine già in
+         cache chiama subito il conteggio, e se queste non esistessero ancora
+         il codice si fermerebbe qui lasciando la schermata per sempre. */
+      const finito = () => {
+        if (uscito) return;
+        uscito = true;
+        if (barra) barra.style.width = '100%';
+        setTimeout(() => {
+          loader.classList.add('via');
+          document.body.classList.remove('caricamento');
+          viaLoader();
+          setTimeout(() => { if (loader.parentNode) loader.remove(); }, 900);
+        }, 220);
+      };
+      const segna = () => {
+        if (!attese.length) return;
+        const fatte = attese.filter((p) => p.fatto).length;
+        if (barra) barra.style.width = Math.round(fatte / attese.length * 100) + '%';
+        /* solo a registrazione conclusa: altrimenti "tutte pronte" sarebbe
+           vero già alla prima immagine */
+        if (registrate && fatte === attese.length) finito();
+      };
+      const aspetta = (avvia) => {
+        const p = { fatto: false };
+        attese.push(p);
+        avvia(() => { if (!p.fatto) { p.fatto = true; segna(); } });
+      };
+
+      document.body.classList.add('caricamento');
+      setTimeout(finito, 30000); /* tetto di sicurezza: solo contro richieste rimaste appese */
+
+      /* PRIMA IL VIDEO, POI LE FOTO. Il video deve essere in riproduzione
+         quando la schermata si apre: gli lasciamo la banda libera per il
+         primo tratto, e i precaricatori delle foto partono appena ha i
+         primi fotogrammi (o dopo 1,2s, se fa i capricci). */
+      const partenze = [];
+      let immaginiPartite = false;
+      const viaImmagini = () => {
+        if (immaginiPartite) return;
+        immaginiPartite = true;
+        partenze.forEach((f) => f());
+      };
+
+      /* TUTTE le immagini della pagina, comprese quelle differite: un
+         precaricatore per ciascuna le porta in cache mentre la barra
+         avanza. Copiamo anche srcset e sizes, così si scarica la stessa
+         versione (piccola sui telefoni) che poi userà la pagina. */
+      const registrateSrc = new Set();
+      document.querySelectorAll('img[src]').forEach((img) => {
+        const chiave = img.getAttribute('src');
+        if (!chiave || chiave.indexOf('data:') === 0 || registrateSrc.has(chiave)) return;
+        registrateSrc.add(chiave);
+        aspetta((pronto) => {
+          if (img.complete && img.naturalWidth) return pronto();
+          partenze.push(() => {
+            const pre = new Image();
+            try { pre.fetchPriority = 'low'; } catch (e) {}
+            const sz = img.getAttribute('sizes'); if (sz) pre.sizes = sz;
+            const ss = img.getAttribute('srcset'); if (ss) pre.srcset = ss;
+            pre.addEventListener('load', pronto, { once: true });
+            pre.addEventListener('error', pronto, { once: true });
+            pre.src = chiave;
+            if (pre.complete && pre.naturalWidth) pronto();
+          });
+        });
+      });
+
+      /* Il video della home: aspettiamo i PRIMI fotogrammi (loadeddata /
+         canplay: mezzo secondo, non tutto il buffer), così all'apertura è
+         già in moto. Tetto suo di 3s: se il telefono rifiuta il precarico
+         (es. risparmio energetico) non tiene in ostaggio nessuno. */
+      const vidLoader = document.querySelector('.hero__video video');
+      if (vidLoader && !prefersReduced && !RISPARMIO_DATI && (vidLoader.getAttribute('src') || vidLoader.dataset.src)) {
+        aspetta((pronto) => {
+          const prontoEVia = () => { pronto(); viaImmagini(); };
+          if (vidLoader.readyState >= 2) return prontoEVia();
+          vidLoader.addEventListener('loadeddata', prontoEVia, { once: true });
+          vidLoader.addEventListener('canplay', prontoEVia, { once: true });
+          vidLoader.addEventListener('error', prontoEVia, { once: true });
+          setTimeout(prontoEVia, 3000);
+        });
+        setTimeout(viaImmagini, 1200); /* le foto non aspettano oltre */
+      } else {
+        viaImmagini();
+      }
+      /* i caratteri: senza, il titolo cambierebbe forma sotto gli occhi */
+      if (document.fonts && document.fonts.ready) aspetta((pronto) => document.fonts.ready.then(pronto));
+      /* il resto della pagina */
+      aspetta((pronto) => {
+        if (document.readyState === 'complete') return pronto();
+        window.addEventListener('load', pronto, { once: true });
+      });
+
+      registrate = true;
+      segna(); /* se era tutto già in cache, esce subito */
+    }
+
     /* ---------- Hero video: anche su telefono ----------
-       La foto resta come poster e si vede subito; il video (~3,7 MB) parte
-       DOPO che il resto della pagina ha finito di scaricare, così foto e
-       caratteri non gli fanno la coda dietro. Chi naviga col risparmio dati
-       attivo resta sulla foto. */
+       Parte SUBITO: ha la precedenza sulla banda, è la schermata di
+       caricamento a tenere le foto in coda finché non ha i primi fotogrammi.
+       Chi naviga col risparmio dati attivo resta sulla foto. */
     (() => {
       const v = document.querySelector('.hero__video video');
-      if (!v || prefersReduced) return;
-      if (navigator.connection && navigator.connection.saveData) return;
+      if (!v || prefersReduced || RISPARMIO_DATI) return;
       const src = v.getAttribute('data-src');
       if (!src) return;
-      const avvia = () => {
-        v.setAttribute('src', src);
-        v.load();
-        const play = () => v.play().catch(() => {});
-        if (v.readyState >= 2) play(); else v.addEventListener('canplay', play, { once: true });
-      };
-      if (document.readyState === 'complete') avvia();
-      else window.addEventListener('load', avvia, { once: true });
+      v.setAttribute('src', src);
+      v.load();
+      const play = () => v.play().catch(() => {});
+      if (v.readyState >= 2) play(); else v.addEventListener('canplay', play, { once: true });
     })();
 
     /* ---------- NAV: solid on scroll ---------- */
@@ -2013,14 +2177,17 @@
     /* Parti dall'alto: evita che un reload a metà pagina mostri il pin in uno stato sbagliato */
     if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; window.scrollTo(0, 0); }
 
-    /* ---------- HERO load animation ---------- */
-    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    /* ---------- HERO load animation ----------
+       Parte quando la schermata di caricamento si toglie, non prima:
+       altrimenti il titolo entrerebbe in scena a sipario ancora chiuso. */
+    const heroTl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
     if (!prefersReduced) {
       heroTl.to('.hero__media', { scale: 1.0, duration: 1.6, ease: 'power2.out' }, 0);
       heroTl.from('.hero__title .word', { yPercent: 110, opacity: 0, duration: 1.2, stagger: 0.12 }, 0.15);
       heroTl.from('.hero__label', { y: 20, opacity: 0, duration: 0.9 }, 0.1);
       heroTl.from('.hero__scroll', { opacity: 0, duration: 0.8 }, 1.0);
     }
+    viaLoader = () => { heroTl.play(); ScrollTrigger.refresh(); };
 
     /* ---------- INTRO line-by-line clip reveal ---------- */
     gsap.utils.toArray('.reveal-line > span').forEach((line) => {
@@ -2074,30 +2241,55 @@
     const track = document.getElementById('galleryTrack');
     const pin = document.getElementById('galleryPin');
     const gallerySection = document.getElementById('gallery');
-    const galleryHead = gallerySection ? gallerySection.querySelector('.gallery__head') : null;
-    if (track && pin && gallerySection && !isMobile()) {
+    if (track && pin && gallerySection && !isMobile() && !prefersReduced) {
       const getScrollX = () => Math.max(0, track.scrollWidth - pin.clientWidth);
-      /* Allunga la sezione quel tanto che serve per far scorrere la striscia mentre è "stuck" */
+      /* La corsa non finisce con l'ultima foto incollata al bordo destro:
+         prosegue finché il CENTRO dell'ultima foto coincide col centro dello
+         schermo. Misuro la geometria reale invece di fidarmi di scrollWidth
+         (che a seconda del motore ignora il padding finale). */
+      const corsa = () => {
+        /* il centro del fine corsa è l'ultima FOTO: la chiusura di testo
+           che le sta a destra resta fuori dal conto e fa da coda */
+        const items = track.querySelectorAll('.gallery__item:not(.gallery__item--fine)');
+        if (!items.length) return getScrollX();
+        const last = items[items.length - 1];
+        const x = gsap.getProperty(track, 'x') || 0;
+        const r = last.getBoundingClientRect();
+        const centroAZero = r.left - x + r.width / 2;
+        const perCentrareFoto = centroAZero - pin.clientWidth / 2;
+
+        /* Su schermi stretti (tablet) la coda di testo resterebbe tagliata a
+           metà: se serve, allunghiamo la corsa quel tanto che basta perché
+           l'invito finale entri tutto. Su schermi larghi ci sta già. */
+        let perMostrareCoda = 0;
+        const coda = track.querySelector('.gallery__item--fine');
+        if (coda) {
+          const c = coda.getBoundingClientRect();
+          const margine = 24;
+          perMostrareCoda = (c.right - x) - pin.clientWidth + margine;
+        }
+        return Math.max(0, Math.round(Math.max(perCentrareFoto, perMostrareCoda)));
+      };
+      /* Titolo dentro il pin: l'altezza extra della sezione (per lo scroll
+         orizzontale mentre è agganciata) è la corsa da percorrere. */
       const sizeSection = () => {
-        const headH = galleryHead ? galleryHead.offsetHeight : 0;
-        gallerySection.style.height = (headH + pin.offsetHeight + getScrollX()) + 'px';
+        gallerySection.style.height = (pin.offsetHeight + corsa()) + 'px';
       };
       sizeSection();
       /* Reimposta l'altezza ad ogni ricalcolo, PRIMA che ScrollTrigger misuri le posizioni */
       ScrollTrigger.addEventListener('refreshInit', sizeSection);
 
-      /* Lo scroll orizzontale è ancorato alla SEZIONE (non al pin sticky: ScrollTrigger
-         misura male gli elementi sticky). start = quando il pin si aggancia; end = +larghezza
-         da scorrere. Così la striscia scorre esattamente mentre la sezione è "stuck". */
-      const headH = () => (galleryHead ? galleryHead.offsetHeight : 0);
-      const slideStart = () => Math.round(gallerySection.getBoundingClientRect().top + window.scrollY + headH());
+      /* Lo scroll orizzontale è ancorato alla SEZIONE (non al pin sticky:
+         ScrollTrigger misura male gli elementi sticky). start = quando il pin
+         si aggancia (cima sezione = cima schermo); end = +corsa da percorrere. */
+      const slideStart = () => Math.round(gallerySection.getBoundingClientRect().top + window.scrollY);
       const slide = gsap.fromTo(track, { x: 0 }, {
-        x: () => -getScrollX(),
+        x: () => -corsa(),
         ease: 'none',
         scrollTrigger: {
           trigger: gallerySection,
           start: () => slideStart(),
-          end: () => slideStart() + getScrollX(),
+          end: () => slideStart() + corsa(),
           scrub: 1,
           invalidateOnRefresh: true
         }
@@ -2228,14 +2420,50 @@
       extras.forEach((s) => s.classList.add('service--extra'));
       grid.classList.add('is-collapsed');
       const label = btn.querySelector('.services__toggle-label');
+      let inCorso = false;
+      /* la tendina non scatta: prima un contraccolpo verso l'alto, poi scende.
+         In chiusura fa il movimento opposto e la pagina la segue, così non si
+         resta incastrati nella sezione successiva. */
       btn.addEventListener('click', () => {
-        const collapsed = grid.classList.toggle('is-collapsed');
-        btn.setAttribute('aria-expanded', String(!collapsed));
-        label.textContent = collapsed ? 'Tutti i servizi' : 'Mostra meno';
-        if (!collapsed && !prefersReduced) {
-          gsap.fromTo(extras, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out', stagger: 0.05, overwrite: true });
+        if (inCorso) return;
+        const stavaChiusa = grid.classList.contains('is-collapsed');
+        btn.setAttribute('aria-expanded', String(stavaChiusa));
+        label.textContent = stavaChiusa ? (INGLESE ? 'Show less' : 'Mostra meno') : (INGLESE ? 'All amenities' : 'Tutti i servizi');
+
+        if (prefersReduced) {
+          grid.classList.toggle('is-collapsed');
+          if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+          return;
         }
-        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+
+        const hPrima = grid.offsetHeight;
+        grid.classList.toggle('is-collapsed');
+        const hDopo = grid.offsetHeight;
+        const salto = Math.abs(hDopo - hPrima);
+        inCorso = true;
+        grid.style.overflow = 'hidden';
+        gsap.set(grid, { height: hPrima });
+
+        const fine = () => {
+          grid.style.height = '';
+          grid.style.overflow = '';
+          inCorso = false;
+          if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+        };
+
+        const tl = gsap.timeline({ onComplete: fine });
+        const rincorsa = Math.min(16, salto * 0.06); /* il contraccolpo */
+
+        if (stavaChiusa) {
+          tl.to(grid, { height: hPrima - rincorsa, duration: .26, ease: 'power2.out' })
+            .to(grid, { height: hDopo, duration: .95, ease: 'power3.out' });
+          gsap.fromTo(extras, { y: 26, opacity: 0 },
+            { y: 0, opacity: 1, duration: .8, ease: 'power2.out', stagger: .06, delay: .26, overwrite: true });
+        } else {
+          /* la pagina resta dov'è: si chiude solo la tendina */
+          tl.to(grid, { height: hPrima + rincorsa, duration: .26, ease: 'power2.out' })
+            .to(grid, { height: hDopo, duration: .95, ease: 'power3.inOut' });
+        }
       });
     })();
 
@@ -2246,6 +2474,54 @@
         xPercent: prefersReduced ? 0 : (fromLeft ? -12 : 12),
         opacity: 0, duration: 1.1, ease: 'power3.out',
         scrollTrigger: { trigger: '#prenota', start: 'top 75%' }
+      });
+    });
+
+    /* ---------- FAQ: apertura come la tendina dei servizi ----------
+       Stesso movimento: contraccolpo e poi corsa, in apertura e in chiusura.
+       Gestiamo noi il <details> per poterlo animare (il browser lo aprirebbe
+       e chiuderebbe di scatto). */
+    document.querySelectorAll('.faq__item').forEach((det) => {
+      const risposta = det.querySelector('.faq__a');
+      const domanda = det.querySelector('.faq__q');
+      if (!risposta || !domanda) return;
+      let inCorso = false;
+
+      const misura = () => { /* altezza reale della risposta, anche da chiusa */
+        const era = det.open;
+        if (!era) det.open = true;
+        risposta.style.height = 'auto';
+        const h = risposta.scrollHeight;
+        if (!era) det.open = false;
+        return h;
+      };
+
+      domanda.addEventListener('click', (e) => {
+        if (prefersReduced) return; /* niente animazione: comportamento nativo */
+        e.preventDefault();
+        if (inCorso) return;
+        const apre = !det.open;
+        inCorso = true;
+        risposta.style.overflow = 'hidden';
+
+        const piena = misura();
+        det.open = true; /* resta aperto per tutta l'animazione, anche in chiusura */
+        const da = apre ? 0 : piena;
+        const a = apre ? piena : 0;
+        const rincorsa = Math.min(16, piena * 0.06);
+        gsap.set(risposta, { height: da });
+
+        const tl = gsap.timeline({
+          onComplete: () => {
+            det.open = apre;
+            risposta.style.height = '';
+            risposta.style.overflow = '';
+            inCorso = false;
+            if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+          }
+        });
+        tl.to(risposta, { height: da + (apre ? -rincorsa : rincorsa), duration: .26, ease: 'power2.out' })
+          .to(risposta, { height: a, duration: .95, ease: apre ? 'power3.out' : 'power3.inOut' });
       });
     });
 
