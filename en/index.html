@@ -51,7 +51,7 @@
   <meta property="og:image" content="https://www.agriturismobeatilla.it/img/esperienze-ristorante.jpg" />
 
   <!-- ===================== SEO · OPEN GRAPH · LOCAL BUSINESS ===================== -->
-  <meta property="business:contact_data:street_address" content="Corte Barco, Strada Mantova 21" />
+  <meta property="business:contact_data:street_address" content="Strada Mantova 21, Corte Barco" />
   <meta property="business:contact_data:locality" content="Marmirolo" />
   <meta property="business:contact_data:region" content="MN" />
   <meta property="business:contact_data:postal_code" content="46045" />
@@ -122,7 +122,7 @@
         "petsAllowed": false,
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Corte Barco, Strada Mantova 21",
+          "streetAddress": "Strada Mantova 21, Corte Barco",
           "addressLocality": "Marmirolo",
           "addressRegion": "MN",
           "postalCode": "46045",
@@ -211,7 +211,7 @@
         "url": "https://www.agriturismobeatilla.it/",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Corte Barco, Strada Mantova 21",
+          "streetAddress": "Strada Mantova 21, Corte Barco",
           "addressLocality": "Marmirolo",
           "addressRegion": "MN",
           "postalCode": "46045",
@@ -288,6 +288,23 @@
       }
     ]
   }
+  </script>
+
+  <!-- ===================== GOOGLE CONSENT MODE v2 =====================
+       Registra le scelte dell'ospite PRIMA di qualunque strumento Google.
+       Oggi GA4 / Google Ads / Tag Manager NON sono ancora installati: quando
+       ci saranno gli account basterà aggiungere qui sotto il loro script e
+       troveranno il consenso già impostato (in partenza: tutto negato). -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
   </script>
 
   <!-- ===================== FONT LOCALI ===================== -->
@@ -397,19 +414,8 @@
     .loader__bar i { display: block; height: 100%; width: 0%; background: var(--accent); transition: width .35s var(--ease); }
     @media (prefers-reduced-motion: reduce) { .loader { transition: none; } }
 
-    /* Custom cursor — foglia */
-    .cursor-dot, .cursor-leaf {
-      position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
-      opacity: 0; will-change: transform; transition: opacity .4s var(--ease);
-    }
-    .cursor-dot {
-      width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
-      transform: translate(-50%, -50%);
-    }
-    .cursor-leaf svg { display: block; width: 24px; height: 24px; transition: transform .35s var(--ease); transform-origin: 50% 50%; }
-    .cursor-leaf.is-hover svg { transform: scale(1.7); }
-    body.has-cursor, body.has-cursor a, body.has-cursor button { cursor: none; }
-    @media (hover: none), (pointer: coarse) { .cursor-dot, .cursor-leaf { display: none; } }
+    /* Cursore: quello normale del sistema (il cursore a foglia è stato
+       rimosso su richiesta del cliente, luglio 2026) */
 
     .container {
       width: 100%;
@@ -776,7 +782,9 @@
        8. STATS BAR
        ============================================================ */
     .stats { background: var(--text); color: var(--bg); padding-block: clamp(4rem, 10vh, 8rem); }
-    .stats__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+    /* cinque colonne: numero | riga | numero | riga | numero — così le righe
+       verticali sono due, simmetriche, e la griglia non va mai a capo storta */
+    .stats__grid { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 2rem; text-align: center; align-items: stretch; }
     .stat__num { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 500; line-height: 1; }
     .stat__num .suffix { font-size: .5em; vertical-align: super; color: var(--accent); }
     .stat__label { margin-top: .8rem; text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; color: rgba(250,248,244,.6); }
@@ -915,7 +923,9 @@
        ============================================================ */
     .video { position: relative; height: 80vh; min-height: 460px; overflow: hidden; }
     .video .img-slot { position: absolute; inset: 0; }
-    .video .img-slot > img { object-position: center 15%; }
+    /* inquadratura alzata (richiesta cliente): si vede l'artista al tavolo
+       con i quadri sopra, non il pavimento */
+    .video .img-slot > img { object-position: center 62%; }
 
     /* ============================================================
        11. TESTIMONIALS
@@ -1004,6 +1014,44 @@
       .wa-fab { left: auto; right: 1.4rem; width: 54px; height: 54px; }
       .wa-fab svg { width: 29px; height: 29px; }
     }
+
+    /* ============================================================
+       BANNER COOKIE (Consent Mode v2)
+       ============================================================ */
+    .cookiebar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 2000;
+      background: var(--text); color: var(--bg);
+      padding: 1.1rem var(--gutter) calc(1.1rem + env(safe-area-inset-bottom, 0px));
+      box-shadow: 0 -12px 30px rgba(26,26,24,.25);
+    }
+    .cookiebar__inner { max-width: var(--maxw); margin-inline: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+    .cookiebar__testo { font-size: .88rem; line-height: 1.6; color: rgba(250,248,244,.85); flex: 1 1 34ch; margin: 0; }
+    .cookiebar__testo a { text-decoration: underline; text-underline-offset: 3px; }
+    .cookiebar__scelte { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: .5rem 1.6rem; }
+    .cookiebar__scelte[hidden] { display: none; } /* il display:flex vincerebbe sull'attributo hidden */
+    .cookiebar__voce { display: inline-flex; align-items: center; gap: .5rem; font-size: .84rem; color: rgba(250,248,244,.85); }
+    .cookiebar__voce input { accent-color: var(--accent); width: 16px; height: 16px; }
+    .cookiebar__voce--fissa { color: rgba(250,248,244,.55); }
+    .cookiebar__azioni { display: flex; flex-wrap: wrap; gap: .6rem; margin-left: auto; }
+    .cookiebar__btn {
+      padding: .65rem 1.2rem; border-radius: 999px;
+      border: 1px solid rgba(250,248,244,.4); background: transparent; color: var(--bg);
+      font-family: var(--sans); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase;
+      cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+    }
+    .cookiebar__btn:hover { border-color: var(--bg); }
+    .cookiebar__btn--pieno { background: var(--bg); color: var(--text); border-color: var(--bg); }
+    .cookiebar__btn--pieno:hover { background: var(--accent); border-color: var(--accent); color: var(--white); }
+    @media (max-width: 768px) {
+      .cookiebar__azioni { margin-left: 0; width: 100%; }
+      .cookiebar__btn { flex: 1 1 auto; }
+    }
+    /* il rimando "Preferenze Cookie" nel piè di pagina, vestito come i link accanto */
+    .footer__legal button {
+      background: none; border: none; padding: 0; cursor: pointer;
+      font: inherit; color: rgba(250,248,244,.45); transition: color .3s var(--ease);
+    }
+    .footer__legal button:hover { color: rgba(250,248,244,.8); }
 
     /* ============================================================
        12b. FAQ
@@ -1446,10 +1494,10 @@
         <div class="exp__grid">
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img width="1000" height="1500" src="../img/esperienze-colazione.webp" srcset="../img/esperienze-colazione-800.webp 800w, ../img/esperienze-colazione.webp 1000w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="The Breakfast Basket with homemade produce" data-img-parallax loading="lazy" decoding="async" />
+              <img width="1200" height="759" src="../img/esperienze-cestino.webp" srcset="../img/esperienze-cestino-800.webp 800w, ../img/esperienze-cestino.webp 1200w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="The Breakfast Basket delivered to your room" data-img-parallax loading="lazy" decoding="async" />
             </div>
-            <span class="label cat">&ldquo;Beatillino&rdquo; Art Gallery Breakfast</span>
-            <h3>Breakfast Room Beatillino</h3>
+            <span class="label cat">Breakfast basket</span>
+            <h3>Breakfast in your room</h3>
           </article>
           <article class="exp__card" data-card>
             <div class="img-slot">
@@ -1467,10 +1515,10 @@
           </article>
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img width="1000" height="1500" src="../img/esperienze-giardino.webp" srcset="../img/esperienze-giardino-800.webp 800w, ../img/esperienze-giardino.webp 1000w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="A quiet corner of the shabby-chic garden, with turquoise shutters and plants" data-img-parallax loading="lazy" decoding="async" />
+              <img width="1000" height="1500" src="../img/esperienze-colazione.webp" srcset="../img/esperienze-colazione-800.webp 800w, ../img/esperienze-colazione.webp 1000w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="The homemade breakfast of the Breakfast Room Beatillino" data-img-parallax loading="lazy" decoding="async" />
             </div>
-            <span class="label cat">A quiet corner</span>
-            <h3>Shabby Chic Garden</h3>
+            <span class="label cat">Breakfast Room Beatillino</span>
+            <h3>Homemade breakfast</h3>
           </article>
         </div>
       </div>
@@ -1710,7 +1758,7 @@
         <div class="contact__info">
           <div class="contact__row">
             <span class="k">Address</span>
-            <span class="v">Corte Barco · Strada Mantova 21<br>46045 Marmirolo (MN), Italy</span>
+            <span class="v">Strada Mantova 21, Corte Barco<br>46045 Marmirolo (MN), Italy</span>
           </div>
           <div class="contact__row">
             <span class="k">Phone</span>
@@ -1862,10 +1910,40 @@
       </div>
       <div class="footer__bottom">
         <span class="footer__meta">&copy; 2026 Agriturismo Beatilla &middot; Beatilla Soc. Agr. S.S. &middot; Tax Code &amp; VAT no. 02135460208 &middot; REA MN-227249 &middot; Registered with the Mantua Companies Register &middot; Registered office: Strada Mantova 21, Corte Barco, 46045 Marmirolo (MN), Italy &middot; CIN IT020033B58ABGALVM</span>
-        <span class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="cookie.html">Cookie Policy</a></span>
+        <span class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="cookie.html">Cookie Policy</a><button type="button" id="apriPreferenzeCookie">Cookie Preferences</button></span>
       </div>
     </div>
   </footer>
+
+  <!-- ===================== BANNER COOKIE ===================== -->
+  <div class="cookiebar" id="cookieBar" role="region" aria-label="Preferenze cookie" hidden>
+    <div class="cookiebar__inner">
+      <p class="cookiebar__testo">
+        This site uses technical cookies and, only with your consent, statistics
+        (Google Analytics 4) and marketing (Google Ads) tools. You can change your choice at any time
+        from &ldquo;Cookie Preferences&rdquo; at the bottom of the page. <a href="cookie.html">Cookie Policy</a>
+      </p>
+      <div class="cookiebar__scelte" id="cookiebarScelte" hidden>
+        <label class="cookiebar__voce cookiebar__voce--fissa">
+          <input type="checkbox" checked disabled />
+          <span>Technical cookies — always on</span>
+        </label>
+        <label class="cookiebar__voce">
+          <input type="checkbox" id="consensoStatistica" />
+          <span>Statistics — Google Analytics 4</span>
+        </label>
+        <label class="cookiebar__voce">
+          <input type="checkbox" id="consensoMarketing" />
+          <span>Marketing — Google Ads</span>
+        </label>
+      </div>
+      <div class="cookiebar__azioni">
+        <button class="cookiebar__btn" type="button" id="cookieRifiuta">Reject non-essential</button>
+        <button class="cookiebar__btn" type="button" id="cookiePersonalizza">Customise</button>
+        <button class="cookiebar__btn cookiebar__btn--pieno" type="button" id="cookieAccetta">Accept all</button>
+      </div>
+    </div>
+  </div>
 
   <!-- ===================== CDN: GSAP + ScrollTrigger ===================== -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -2027,6 +2105,67 @@
       registrate = true;
       segna(); /* se era tutto già in cache, esce subito */
     }
+
+    /* ---------- CONSENSO COOKIE (Google Consent Mode v2) ----------
+       Il banner registra la scelta (12 mesi) e la comunica al Consent Mode:
+       oggi non c'è alcuno script di Google da attivare, ma quando verranno
+       installati GA4 / Google Ads / Tag Manager troveranno il consenso già
+       impostato e partiranno solo se autorizzati. */
+    (() => {
+      const barra = document.getElementById('cookieBar');
+      if (!barra) return;
+      const CHIAVE = 'beatilla-consenso';
+      const DODICI_MESI = 365 * 24 * 60 * 60 * 1000;
+      const scelte = document.getElementById('cookiebarScelte');
+      const chkStat = document.getElementById('consensoStatistica');
+      const chkMark = document.getElementById('consensoMarketing');
+      const btnPers = document.getElementById('cookiePersonalizza');
+
+      const applica = (c) => {
+        if (typeof gtag === 'function') gtag('consent', 'update', {
+          analytics_storage: c.statistica ? 'granted' : 'denied',
+          ad_storage: c.marketing ? 'granted' : 'denied',
+          ad_user_data: c.marketing ? 'granted' : 'denied',
+          ad_personalization: c.marketing ? 'granted' : 'denied'
+        });
+      };
+      const leggi = () => {
+        try {
+          const v = JSON.parse(localStorage.getItem(CHIAVE));
+          if (v && typeof v.quando === 'number' && Date.now() - v.quando < DODICI_MESI) return v;
+        } catch (e) {}
+        return null;
+      };
+      const testoPersonalizza = () => { btnPers.textContent = scelte.hidden ? (INGLESE ? 'Customise' : 'Personalizza') : (INGLESE ? 'Save choices' : 'Salva le scelte'); };
+      const chiudi = () => { barra.hidden = true; scelte.hidden = true; testoPersonalizza(); };
+      const salva = (statistica, marketing) => {
+        const c = { statistica: !!statistica, marketing: !!marketing, quando: Date.now() };
+        try { localStorage.setItem(CHIAVE, JSON.stringify(c)); } catch (e) {}
+        applica(c);
+        chiudi();
+      };
+      const apri = (conScelte) => {
+        const c = leggi();
+        chkStat.checked = !!(c && c.statistica);
+        chkMark.checked = !!(c && c.marketing);
+        scelte.hidden = !conScelte;
+        testoPersonalizza();
+        barra.hidden = false;
+      };
+
+      document.getElementById('cookieAccetta').addEventListener('click', () => salva(true, true));
+      document.getElementById('cookieRifiuta').addEventListener('click', () => salva(false, false));
+      btnPers.addEventListener('click', () => {
+        if (scelte.hidden) { scelte.hidden = false; testoPersonalizza(); }
+        else salva(chkStat.checked, chkMark.checked);
+      });
+      const daFooter = document.getElementById('apriPreferenzeCookie');
+      if (daFooter) daFooter.addEventListener('click', () => apri(true));
+
+      const esistente = leggi();
+      if (esistente) applica(esistente);
+      else apri(false); /* prima visita: il banner compare (sotto la schermata di caricamento, si vede quando lei si toglie) */
+    })();
 
     /* ---------- Hero video: anche su telefono ----------
        Parte SUBITO: ha la precedenza sulla banda, è la schermata di
@@ -2619,50 +2758,6 @@
     window.addEventListener('pageshow', (e) => { if (e.persisted) rimisuraAccorpata(); });
   })();
 
-  /* ---------- CUSTOM CURSOR (foglia) ---------- */
-  (() => {
-    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (!fine) return;
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const dot = document.createElement('div'); dot.className = 'cursor-dot';
-    const leaf = document.createElement('div'); leaf.className = 'cursor-leaf';
-    leaf.innerHTML = '<svg viewBox="0 0 24 24" fill="none"><path d="M4 20c0-9 7-16 16-16 0 9-7 16-16 16Z" fill="#7A6A52"/><path d="M5.5 18.5C9 13 13.5 9 19.5 6" stroke="#FAF8F4" stroke-width="1.2" stroke-linecap="round"/></svg>';
-    document.body.append(dot, leaf);
-    document.body.classList.add('has-cursor');
-    const interactive = 'a, button, [role="button"], input, textarea, select, .service, .exp__card, .visit__card, .press__item';
-    let mx = 0, my = 0, lx = 0, ly = 0, rot = 0;
-    const ease = reduce ? 1 : 0.16;
-    const show = () => { dot.style.opacity = '1'; leaf.style.opacity = '1'; };
-    const hide = () => { dot.style.opacity = '0'; leaf.style.opacity = '0'; };
-    /* La foglia inseguiva il puntatore con un ciclo sempre acceso, anche a mouse
-       fermo: ora il ciclo si spegne da solo quando è arrivata a destinazione e
-       riparte al primo movimento. Un fotogramma in meno da spendere mentre si
-       scorre. */
-    let acceso = false;
-    const loop = () => {
-      const dx = mx - lx, dy = my - ly;
-      lx += dx * ease; ly += dy * ease;
-      const target = Math.max(-26, Math.min(26, dx * 1.4));
-      rot += (target - rot) * (reduce ? 1 : 0.12);
-      leaf.style.left = lx + 'px'; leaf.style.top = ly + 'px';
-      leaf.style.transform = 'translate(-50%, -50%) rotate(' + rot.toFixed(2) + 'deg)';
-      if (Math.abs(dx) < 0.1 && Math.abs(dy) < 0.1 && Math.abs(target - rot) < 0.1) { acceso = false; return; }
-      requestAnimationFrame(loop);
-    };
-    const accendi = () => { if (!acceso) { acceso = true; requestAnimationFrame(loop); } };
-    window.addEventListener('mousemove', (e) => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-      show();
-      accendi();
-    });
-    accendi();
-    document.addEventListener('mouseover', (e) => { if (e.target.closest(interactive)) leaf.classList.add('is-hover'); });
-    document.addEventListener('mouseout', (e) => { if (e.target.closest(interactive)) leaf.classList.remove('is-hover'); });
-    document.addEventListener('mouseout', (e) => { if (!e.relatedTarget) hide(); });
-    document.addEventListener('mouseover', show);
-    window.addEventListener('blur', hide);
-  })();
   </script>
   <a class="wa-fab" href="https://wa.me/393478444484?text=Hi%21%20I%27d%20love%20to%20stay%20with%20you.%20May%20I%20ask%20you%20a%20few%20questions%3F" target="_blank" rel="noopener" aria-label="Message us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.234.54 0 8.23 3.69 8.24 8.23 0 4.54-3.7 8.24-8.24 8.24z"/></svg></a>
 </body>
