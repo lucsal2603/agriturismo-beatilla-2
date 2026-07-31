@@ -491,7 +491,18 @@
       padding-top: .9rem;
       padding-bottom: .9rem;
     }
-    .nav__brand { font-family: var(--serif); font-size: 1.5rem; letter-spacing: .01em; white-space: nowrap; }
+    /* Il marchio in alto è il logo del cliente. Il file è arancione su fondo
+       trasparente: sopra al video lo mostriamo BIANCO (l'arancione non si
+       leggerebbe), mentre a barra piena — dove il fondo è chiaro — torna del
+       suo colore. Un solo file per i due stati, nessun doppio scaricamento. */
+    .nav__brand { display: flex; align-items: center; }
+    .nav__brand img {
+      height: clamp(30px, 4.2vw, 40px); width: auto;
+      filter: brightness(0) invert(1); /* bianco sopra al video */
+      transition: filter .5s var(--ease), height .35s var(--ease);
+    }
+    .nav.scrolled .nav__brand img,
+    body.menu-open .nav__brand img { filter: none; } /* fondo chiaro: logo nei suoi colori */
     .nav__links { display: flex; align-items: center; gap: clamp(1rem, 2.4vw, 2.4rem); }
     .nav__links a {
       font-size: .8rem;
@@ -1127,8 +1138,9 @@
       /* A tendina aperta nella barra convivono logo, pillola della lingua e X.
          Sui telefoni stretti il logo si stringe quel tanto che basta perché la
          pillola non lo tocchi (solo mentre la tendina è aperta). */
-      .nav__brand { transition: font-size .35s var(--ease); }
-      body.menu-open .nav__brand { font-size: clamp(1.05rem, 4.4vw, 1.5rem); }
+      /* A tendina aperta il logo si stringe un po': nella barra devono starci
+         insieme logo, pillola della lingua e X. */
+      body.menu-open .nav__brand img { height: clamp(24px, 6.4vw, 32px); }
       body.menu-open .nav__links { display: flex; align-items: center; margin-left: auto; margin-right: 18px; }
       body.menu-open .nav__links > *:not(.nav__lang) { display: none; }
       body.menu-open .nav__links .nav__lang {
@@ -1219,7 +1231,9 @@
 
   <!-- ===================== 1. NAVIGATION ===================== -->
   <header class="nav" id="nav">
-    <a class="nav__brand" href="#top">Agriturismo Beatilla</a>
+    <a class="nav__brand" href="#top">
+      <img src="../img/logo-beatilla.png" width="318" height="65" alt="Agriturismo Beatilla" />
+    </a>
     <nav class="nav__links" aria-label="Main navigation">
       <a href="#storia">About us</a>
       <a href="#camere">Rooms</a>
