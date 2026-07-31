@@ -1024,7 +1024,15 @@
     .wa-fab:hover { background: #1da851; transform: translateY(-2px); }
     .wa-fab:active { transform: scale(.94); }
     body.menu-open .wa-fab { opacity: 0; pointer-events: none; }
-    @media (prefers-reduced-motion: reduce) { .wa-fab { transition: none; } }
+    /* Galleggia piano, come una boa. Uso la proprietà "translate" e non
+       "transform": così il sollevamento al passaggio del mouse e la pressione
+       (che usano transform) si sommano al movimento invece di cancellarlo.
+       Col puntatore sopra il galleggiamento si ferma: un bersaglio che si
+       muove mentre si sta per premere è fastidioso. */
+    @keyframes galleggia { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+    .wa-fab { animation: galleggia 3.4s ease-in-out infinite; }
+    .wa-fab:hover, .wa-fab:focus-visible { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) { .wa-fab { transition: none; animation: none; } }
     /* Su schermi grandi "Prenota" sta nella barra in alto: l'angolo in basso
        a destra è libero e il pulsante WhatsApp va lì, un filo più grande. */
     @media (min-width: 769px) {
