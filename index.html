@@ -805,8 +805,8 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-areas:
-        "sx  .    dx"
-        ".   giu  .";
+        "sx     rigaAlto  dx"
+        "rigaSx giu       rigaDx";
       column-gap: 1rem;
       row-gap: clamp(2rem, 5vw, 3.4rem);
       text-align: center;
@@ -814,10 +814,18 @@
     .stat--sx { grid-area: sx; }
     .stat--dx { grid-area: dx; }
     .stat--giu { grid-area: giu; }
-    /* le diagonali: il riquadro si stira con la sezione, il tratto resta
-       di 1px grazie a non-scaling-stroke */
-    .stats__linee { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
-    .stats__linee line { stroke: rgba(250,248,244,.32); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    /* i tre trattini verticali del sito storico: uno in alto al centro,
+       due in basso ai lati — sono loro a disegnare il triangolo */
+    .stats__riga {
+      /* su telefono i trattini si accorciano con la fascia */
+      width: 1px; justify-self: center; align-self: center;
+      height: clamp(52px, 9vh, 96px);
+      background: rgba(250,248,244,.35);
+      transform-origin: center;
+    }
+    .stats__riga--alto { grid-area: rigaAlto; }
+    .stats__riga--bassoSx { grid-area: rigaSx; }
+    .stats__riga--bassoDx { grid-area: rigaDx; }
     .stat__num { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 500; line-height: 1; }
     .stat__num .suffix { font-size: .5em; vertical-align: super; color: var(--accent); }
     .stat__label { margin-top: .8rem; text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; color: rgba(250,248,244,.6); }
@@ -1201,7 +1209,8 @@
       .service p { font-size: .85rem; line-height: 1.5; }
       .visit__grid { grid-template-columns: 1fr; }
       /* il triangolo resta anche su telefono, solo più raccolto */
-      .stats__grid { column-gap: .3rem; row-gap: 1.8rem; }
+      .stats__grid { column-gap: .3rem; row-gap: 1.4rem; }
+      .stats__riga { height: clamp(38px, 7vh, 60px); }
       .stat__num { font-size: clamp(2rem, 10vw, 3.2rem); }
       .stat__label { margin-top: .5rem; font-size: .56rem; letter-spacing: .1em; }
       /* horizontal gallery -> vertical stack */
@@ -1522,18 +1531,17 @@
             <div class="stat__num"><span data-count="14">0</span></div>
             <div class="stat__label">Alloggi</div>
           </div>
+          <span class="stats__riga stats__riga--alto" aria-hidden="true"></span>
           <div class="stat stat--dx">
             <div class="stat__num"><span data-count="500">0</span></div>
             <div class="stat__label">Anni di storia</div>
           </div>
+          <span class="stats__riga stats__riga--bassoSx" aria-hidden="true"></span>
           <div class="stat stat--giu">
             <div class="stat__num"><span data-count="10">0</span></div>
             <div class="stat__label">Ettari</div>
           </div>
-          <svg class="stats__linee" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-            <line x1="29" y1="41" x2="43" y2="61" />
-            <line x1="71" y1="41" x2="57" y2="61" />
-          </svg>
+          <span class="stats__riga stats__riga--bassoDx" aria-hidden="true"></span>
         </div>
       </div>
     </section>
@@ -2655,18 +2663,11 @@
       });
     });
 
-    /* ---------- STATS: le due diagonali del triangolo ----------
-       Si allungano dai numeri in alto verso quello in basso. Cresce il
-       punto di arrivo del segmento invece di usare i trattini: il riquadro
-       del disegno è stirato in larghezza e un tratteggio ne uscirebbe
-       deformato sugli schermi larghi. */
-    gsap.utils.toArray('.stats__linee line').forEach((l, i) => {
-      const x1 = l.getAttribute('x1'), y1 = l.getAttribute('y1');
-      gsap.from(l, {
-        attr: { x2: x1, y2: y1 },
-        duration: .9, ease: 'power2.inOut', delay: i * .12,
-        scrollTrigger: { trigger: '.stats__grid', start: 'top 80%', once: true }
-      });
+    /* ---------- STATS: i tre trattini del diagramma ----------
+       Crescono in altezza quando la fascia entra in scena. */
+    gsap.from('.stats__riga', {
+      scaleY: 0, opacity: 0, duration: .8, ease: 'power2.out', stagger: .1,
+      scrollTrigger: { trigger: '.stats__grid', start: 'top 80%', once: true }
     });
 
     /* ---------- ESPERIENZE: staggered cards via batch() ---------- */
