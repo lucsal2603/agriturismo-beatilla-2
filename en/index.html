@@ -1230,6 +1230,9 @@
       .gallery__item .img-slot { width: 100%; height: auto; aspect-ratio: 2 / 3; }
       /* La card "Venite a viverlo" esiste solo su desktop: nel rullino in loop del telefono non c'è */
       .gallery__item--fine { display: none; }
+      /* cintura di sicurezza: qualunque altezza scritta dal codice per lo
+         scorrimento orizzontale non vale su schermo piccolo */
+      .gallery { height: auto !important; }
       /* Immagine full-bleed "Beatilla" sotto l'artista: su telefono mostrala per intero invece di ritagliarla */
       .video { height: auto; min-height: 0; }
       .video .img-slot { position: static; }
@@ -2528,6 +2531,16 @@
       /* Titolo dentro il pin: l'altezza extra della sezione (per lo scroll
          orizzontale mentre è agganciata) è la corsa da percorrere. */
       const sizeSection = () => {
+        /* Se la finestra scende sotto la soglia dei telefoni (finestra
+           ristretta a mano, o tablet che ruota) il ramo desktop NON deve
+           lasciare in eredità l'altezza extra: senza questo la striscia
+           resta alta migliaia di px e fra lei e la fascia dei numeri si
+           apre un vuoto enorme. */
+        if (isMobile()) {
+          gallerySection.style.height = '';
+          gsap.set(track, { x: 0 });
+          return;
+        }
         gallerySection.style.height = (pin.offsetHeight + corsa()) + 'px';
       };
       sizeSection();
@@ -2552,6 +2565,24 @@
           scrub: 0.3,
           invalidateOnRefresh: true
         }
+      });
+
+      /* Ridimensionando la finestra si può attraversare la soglia dei
+         telefoni: lì lo scorrimento orizzontale non ha più senso, quindi lo
+         spegniamo (e lo riaccendiamo tornando larghi) rimettendo ogni volta
+         l'altezza giusta. */
+      let attesaRidimensiona;
+      window.addEventListener('resize', () => {
+        clearTimeout(attesaRidimensiona);
+        attesaRidimensiona = setTimeout(() => {
+          const piccolo = isMobile();
+          if (slide.scrollTrigger) {
+            if (piccolo) slide.scrollTrigger.disable(false);
+            else slide.scrollTrigger.enable();
+          }
+          sizeSection();
+          ScrollTrigger.refresh();
+        }, 150);
       });
     } else if (track && pin && isMobile() && !prefersReduced) {
       /* SCHERMI PICCOLI: striscia che scorre da sola in loop e che si può
