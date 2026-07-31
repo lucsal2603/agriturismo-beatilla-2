@@ -1236,7 +1236,7 @@
     </div>
   </div>
 
-  <script>/* Evita il salto del pin orizzontale al ricaricamento: la pagina riparte sempre dall'alto */if('scrollRestoration' in history){history.scrollRestoration='manual';}</script>
+  <script>/* Il ripristino della posizione lo gestiamo noi (vedi "DOVE ERAVAMO RIMASTI"): quello del browser avverrebbe mentre la schermata di caricamento blocca lo scorrimento, quindi andrebbe perso */if('scrollRestoration' in history){history.scrollRestoration='manual';}</script>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- ===================== 1. NAVIGATION ===================== -->
@@ -2346,7 +2346,7 @@
        ScrollTrigger rimisurava tutta la pagina e lo scorrimento si inchiodava. */
     ScrollTrigger.config({ ignoreMobileResize: true });
     /* Parti dall'alto: evita che un reload a metà pagina mostri il pin in uno stato sbagliato */
-    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; window.scrollTo(0, 0); }
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
     /* ---------- HERO load animation ----------
        Parte quando la schermata di caricamento si toglie, non prima:
@@ -2358,7 +2358,53 @@
       heroTl.from('.hero__label', { y: 20, opacity: 0, duration: 0.9 }, 0.1);
       heroTl.from('.hero__scroll', { opacity: 0, duration: 0.8 }, 1.0);
     }
-    viaLoader = () => { heroTl.play(); ScrollTrigger.refresh(); };
+    /* ---------- DOVE ERAVAMO RIMASTI ----------
+       Ricaricando la pagina, o tornando indietro dalla privacy o dalla versione
+       in altra lingua, si riparte dal punto in cui si stava leggendo invece che
+       dall'inizio del sito. La posizione viene salvata mentre si scorre e
+       ripristinata quando la pagina è davvero pronta — cioè dopo che le
+       animazioni legate allo scorrimento hanno ricalcolato le loro posizioni,
+       altrimenti si atterrerebbe nel punto sbagliato. */
+    const CHIAVE_POS = 'beatilla-pos:' + location.pathname;
+    let salvaT;
+    const salvaPosizione = () => {
+      try { sessionStorage.setItem(CHIAVE_POS, String(Math.round(window.scrollY))); } catch (e) {}
+    };
+    window.addEventListener('scroll', () => {
+      clearTimeout(salvaT);
+      salvaT = setTimeout(salvaPosizione, 200);
+    }, { passive: true });
+    /* pagehide copre anche iOS, dove beforeunload non è affidabile */
+    window.addEventListener('pagehide', salvaPosizione);
+    window.addEventListener('beforeunload', salvaPosizione);
+
+    /* la pagina ha lo scorrimento morbido: all'apertura serve un salto secco,
+       altrimenti si vedrebbe scorrere tutto il sito fino al punto d'arrivo */
+    const saltoSecco = (azione) => {
+      const morbido = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+      azione();
+      document.documentElement.style.scrollBehavior = morbido;
+      ScrollTrigger.update();
+    };
+
+    const tornaDoveEravamo = () => {
+      /* Se si arriva con un'ancora (es. /#servizi da un link o da Google) comanda
+         quella, non la memoria. Ci pensiamo noi: il browser ci proverebbe mentre
+         la schermata di caricamento blocca ancora lo scorrimento, e fallirebbe. */
+      let bersaglio = null;
+      try { bersaglio = location.hash.length > 1 ? document.querySelector(location.hash) : null; } catch (e) {}
+      if (bersaglio) return saltoSecco(() => bersaglio.scrollIntoView());
+
+      let y = 0;
+      try { y = parseInt(sessionStorage.getItem(CHIAVE_POS) || '0', 10) || 0; } catch (e) {}
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      y = Math.min(y, Math.max(0, max));
+      if (y < 40) return;
+      saltoSecco(() => window.scrollTo(0, y));
+    };
+
+    viaLoader = () => { heroTl.play(); ScrollTrigger.refresh(); tornaDoveEravamo(); };
 
     /* ---------- INTRO line-by-line clip reveal ---------- */
     gsap.utils.toArray('.reveal-line > span').forEach((line) => {
@@ -2777,11 +2823,12 @@
       clearTimeout(attesaRimisura);
       attesaRimisura = setTimeout(() => ScrollTrigger.refresh(), 200);
     };
-    window.addEventListener('load', rimisuraAccorpata);
+    window.addEventListener('load', () => { ScrollTrigger.refresh(); tornaDoveEravamo(); });
     /* i caratteri caricano in "swap": quando arrivano cambiano l'altezza dei
        titoli, quindi qui la rimisurazione serve davvero */
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(rimisuraAccorpata);
-    /* ritorno indietro dalla cache del browser: la pagina riappare com'era */
+    /* ritorno indietro dalla cache del browser: la posizione la ripristina già
+       il browser, a noi basta riallineare le animazioni */
     window.addEventListener('pageshow', (e) => { if (e.persisted) rimisuraAccorpata(); });
   })();
 
