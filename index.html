@@ -751,17 +751,25 @@
     .gallery { position: relative; }
     /* Il titolo "Frammenti / Vita in campagna" sta DENTRO il pin, così resta
        a schermo mentre le foto scorrono in orizzontale. Il pin è una colonna:
-       titolo in alto + striscia foto centrata nello spazio rimanente; sta
+       striscia foto ANCORATA IN BASSO (distanza fissa dal fondo della sezione,
+       qualunque sia l'altezza dello schermo) e titolo centrato nello spazio
+       che resta sopra — se lo schermo è più alto delle foto, l'avanzo respira
+       attorno al titolo invece di aprire un vuoto sotto le didascalie. Sta
        agganciato con position:sticky DENTRO la sezione, quindi non può mai
        sovrapporsi alle Camere. L'altezza extra della sezione (per lo scroll
        orizzontale) viene impostata via JS. */
     .gallery__pin { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; flex-direction: column; overflow: hidden; }
-    .gallery__head { flex: none; padding: clamp(1.8rem, 5vh, 3.4rem) var(--gutter) 0; text-align: center; }
+    /* padding-top = altezza della barra fissa: il titolo si centra nello
+       spazio VISIBILE sotto di lei, mai coperto (sugli schermi bassi prima
+       la label "Frammenti" finiva dietro la barra) */
+    .gallery__head { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; padding: 4.5rem var(--gutter) .75rem; text-align: center; }
     .gallery__head h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 1rem; }
-    .gallery__track { flex: 1; display: flex; align-items: center; gap: 2rem; padding-inline: var(--gutter); will-change: transform; }
+    .gallery__track { flex: none; display: flex; align-items: flex-end; gap: 2rem; padding: 0 var(--gutter) 2.5rem; will-change: transform; }
     .gallery__item { flex: 0 0 auto; }
-    /* immagine + didascalia devono stare nello schermo insieme al titolo */
-    .gallery__item .img-slot { height: min(600px, calc(100svh - 250px)); aspect-ratio: 2 / 3; width: auto; }
+    /* immagine + didascalia devono stare nello schermo insieme al titolo:
+       i 320px sottratti = barra fissa (72) + titolo (~140) + didascalia e
+       distanza fissa dal fondo (~90) + un filo di respiro */
+    .gallery__item .img-slot { height: min(600px, calc(100svh - 320px)); aspect-ratio: 2 / 3; width: auto; }
     /* Loop continuo della striscia su mobile (lo scorrimento esatto è --marquee-shift, calcolato in JS) */
     @keyframes gallery-marquee {
       from { transform: translateX(0); }
@@ -771,8 +779,10 @@
     /* La cascina inquadrata sulla scritta turchese del timpano: la scritta sta
        al 37% della larghezza della foto, la finestra 2:3 mostra il 44% → 27% */
     .img-slot > img.gallery__img--cascina { object-position: 27% 50%; }
-    /* Chiusura della striscia: dopo l'ultima foto, un invito al posto di un'immagine */
-    .gallery__item--fine { display: flex; align-items: center; }
+    /* Chiusura della striscia: dopo l'ultima foto, un invito al posto di un'immagine.
+       align-self: stretch = alta quanto le foto, così l'invito resta centrato
+       rispetto a loro anche con la striscia ancorata in basso. */
+    .gallery__item--fine { display: flex; align-items: center; align-self: stretch; }
     .gallery__fine { min-width: min(420px, 40vw); padding-right: clamp(1rem, 4vw, 3rem); }
     /* su tablet la chiusura si stringe: entra tutta senza allungare troppo la corsa */
     @media (max-width: 1024px) { .gallery__fine { min-width: min(300px, 62vw); } }
@@ -1224,7 +1234,7 @@
          spento: è lui che litigava col gesto e la faceva restare ferma. Alla
          pagina resta lo scorrimento verticale (touch-action: pan-y). */
       .gallery__pin.is-marquee { overflow: hidden; touch-action: pan-y; }
-      .gallery__track { flex-direction: row; width: max-content; transform: none; padding-inline: 0; gap: 1rem; align-items: flex-start; }
+      .gallery__track { flex-direction: row; width: max-content; transform: none; padding-inline: 0; padding-bottom: 0; gap: 1rem; align-items: flex-start; }
       .gallery__item { width: 60vw; max-width: 240px; margin: 0; }
       .gallery__item .img-slot { width: 100%; height: auto; aspect-ratio: 2 / 3; }
       /* La card "Venite a viverlo" esiste solo su desktop: nel rullino in loop del telefono non c'è */
