@@ -814,6 +814,9 @@
     .exp__card { will-change: transform, opacity; }
     .exp__card .img-slot { width: 100%; aspect-ratio: 3 / 4; margin-bottom: 1.6rem; }
     .exp__card .cat { display: block; margin-bottom: 1rem; }
+    /* Il cestino sta in fondo alla fotografia: senza questo, il riquadro 3:4
+       inquadrerebbe soprattutto il muro rosa sopra di lui. */
+    .img-slot > img.exp__img--cestino { object-position: center 82%; }
     /* Al passaggio del mouse il titolo resta nero, senza cambiare colore (richiesta cliente) */
     .exp__card h3 { font-size: 1.8rem; margin-top: 0; line-height: 1.2; }
 
@@ -1516,7 +1519,7 @@
         <div class="exp__grid">
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img width="1200" height="759" src="img/esperienze-cestino.webp" srcset="img/esperienze-cestino-800.webp 800w, img/esperienze-cestino.webp 1200w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="La colazione del Breakfast Basket consegnata in camera" data-img-parallax loading="lazy" decoding="async" />
+              <img class="exp__img--cestino" width="1200" height="1800" src="img/esperienze-cestino.webp" srcset="img/esperienze-cestino-800.webp 800w, img/esperienze-cestino.webp 1200w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="Il cestino della colazione con latte e caffettiera, lasciato davanti alla porta dell'alloggio" data-img-parallax loading="lazy" decoding="async" />
             </div>
             <span class="label cat">Breakfast basket</span>
             <h3>Colazione in camera</h3>
