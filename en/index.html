@@ -27,6 +27,7 @@
   <link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/" />
   <link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/" />
   <link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/en/" />
+  <link rel="preload" as="image" href="../img/logo-beatilla.png" fetchpriority="high" />
   <link rel="preload" as="image" href="../img/frammenti-animali.webp" imagesrcset="../img/frammenti-animali-800.webp 800w, ../img/frammenti-animali.webp 1600w" imagesizes="100vw" fetchpriority="high" />
 
   <!-- ===================== SEO · GEO (local) ===================== -->
@@ -412,7 +413,9 @@
     .loader.via { opacity: 0; visibility: hidden; }
     body.caricamento { overflow: hidden; } /* niente scroll dietro la schermata */
     .loader__inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: var(--gutter); }
-    .loader__brand { font-family: var(--serif); font-size: clamp(1.5rem, 6vw, 2.4rem); color: var(--text); }
+    /* Il logo arancio al posto della scritta: largo come la barra sotto,
+       cosi il blocco resta in colonna e centrato. */
+    .loader__brand { display: block; width: min(260px, 62vw); height: auto; }
     .loader__tag { font-size: var(--label-size); letter-spacing: var(--label-spacing); text-transform: uppercase; color: var(--accent); }
     .loader__bar { width: min(190px, 52vw); height: 2px; margin-top: .8rem; background: rgba(26,26,24,.12); overflow: hidden; }
     .loader__bar i { display: block; height: 100%; width: 0%; background: var(--accent); transition: width .35s var(--ease); }
@@ -1285,7 +1288,7 @@
        non sono pronti, con un tetto di sicurezza. -->
   <div class="loader" id="loader">
     <div class="loader__inner">
-      <span class="loader__brand">Agriturismo Beatilla</span>
+      <img class="loader__brand" src="../img/logo-beatilla.png" width="318" height="65" alt="Agriturismo Beatilla" fetchpriority="high" decoding="async" />
       <span class="loader__tag">Mantua · Since 1498</span>
       <div class="loader__bar"><i id="loaderBar"></i></div>
     </div>
