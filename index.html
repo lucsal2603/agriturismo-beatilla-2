@@ -158,9 +158,13 @@
         "containsPlace": [
           { "@type": "Accommodation", "name": "Camera Pomodoro" },
           { "@type": "Accommodation", "name": "Camera Mandarino" },
+          { "@type": "Accommodation", "name": "Camera Melanzana" },
+          { "@type": "Accommodation", "name": "Camera Zucca" },
+          { "@type": "Accommodation", "name": "Appartamento Mela Verde" },
           { "@type": "Accommodation", "name": "Appartamento Lampone" },
+          { "@type": "Accommodation", "name": "Appartamento Zucca" },
           { "@type": "Accommodation", "name": "Appartamento Pallina" },
-          { "@type": "Accommodation", "name": "Appartamenti country" }
+          { "@type": "Accommodation", "name": "Appartamenti stile country" }
         ],
         "makesOffer": {
           "@type": "Offer",
@@ -497,7 +501,7 @@
     .nav__brand { display: flex; align-items: center; }
     .nav__brand img {
       height: clamp(30px, 4.2vw, 40px); width: auto;
-      filter: brightness(0) invert(1); /* bianco sopra al video */
+      filter: drop-shadow(0 2px 10px rgba(15,12,8,.35)); /* il logo resta nei suoi colori anche sopra al video; l'ombra leggera lo stacca dai fotogrammi chiari */
       transition: filter .5s var(--ease), height .35s var(--ease);
     }
     .nav.scrolled .nav__brand img,
@@ -1152,6 +1156,7 @@
     .footer__inner { max-width: var(--maxw); margin-inline: auto; }
     .footer__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
     .footer__brand { font-family: var(--serif); font-size: 1.3rem; color: var(--bg); }
+    .footer__brand img { height: 34px; width: auto; display: block; }
     /* le voci vanno a capo invece di sbordare: a 320px in fila non ci stanno */
     .footer__links { display: flex; flex-wrap: wrap; gap: .9rem 1.6rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; }
     .footer__links a:hover { color: var(--bg); }
@@ -1361,14 +1366,11 @@
           e vivere la campagna in modo autentico.
         </p>
         <p class="intro__body">
-          Ogni ambiente nasce dall'incontro tra materiali naturali, recupero creativo, colori
-          e dettagli realizzati a mano. Un progetto ideato dall'artista internazionale ed eco-designer
+          <span data-testo="chisiamo-03">Ogni ambiente nasce dall'incontro tra materiali naturali, recupero creativo, colori e dettagli realizzati a mano. Un progetto ideato dall'artista internazionale</span>
           <a href="https://www.lucabornoffi.com" target="_blank" rel="noopener">Luca Bornoffi</a>,
-          che dalle sue collaborazioni con hotel di lusso in tutto il mondo ha portato qui il suo
-          concept di ospitalità, riscoprendo lo stile &laquo;homemade&raquo; &mdash; uno degli
-          agriturismi più eco sostenibili del territorio.
+          <span data-testo="chisiamo-04">che dalle sue collaborazioni con hotel di lusso in tutto il mondo ha portato qui il suo concept di ospitalità, riscoprendo lo stile &laquo;homemade&raquo; &mdash; uno degli agriturismi più eco sostenibili del territorio.</span>
         </p>
-        <p class="intro__body" data-testo="chisiamo-03">
+        <p class="intro__body" data-testo="chisiamo-05">
           Beatilla offre appartamenti e camere immersi nel verde, progettati per accogliere coppie,
           famiglie e viaggiatori in cerca di tranquillità. A pochi minuti da Mantova e collegata alla
           pista ciclabile Mantova&ndash;Peschiera, la nostra cascina è il punto di partenza ideale per
@@ -1432,13 +1434,13 @@
         <article class="room room--c">
           <div class="room__media">
             <div class="img-slot" data-room-img="left">
-              <img width="1400" height="934" src="img/alloggi-lampone.webp" srcset="img/alloggi-lampone-800.webp 800w, img/alloggi-lampone.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="L'Appartamento Lampone: appartamento indipendente con camera, soggiorno e cucina" data-img-parallax loading="lazy" decoding="async" />
+              <img width="1400" height="934" src="img/alloggi-melanzana.webp" srcset="img/alloggi-melanzana-800.webp 800w, img/alloggi-melanzana.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="La Camera Melanzana: sfumature viola, dettagli di design e opere d'arte contemporanea" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
             <span class="room__num">03</span>
-            <h3 class="room__title" data-testo="camere-07">Appartamento Lampone</h3>
-            <p class="room__desc" data-testo="camere-08">Più spazio per sentirsi a casa: un appartamento indipendente con soggiorno, cucina e camera da letto, dove arte e design accompagnano ogni momento del soggiorno.</p>
+            <h3 class="room__title" data-testo="camere-07">Camera Melanzana</h3>
+            <p class="room__desc" data-testo="camere-08">Un ambiente luminoso e accogliente, caratterizzato da sfumature viola, dettagli di design e opere d'arte contemporanea. Un rifugio pensato per chi cerca quiete e autenticit&agrave; nel cuore della campagna.</p>
             <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
           </div>
         </article>
@@ -1446,13 +1448,13 @@
         <article class="room room--d room--reverse">
           <div class="room__media">
             <div class="img-slot" data-room-img="right">
-              <img width="1400" height="934" src="img/alloggi-pallina.webp" srcset="img/alloggi-pallina-800.webp 800w, img/alloggi-pallina.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="L'Appartamento Pallina: ambienti luminosi, cucina attrezzata e opere di Luca Bornoffi" data-img-parallax loading="lazy" decoding="async" />
+              <img width="1400" height="934" src="img/alloggi-zucca.webp" srcset="img/alloggi-zucca-800.webp 800w, img/alloggi-zucca.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="La Camera Zucca: materiali autentici e dettagli artigianali" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
             <span class="room__num">04</span>
-            <h3 class="room__title" data-testo="camere-09">Appartamento Pallina</h3>
-            <p class="room__desc" data-testo="camere-10">Il volto più contemporaneo di Beatilla: colori audaci, ambienti luminosi e opere di Luca Bornoffi trasformano questo appartamento in una vera esperienza tra arte ed eco-design.</p>
+            <h3 class="room__title" data-testo="camere-09">Camera Zucca</h3>
+            <p class="room__desc" data-testo="camere-10">Un rifugio luminoso dove riscoprire il piacere delle cose semplici: materiali autentici, dettagli artigianali e un'atmosfera che fa sentire subito a casa.</p>
             <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
           </div>
         </article>
@@ -1460,18 +1462,74 @@
         <article class="room room--e">
           <div class="room__media">
             <div class="img-slot" data-room-img="left">
-              <img width="1200" height="800" src="img/alloggi-jahara.webp" srcset="img/alloggi-jahara-800.webp 800w, img/alloggi-jahara.webp 1200w" sizes="(max-width: 980px) 92vw, 705px" alt="Gli Appartamenti country: travi di legno a vista, soppalco e angolo cottura" data-img-parallax loading="lazy" decoding="async" />
+              <img width="1400" height="934" src="img/alloggi-mela-verde.webp" srcset="img/alloggi-mela-verde-800.webp 800w, img/alloggi-mela-verde.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="L'Appartamento Mela Verde: tonalit&agrave; del verde e arredi artigianali" data-img-parallax loading="lazy" decoding="async" />
             </div>
           </div>
           <div class="room__text" data-room-text>
             <span class="room__num">05</span>
-            <h3 class="room__title" data-testo="camere-11">Appartamenti country</h3>
-            <p class="room__desc" data-testo="camere-12">L'anima più autentica della cascina: pietra, legno e soffitti con travi a vista raccontano la tradizione rurale, reinterpretata con lo stile artistico che caratterizza Beatilla.</p>
+            <h3 class="room__title" data-testo="camere-11">Appartamento Mela Verde</h3>
+            <p class="room__desc" data-testo="camere-12">Fresco, luminoso e rilassante: un appartamento indipendente dove le tonalit&agrave; del verde, gli arredi artigianali e i dettagli di design creano un'atmosfera accogliente, immersa nella tranquillit&agrave; della campagna.</p>
             <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
           </div>
         </article>
 
-        <p class="rooms__note" data-fade data-testo="camere-13">Ogni camera e appartamento di Beatilla ha una propria identit&agrave; e un proprio nome. La sistemazione verr&agrave; assegnata in base alla disponibilit&agrave;, garantendo sempre la tipologia e i servizi prenotati.</p>
+        <article class="room room--c room--reverse">
+          <div class="room__media">
+            <div class="img-slot" data-room-img="right">
+              <img width="1400" height="934" src="img/alloggi-lampone.webp" srcset="img/alloggi-lampone-800.webp 800w, img/alloggi-lampone.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="L'Appartamento Lampone: appartamento indipendente con camera, soggiorno e cucina" data-img-parallax loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="room__text" data-room-text>
+            <span class="room__num">06</span>
+            <h3 class="room__title" data-testo="camere-13">Appartamento Lampone</h3>
+            <p class="room__desc" data-testo="camere-14">Più spazio per sentirsi a casa: un appartamento indipendente con soggiorno, cucina e camera da letto, dove arte e design accompagnano ogni momento del soggiorno.</p>
+            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="room room--d">
+          <div class="room__media">
+            <div class="img-slot" data-room-img="left">
+              <img width="1400" height="934" src="img/alloggi-zucca-app.webp" srcset="img/alloggi-zucca-app-800.webp 800w, img/alloggi-zucca-app.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="L'Appartamento Zucca: i colori caldi dell'autunno e arredi essenziali" data-img-parallax loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="room__text" data-room-text>
+            <span class="room__num">07</span>
+            <h3 class="room__title" data-testo="camere-15">Appartamento Zucca</h3>
+            <p class="room__desc" data-testo="camere-16">I colori caldi dell'autunno, la luce naturale e gli arredi essenziali creano un ambiente accogliente e rilassante. Uno spazio indipendente dove natura, arte e design convivono in perfetto equilibrio.</p>
+            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="room room--e room--reverse">
+          <div class="room__media">
+            <div class="img-slot" data-room-img="right">
+              <img width="1400" height="934" src="img/alloggi-pallina.webp" srcset="img/alloggi-pallina-800.webp 800w, img/alloggi-pallina.webp 1400w" sizes="(max-width: 980px) 92vw, 705px" alt="L'Appartamento Pallina: ambienti luminosi, cucina attrezzata e opere di Luca Bornoffi" data-img-parallax loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="room__text" data-room-text>
+            <span class="room__num">08</span>
+            <h3 class="room__title" data-testo="camere-17">Appartamento Pallina</h3>
+            <p class="room__desc" data-testo="camere-18">Il volto più contemporaneo di Beatilla: colori audaci, ambienti luminosi e opere di Luca Bornoffi trasformano questo appartamento in una vera esperienza tra arte ed eco-design.</p>
+            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
+          </div>
+        </article>
+
+        <article class="room room--c">
+          <div class="room__media">
+            <div class="img-slot" data-room-img="left">
+              <img width="1200" height="800" src="img/alloggi-jahara.webp" srcset="img/alloggi-jahara-800.webp 800w, img/alloggi-jahara.webp 1200w" sizes="(max-width: 980px) 92vw, 705px" alt="Gli Appartamenti country: travi di legno a vista, soppalco e angolo cottura" data-img-parallax loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="room__text" data-room-text>
+            <span class="room__num">09</span>
+            <h3 class="room__title" data-testo="camere-19">Appartamenti stile country</h3>
+            <p class="room__desc" data-testo="camere-20">L'anima più autentica della cascina: pietra, legno e soffitti con travi a vista raccontano la tradizione rurale, reinterpretata con lo stile artistico che caratterizza Beatilla.</p>
+            <a class="link-more" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener">Scopri <span>&rarr;</span></a>
+          </div>
+        </article>
+
+        <p class="rooms__note" data-fade data-testo="camere-21">Ogni camera e appartamento di Beatilla ha una propria identit&agrave; e un proprio nome. La sistemazione verr&agrave; assegnata in base alla disponibilit&agrave;, garantendo sempre la tipologia e i servizi prenotati.</p>
       </div>
     </section>
 
@@ -1975,7 +2033,7 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__top">
-        <span class="footer__brand">Agriturismo Beatilla</span>
+        <a class="footer__brand" href="#top" aria-label="Agriturismo Beatilla"><img src="img/logo-beatilla.png" width="318" height="65" alt="Agriturismo Beatilla" loading="lazy" decoding="async" /></a>
         <nav class="footer__links" aria-label="Link footer">
           <a href="#camere">Camere</a>
           <a href="#esperienze">Esperienze</a>
