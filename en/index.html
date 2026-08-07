@@ -687,7 +687,11 @@
        4. FULL-BLEED IMAGE BREAK
        ============================================================ */
     .break { height: 80vh; min-height: 460px; overflow: hidden; position: relative; }
-    .break .img-slot { position: absolute; inset: -15% 0; height: 130%; will-change: transform; }
+    .break .img-slot { position: absolute; inset: -30% 0; height: 160%; will-change: transform; }
+    /* Il parallasse sposta la foto di +/-18% della SUA altezza: con il 130%
+       di prima lo spostamento massimo (23,4% della sezione) superava la tela
+       extra (15%) e in cima appariva una banda grigia. Ora la tela extra e
+       il 30% contro un massimo del 28,8%: la foto copre sempre. */
     /* La scritta «Beatilla» sul timpano sta al 37% della larghezza della foto:
        l'inquadratura la porta al CENTRO dello schermo.
        — Finestre strette (ratio < 14/9): la foto sborda in orizzontale e basta
@@ -1160,6 +1164,7 @@
     .footer__inner { max-width: var(--maxw); margin-inline: auto; }
     .footer__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
     .footer__brand { font-family: var(--serif); font-size: 1.3rem; color: var(--bg); }
+    .footer__brand img { height: 34px; width: auto; display: block; }
     /* le voci vanno a capo invece di sbordare: a 320px in fila non ci stanno */
     .footer__links { display: flex; flex-wrap: wrap; gap: .9rem 1.6rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; }
     .footer__links a:hover { color: var(--bg); }
@@ -2515,7 +2520,7 @@
       saltoSecco(() => window.scrollTo(0, y));
     };
 
-    viaLoader = () => { heroTl.play(); ScrollTrigger.refresh(); tornaDoveEravamo(); };
+    viaLoader = () => { heroTl.play(); ScrollTrigger.refresh(); tornaDoveEravamo(); recuperaSchede(); };
 
     /* ---------- INTRO line-by-line clip reveal ---------- */
     gsap.utils.toArray('.reveal-line > span').forEach((line) => {
@@ -2780,6 +2785,24 @@
         y: 0, opacity: 1, duration: 0.9, ease: 'power2.out', stagger: 0.15, overwrite: true
       })
     });
+    /* Se si arriva in pagina GIA oltre una scheda (memoria della posizione,
+       ancora, ricarica a meta pagina) il "batch" puo non scattare: il salto
+       secco non genera lo scorrimento che ScrollTrigger si aspetta, e le
+       schede restavano abbassate e trasparenti. Questo recupero sistema
+       subito quelle gia superate o in vista; le altre si accendono scendendo,
+       come sempre. */
+    const recuperaSchede = () => {
+      const vh = window.innerHeight || 800;
+      document.querySelectorAll('[data-card]').forEach((c) => {
+        if (+gsap.getProperty(c, 'opacity') >= 0.99) return;
+        if (c.getBoundingClientRect().top < vh * 0.92) {
+          /* set, non tween: deve valere anche quando i fotogrammi sono fermi
+             (schede aperte in secondo piano) — la correttezza prima della grazia */
+          gsap.set(c, { y: 0, opacity: 1, overwrite: true });
+        }
+      });
+    };
+    ScrollTrigger.addEventListener('refresh', recuperaSchede);
 
     /* ---------- SERVIZI: mostra solo i primi, espandi il resto ---------- */
     (() => {

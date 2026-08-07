@@ -1,0 +1,36 @@
+# Il 6 agosto 2026 GitHub Pages ha lasciato il sito fermo per un giorno:
+# quattro costruzioni in errore e una appesa su "building", mentre il cliente
+# caricava foto dal pannello convinto che non funzionasse. Questo guardiano
+# controlla ogni mezz'ora: se l'ultima costruzione è in errore, o è ferma da
+# più di venti minuti, ne chiede una nuova. Nessun intervento a mano.
+name: Guardiano della pubblicazione
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  pages: write
+  contents: read
+
+jobs:
+  controlla:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Controlla l'ultima costruzione e rilancia se serve
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          B=$(gh api repos/${{ github.repository }}/pages/builds/latest)
+          STATO=$(echo "$B" | jq -r .status)
+          QUANDO=$(echo "$B" | jq -r .updated_at)
+          ETA=$(( $(date +%s) - $(date -d "$QUANDO" +%s) ))
+          echo "stato: $STATO · aggiornata ${ETA}s fa"
+          if [ "$STATO" = "errored" ] || { [ "$STATO" = "building" ] && [ "$ETA" -gt 1200 ]; }; then
+            echo "costruzione bloccata: ne chiedo una nuova"
+            gh api -X POST repos/${{ github.repository }}/pages/builds
+          else
+            echo "tutto regolare"
+          fi
