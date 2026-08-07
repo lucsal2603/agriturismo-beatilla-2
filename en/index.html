@@ -860,11 +860,20 @@
     .exp__head h2 { font-size: clamp(2.4rem, 5.5vw, 4rem); margin-top: 1rem; }
     .exp__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); }
     .exp__card { will-change: transform, opacity; }
-    .exp__card .img-slot { width: 100%; aspect-ratio: 3 / 4; margin-bottom: 1.6rem; }
+    /* Le foto delle esperienze sono verticali 2:3. Con uno slot 3:4 l'undici per
+       cento spariva sempre, e il cliente ci ha rimesso il cestino della colazione
+       e la granola. Lo slot ora ha le stesse proporzioni delle foto: entrano
+       intere, senza tagli. */
+    .exp__card .img-slot { width: 100%; aspect-ratio: 2 / 3; margin-bottom: 1.6rem; }
+    /* La regola generale alza le immagini al 122% per lasciare spazio al
+       parallasse. Qui il parallasse non c'e piu, quindi l'immagine torna alta
+       quanto il suo riquadro: senza questo resterebbero tagliati 49 pixel
+       sopra e altrettanti sotto, ed e proprio la parte che il cliente voleva
+       rivedere. */
+    .exp__card .img-slot > img[data-img-parallax] { height: 100%; top: 0; }
     .exp__card .cat { display: block; margin-bottom: 1rem; }
     /* Il cestino sta in fondo alla fotografia: senza questo, il riquadro 3:4
        inquadrerebbe soprattutto il muro rosa sopra di lui. */
-    .img-slot > img.exp__img--cestino { object-position: center 82%; }
     /* Al passaggio del mouse il titolo resta nero, senza cambiare colore (richiesta cliente) */
     .exp__card h3 { font-size: 1.8rem; margin-top: 0; line-height: 1.2; }
 
@@ -1635,7 +1644,7 @@
         <div class="exp__grid">
           <article class="exp__card" data-card>
             <div class="img-slot">
-              <img class="exp__img--cestino" width="1200" height="1800" src="../img/esperienze-cestino.webp" srcset="../img/esperienze-cestino-800.webp 800w, ../img/esperienze-cestino.webp 1200w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="The breakfast basket with milk and a moka pot, left at the door of your accommodation" data-img-parallax loading="lazy" decoding="async" />
+              <img width="1200" height="1800" src="../img/esperienze-cestino.webp" srcset="../img/esperienze-cestino-800.webp 800w, ../img/esperienze-cestino.webp 1200w" sizes="(max-width: 768px) 92vw, (max-width: 980px) 46vw, 280px" alt="The breakfast basket with milk and a moka pot, left at the door of your accommodation" data-img-parallax loading="lazy" decoding="async" />
             </div>
             <span class="label cat" data-testo="esperienze-03">Breakfast basket</span>
             <h3 data-testo="esperienze-04">Breakfast in your room</h3>
@@ -2957,7 +2966,7 @@
     /* ---------- INNER-IMAGE PARALLAX (depth) ---------- */
     gsap.utils.toArray('[data-img-parallax]').forEach((img) => {
       if (prefersReduced || isMobile()) return; /* su telefono niente drift interno: evita scatti e blocchi durante lo scroll */
-      if (img.closest('.room__media, .workshop__media')) return; /* camere e workshop restano interi: niente drift verticale che li ritaglierebbe */
+      if (img.closest('.room__media, .workshop__media, .exp__card')) return; /* camere, workshop ed esperienze restano interi: il drift verticale li ritaglierebbe, e in modo diverso a ogni posizione di scorrimento */
       gsap.fromTo(img, { yPercent: -8 }, {
         yPercent: 8, ease: 'none',
         scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: true }
