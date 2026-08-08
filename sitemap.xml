@@ -18,4 +18,166 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/articoli/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/articles/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/articoli/ciclabile-mantova-peschiera/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/ciclabile-mantova-peschiera/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/mantua-peschiera-cycle-path/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/ciclabile-mantova-peschiera/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/articles/mantua-peschiera-cycle-path/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/ciclabile-mantova-peschiera/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/mantua-peschiera-cycle-path/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/ciclabile-mantova-peschiera/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/articoli/bosco-della-fontana/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/bosco-della-fontana/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/bosco-della-fontana/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/bosco-della-fontana/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/articles/bosco-della-fontana/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/bosco-della-fontana/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/bosco-della-fontana/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/bosco-della-fontana/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/articoli/borghetto-sul-mincio/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/borghetto-sul-mincio/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/borghetto-sul-mincio/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/borghetto-sul-mincio/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/articles/borghetto-sul-mincio/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/borghetto-sul-mincio/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/borghetto-sul-mincio/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/borghetto-sul-mincio/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/articoli/tortelli-di-zucca-e-sbrisolona/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/tortelli-di-zucca-e-sbrisolona/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/pumpkin-tortelli-and-sbrisolona/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/tortelli-di-zucca-e-sbrisolona/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/articles/pumpkin-tortelli-and-sbrisolona/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/tortelli-di-zucca-e-sbrisolona/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/pumpkin-tortelli-and-sbrisolona/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/tortelli-di-zucca-e-sbrisolona/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/articoli/mincio-in-barca/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/mincio-in-barca/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/mincio-by-boat/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/mincio-in-barca/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/articles/mincio-by-boat/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/mincio-in-barca/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/mincio-by-boat/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/mincio-in-barca/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/articoli/dormire-in-una-galleria-d-arte/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/dormire-in-una-galleria-d-arte/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/sleeping-in-an-art-gallery/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/dormire-in-una-galleria-d-arte/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/articles/sleeping-in-an-art-gallery/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/dormire-in-una-galleria-d-arte/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/sleeping-in-an-art-gallery/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/dormire-in-una-galleria-d-arte/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/articoli/agriturismo-con-i-bambini/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/agriturismo-con-i-bambini/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/farm-stay-with-children/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/agriturismo-con-i-bambini/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/articles/farm-stay-with-children/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/agriturismo-con-i-bambini/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/farm-stay-with-children/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/agriturismo-con-i-bambini/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/articoli/glamping-e-agriturismo/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/glamping-e-agriturismo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/glamping-and-farm-stays/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/glamping-e-agriturismo/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.agriturismobeatilla.it/en/articles/glamping-and-farm-stays/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/articoli/glamping-e-agriturismo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/articles/glamping-and-farm-stays/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/articoli/glamping-e-agriturismo/" />
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

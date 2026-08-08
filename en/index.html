@@ -580,7 +580,9 @@
     }
     body.menu-open { overflow: hidden; }
     body.menu-open .nav__overlay { opacity: 1; visibility: visible; pointer-events: auto; }
-    .nav__overlay-links { display: flex; flex-direction: column; align-items: center; gap: clamp(1.3rem, 4vh, 2.2rem); padding: var(--gutter); }
+    /* Se le voci non ci stanno (telefono in orizzontale) la tendina scorre; margin auto = centrata quando ci stanno */
+    .nav__overlay { overflow-y: auto; }
+    .nav__overlay-links { display: flex; flex-direction: column; align-items: center; gap: clamp(1.3rem, 4vh, 2.2rem); padding: var(--gutter); margin: auto; }
     .nav__overlay-links a {
       font-family: var(--serif); font-size: clamp(2rem, 8vw, 3rem); line-height: 1;
       color: var(--text); letter-spacing: .01em; padding: .4rem 1rem;
@@ -596,6 +598,12 @@
     body.menu-open .nav__overlay-links a:nth-child(5) { transition-delay: .34s; }
     body.menu-open .nav__overlay-links a:nth-child(6) { transition-delay: .40s; }
     body.menu-open .nav__overlay-links a:nth-child(7) { transition-delay: .46s; }
+    body.menu-open .nav__overlay-links a:nth-child(8) { transition-delay: .52s; }
+    body.menu-open .nav__overlay-links a:nth-child(9) { transition-delay: .58s; }
+    @media (max-height: 700px) {
+      .nav__overlay-links { gap: clamp(.7rem, 2.5vh, 1.3rem); }
+      .nav__overlay-links a { font-size: clamp(1.5rem, 5.5vh, 2.4rem); }
+    }
     .nav__overlay-links .nav__cta {
       margin-top: .8rem; font-family: var(--sans); font-size: 1rem; line-height: 1;
       text-transform: uppercase; letter-spacing: .15em;
@@ -1323,6 +1331,7 @@
       <a href="#servizi">Amenities</a>
       <a href="#workshop">Art Studio</a>
       <a href="#cosa-visitare">What to visit</a>
+      <a href="articles/">Articles</a>
       <a class="nav__lang" data-lingua="it" href="../" aria-label="Versione italiana">IT</a>
       <a class="nav__cta" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=en" target="_blank" rel="noopener">Book now</a>
     </nav>
@@ -2054,6 +2063,7 @@
         <nav class="footer__links" aria-label="Footer links">
           <a href="#camere">Rooms</a>
           <a href="#esperienze">Experiences</a>
+          <a href="articles/">Articles</a>
           <a href="#faq">FAQ</a>
           <a href="#prenota">Contact</a>
         </nav>
