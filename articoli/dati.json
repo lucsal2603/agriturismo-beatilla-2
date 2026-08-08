@@ -105,10 +105,10 @@
     {
       "chiave": "borghetto-sul-mincio",
       "copertina": {
-        "file": "territorio-borghetto",
-        "largo": 1000,
-        "alto": 666,
-        "versione": 0
+        "file": "articoli/borghetto-sul-mincio",
+        "largo": 1600,
+        "alto": 900,
+        "versione": 1786204408801
       },
       "pubblicato": "2026-08-08",
       "modificato": "2026-08-08",
