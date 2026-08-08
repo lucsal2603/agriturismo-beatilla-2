@@ -17,3 +17,18 @@
 ## Tortelli e sbrisolona
 - nessun riferimento al ristorante di Beatilla nel testo, di proposito (non conosco il menu): si rimanda al consiglio del concierge, che il sito già dichiara.
 - "torte fatte in casa" nel cestino della colazione — già dichiarato dal sito: ok.
+
+## Il Mincio in barca
+- fiori di loto sul Lago Superiore "fra luglio e agosto", "piantati quasi un secolo fa" — fatti noti mantovani: confermare la finestra temporale.
+- "escursioni fluviali su prenotazione" — già dichiarato nella sezione Servizi: ok.
+
+## Dormire in una galleria d'arte
+- tutto ripreso dalla biografia già in pagina (60 Paesi, Circles of Life, piattaforme): nessun dato nuovo.
+
+## Con i bambini
+- "Gardaland a mezz'ora circa" e "Parco Sigurtà pure" — il sito dice "a pochi minuti": confermare la mezz'ora.
+- arnie nel Farm Visiting: il sito mostra "Le nostre api" e dichiara il Farm Visiting; ho scritto "guardando da vicino", senza promettere visite alle arnie.
+
+## Glamping e agriturismo
+- ATTENZIONE: Beatilla NON offre glamping e l'articolo NON lo dice mai — posiziona la cascina come risposta allo stesso desiderio. Rileggere per conferma del taglio.
+- yoga all'aperto su richiesta: già dichiarato nei Servizi: ok.
