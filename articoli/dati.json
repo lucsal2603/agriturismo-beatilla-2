@@ -3,10 +3,10 @@
     {
       "chiave": "ciclabile-mantova-peschiera",
       "copertina": {
-        "file": "territorio-peschiera",
-        "largo": 1200,
-        "alto": 800,
-        "versione": 0
+        "file": "articoli/ciclabile-mantova-peschiera",
+        "largo": 1180,
+        "alto": 1079,
+        "versione": 1786204361017
       },
       "pubblicato": "2026-08-08",
       "modificato": "2026-08-08",
