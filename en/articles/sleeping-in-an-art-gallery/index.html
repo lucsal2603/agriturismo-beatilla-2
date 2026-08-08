@@ -99,6 +99,10 @@
     .copertina .telaio { position: relative; display: block; aspect-ratio: 3 / 2; overflow: hidden; background: #EDE7DC; }
     .copertina .telaio__fondo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(26px) saturate(1.15) brightness(.94); transform: scale(1.18); transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
     .copertina .telaio__vera { position: relative; width: 100%; height: 100%; object-fit: contain; transition: filter .55s ease; }
+    /* «pieno»: la foto ha quasi la forma del riquadro, la ingrandiamo
+       fino a riempirlo. «intera»: forma troppo diversa, si vede tutta. */
+    .copertina .telaio--pieno .telaio__vera { object-fit: cover; }
+    .copertina .telaio--intera .telaio__vera { object-fit: contain; }
     .copertina figcaption { padding: .7rem var(--gutter) 0; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
     @media (min-width: 820px) { .copertina { margin-inline: -6vw; } .copertina figcaption { padding-inline: 0; } }
 
@@ -161,7 +165,7 @@
       <p class="sommario">Here art is not hung: it lives in. Beatilla was founded by an artist and decorated piece by piece by his own hands &mdash; staying with us means spending the night inside his collection.</p>
 
       <figure class="copertina">
-        <span class="telaio">
+        <span class="telaio telaio--pieno">
           <img class="telaio__fondo" src="../../../img/arte-artista.webp" srcset="../../../img/arte-artista-800.webp 800w, ../../../img/arte-artista.webp 1280w" sizes="(max-width: 820px) 100vw, 820px" alt="" aria-hidden="true" />
           <img class="telaio__vera" src="../../../img/arte-artista.webp" srcset="../../../img/arte-artista-800.webp 800w, ../../../img/arte-artista.webp 1280w" sizes="(max-width: 820px) 100vw, 820px" width="1280" height="853" alt="Artist Luca Bornoffi in his studio, among the canvases of the Circles of Life series" fetchpriority="high" />
         </span>
