@@ -207,13 +207,13 @@
     {
       "chiave": "mincio-in-barca",
       "copertina": {
-        "file": "territorio-mantova",
-        "largo": 1200,
-        "alto": 730,
-        "versione": 0
+        "file": "articoli/mincio-in-barca",
+        "largo": 1600,
+        "alto": 900,
+        "versione": 1786262631359
       },
       "pubblicato": "2026-08-08",
-      "modificato": "2026-08-08",
+      "modificato": "2026-08-09",
       "it": {
         "titoloTag": "Il Mincio in barca: Mantova vista dall'acqua · Agriturismo Beatilla",
         "descrizione": "Mantova &egrave; nata sull'acqua e dall'acqua va guardata: la navigazione sui laghi, i fiori di loto in estate, gli aironi del Parco del Mincio. Le escursioni si organizzano anche da Beatilla.",
