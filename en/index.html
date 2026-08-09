@@ -1181,7 +1181,9 @@
     .footer__inner { max-width: var(--maxw); margin-inline: auto; }
     .footer__top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
     .footer__brand { font-family: var(--serif); font-size: 1.3rem; color: var(--bg); }
-    .footer__brand img { height: 34px; width: auto; display: block; }
+    /* il logo arancione su fondo nero si legge male: lo stesso filtro
+       della navigazione sul video lo rende bianco */
+    .footer__brand img { height: 34px; width: auto; display: block; filter: brightness(0) invert(1); }
     /* le voci vanno a capo invece di sbordare: a 320px in fila non ci stanno */
     .footer__links { display: flex; flex-wrap: wrap; gap: .9rem 1.6rem; font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; }
     .footer__links a:hover { color: var(--bg); }
@@ -2062,7 +2064,6 @@
         <nav class="footer__links" aria-label="Footer links">
           <a href="#camere">Rooms</a>
           <a href="#esperienze">Experiences</a>
-          <a href="articles/">Articles</a>
           <a href="#faq">FAQ</a>
           <a href="#prenota">Contact</a>
         </nav>
