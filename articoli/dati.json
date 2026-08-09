@@ -360,13 +360,13 @@
     {
       "chiave": "glamping-e-agriturismo",
       "copertina": {
-        "file": "frammenti-giardino",
-        "largo": 1000,
-        "alto": 1500,
-        "versione": 0
+        "file": "articoli/glamping-e-agriturismo",
+        "largo": 1600,
+        "alto": 1067,
+        "versione": 1786262887635
       },
       "pubblicato": "2026-08-08",
-      "modificato": "2026-08-08",
+      "modificato": "2026-08-09",
       "it": {
         "titoloTag": "Glamping e agriturismo: la natura senza rinunce · Agriturismo Beatilla",
         "descrizione": "Il glamping ha un'idea giusta: la natura senza rinunciare alla bellezza. Da Beatilla la stessa idea abita in una cascina d'artista &mdash; muri veri, arte alle pareti e la campagna alla porta.",
