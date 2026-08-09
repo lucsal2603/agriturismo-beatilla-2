@@ -156,13 +156,13 @@
     {
       "chiave": "tortelli-di-zucca-e-sbrisolona",
       "copertina": {
-        "file": "esperienze-colazione",
-        "largo": 1000,
-        "alto": 1500,
-        "versione": 0
+        "file": "articoli/tortelli-di-zucca-e-sbrisolona",
+        "largo": 1200,
+        "alto": 800,
+        "versione": 1786263253579
       },
       "pubblicato": "2026-08-08",
-      "modificato": "2026-08-08",
+      "modificato": "2026-08-09",
       "it": {
         "titoloTag": "Tortelli di zucca e sbrisolona: Mantova in due assaggi · Agriturismo Beatilla",
         "descrizione": "Il primo dolce-salato che viene dalle corti dei Gonzaga e la torta che si spezza con le mani: cosa sono, dove assaggiarli e perch&eacute; raccontano Mantova meglio di un museo.",
