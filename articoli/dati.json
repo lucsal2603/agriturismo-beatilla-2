@@ -258,10 +258,10 @@
     {
       "chiave": "dormire-in-una-galleria-d-arte",
       "copertina": {
-        "file": "arte-artista",
-        "largo": 1280,
-        "alto": 853,
-        "versione": 0
+        "file": "articoli/dormire-in-una-galleria-d-arte",
+        "largo": 1600,
+        "alto": 1067,
+        "versione": 1786262588921
       },
       "pubblicato": "2026-08-08",
       "modificato": "2026-08-09",
