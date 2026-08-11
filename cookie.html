@@ -54,6 +54,41 @@
     .base { font-size: .9rem; color: rgba(26,26,24,.6); }
     .fine { margin-top: 3.4rem; padding-top: 1.6rem; border-top: 1px solid rgba(26,26,24,.14); font-size: .85rem; color: rgba(26,26,24,.55); }
   </style>
+  <!-- ============ CONSENSO + TAG MANAGER (solo sul dominio ufficiale) ============ -->
+  <!-- Stessa impostazione delle altre pagine: tutto negato in partenza, poi si
+       applica la scelta che l'ospite ha già fatto col banner (salvata per 12
+       mesi). Il contenitore GTM-MW9C4HL parte SOLO su agriturismobeatilla.it:
+       sull'anteprima github.io questo blocco non fa nulla. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
+    (function () {
+      try {
+        var v = JSON.parse(localStorage.getItem('beatilla-consenso'));
+        if (v && typeof v.quando === 'number' && Date.now() - v.quando < 31536000000) {
+          gtag('consent', 'update', {
+            analytics_storage: v.statistica ? 'granted' : 'denied',
+            ad_storage: v.marketing ? 'granted' : 'denied',
+            ad_user_data: v.marketing ? 'granted' : 'denied',
+            ad_personalization: v.marketing ? 'granted' : 'denied'
+          });
+        }
+      } catch (e) {}
+      if (!/(^|\.)agriturismobeatilla\.it$/.test(location.hostname)) return;
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-MW9C4HL';
+      document.head.appendChild(s);
+    })();
+  </script>
 </head>
 <body>
   <main class="wrap">

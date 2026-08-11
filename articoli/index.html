@@ -35,6 +35,22 @@
     });
   </script>
 
+  <!-- ============ GOOGLE TAG MANAGER (solo sul dominio ufficiale) ============ -->
+  <!-- Il contenitore GTM-MW9C4HL (statistiche e conversioni delle campagne del
+       cliente) parte SOLO su agriturismobeatilla.it: sull'anteprima github.io
+       questo script non fa nulla, così i dati non si sporcano. Trova il
+       consenso qui sopra già impostato: tutto negato finché non si sceglie. -->
+  <script>
+    (function (w, d) {
+      if (!/(^|\.)agriturismobeatilla\.it$/.test(location.hostname)) return;
+      w.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-MW9C4HL';
+      d.head.appendChild(s);
+    })(window, document);
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
