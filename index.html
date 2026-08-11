@@ -328,6 +328,51 @@
     })(window, document);
   </script>
 
+  <!-- ============ DAIRECT — VISIBILITÀ AI (solo dominio ufficiale, solo col consenso) ============ -->
+  <!-- Script scelto dal cliente (Takyon S.r.l.). NON è un tag Google: il
+       Consent Mode non lo governa, quindi il cancello è nostro. Parte solo
+       su agriturismobeatilla.it e solo se l'ospite ha acconsentito a
+       statistica E marketing: assegna un identificativo che dura 400 giorni
+       e carica un Google Analytics del fornitore. Se il sì arriva col
+       banner, riparte da solo senza ricaricare la pagina. -->
+  <script>
+    (function () {
+      var partito = false;
+      window.avviaDairect = function () {
+        if (partito) return;
+        if (!/(^|\.)agriturismobeatilla\.it$/.test(location.hostname)) return;
+        var v = null;
+        try { v = JSON.parse(localStorage.getItem('beatilla-consenso')); } catch (e) {}
+        if (!v || typeof v.quando !== 'number' || Date.now() - v.quando >= 31536000000) return;
+        if (!v.statistica || !v.marketing) return;
+        partito = true;
+        /* — i due tag di dAirect, come consegnati dal fornitore — */
+        !function(w,d,s,n,c){
+          try {
+            var f=w[n]=w[n]||function(){(f.q=f.q||[]).push(arguments)};
+            f.c=c;f.l=Date.now();
+            var x=d.createElement(s);var m=d.getElementsByTagName(s)[0];
+            x.async=1;x.defer=1;
+            x.src="https://pub-30a63dc08b634ce9a025155eed9dd82f.r2.dev/"+c+"/script.js";
+            x.onerror=function(){console.log("dAIrect analytics tag detected. Waiting for the first event.")};
+            if(m&&m.parentNode) m.parentNode.insertBefore(x,m);
+            else (d.head||d.documentElement).appendChild(x);
+          } catch(e){console.log("dAIrect analytics tag detected. Waiting for the first event.")}
+        }(window,document,"script","ax","019ce180-8a5e-7000-96c3-c3e45753244a");
+        !function(d,l,s,siteIds){
+          try {
+            s=d.createElement("script");s.async=1;s.defer=1;
+            var p=l.pathname.replace(/\/$/,"")||"/";
+            s.src="https://pub-4a9d406ff5ec4891bd46509d7e113045.r2.dev/"+siteIds+p+".js";
+            s.onerror=function(){console.log("dAIrect optimization tag detected. Waiting for the first optimization.")};
+            (d.head||d.documentElement).appendChild(s);
+          } catch(e){console.log("dAIrect optimization tag detected. Waiting for the first optimization.")}
+        }(document,location,0,"019ce180-8a5e-7000-96c3-c3e45753244a");
+      };
+      window.avviaDairect();
+    })();
+  </script>
+
   <!-- ===================== FONT LOCALI ===================== -->
   <!-- Caratteri ospitati sul nostro server: nessuna richiesta a terzi,
        quindi nessun dato dei visitatori esce dal sito. -->
@@ -2317,6 +2362,7 @@
         const c = { statistica: !!statistica, marketing: !!marketing, quando: Date.now() };
         try { localStorage.setItem(CHIAVE, JSON.stringify(c)); } catch (e) {}
         applica(c);
+        if (window.avviaDairect) window.avviaDairect(); /* il sì appena dato accende anche dAirect */
         chiudi();
       };
       const apri = (conScelte) => {
