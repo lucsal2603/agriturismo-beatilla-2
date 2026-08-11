@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pagina non trovata · Agriturismo Beatilla</title>
+  <meta name="robots" content="noindex" />
+
+  <!-- Questa pagina viene servita a QUALUNQUE indirizzo sbagliato, quindi i
+       percorsi relativi vanno ancorati: sull'anteprima github.io il sito vive
+       in una sottocartella, sul dominio ufficiale alla radice. -->
+  <script>
+    document.write('<base href="' + (location.hostname.endsWith('github.io') ? '/agriturismo-beatilla-2/' : '/') + '">');
+  </script>
+  <link rel="stylesheet" href="font/font.css" />
+
+  <!-- ============ CONSENSO + TAG MANAGER (solo sul dominio ufficiale) ============ -->
+  <!-- Come sulle altre pagine: tutto negato in partenza, si applica la scelta
+       già fatta col banner, e il contenitore GTM-MW9C4HL parte SOLO su
+       agriturismobeatilla.it. Qui serve anche a contare gli indirizzi rotti. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
+    (function () {
+      try {
+        var v = JSON.parse(localStorage.getItem('beatilla-consenso'));
+        if (v && typeof v.quando === 'number' && Date.now() - v.quando < 31536000000) {
+          gtag('consent', 'update', {
+            analytics_storage: v.statistica ? 'granted' : 'denied',
+            ad_storage: v.marketing ? 'granted' : 'denied',
+            ad_user_data: v.marketing ? 'granted' : 'denied',
+            ad_personalization: v.marketing ? 'granted' : 'denied'
+          });
+        }
+      } catch (e) {}
+      if (!/(^|\.)agriturismobeatilla\.it$/.test(location.hostname)) return;
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-MW9C4HL';
+      document.head.appendChild(s);
+    })();
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF8F4; --text: #1A1A18; --accent: #7A6A52;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', system-ui, -apple-system, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100svh; display: grid; place-items: center;
+      background: var(--bg); color: var(--text);
+      font-family: var(--sans); font-weight: 300;
+      padding: clamp(1.5rem, 6vw, 4rem); text-align: center;
+    }
+    main { display: grid; justify-items: center; gap: 1.4rem; max-width: 34em; }
+    .logo { height: 44px; width: auto; }
+    .filo { width: 56px; height: 1px; background: var(--accent); opacity: .5; }
+    h1 {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.08; letter-spacing: .005em;
+    }
+    p { font-size: 1rem; line-height: 1.65; color: rgba(26,26,24,.72); }
+    .inglese { font-size: .88rem; font-style: italic; color: rgba(26,26,24,.5); }
+    a.torna {
+      display: inline-flex; align-items: center; gap: .6rem;
+      margin-top: .6rem; padding: .95rem 1.9rem; border-radius: 999px;
+      border: 1px solid var(--text); color: var(--text); text-decoration: none;
+      font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+      transition: background .35s ease, color .35s ease;
+    }
+    a.torna:hover { background: var(--text); color: var(--bg); }
+    a.mail { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(122,106,82,.35); }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="img/logo-beatilla.png" alt="Agriturismo Beatilla" width="318" height="65" />
+    <span class="filo" aria-hidden="true"></span>
+    <h1>Questa pagina<br />non c&rsquo;&egrave; pi&ugrave;</h1>
+    <p>
+      L&rsquo;indirizzo che cercavate &egrave; cambiato o non esiste.
+      La cascina per&ograve; &egrave; sempre qui: camere, esperienze e contatti
+      li trovate dalla pagina principale.
+    </p>
+    <p class="inglese">The page you were looking for has moved or no longer exists.</p>
+    <a class="torna" href="./">Torna alla pagina principale</a>
+  </main>
+</body>
+</html>
