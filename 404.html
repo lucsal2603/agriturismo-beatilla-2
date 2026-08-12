@@ -49,6 +49,23 @@
     })();
   </script>
 
+  <!-- ============ GOOGLE ANALYTICS DEL CLIENTE (G-83CBVSLWWY, solo dominio ufficiale) ============ -->
+  <!-- Le statistiche di Beatilla NON stavano nel Tag Manager (che ha solo le
+       conversioni Ads): erano cablate nel vecchio WordPress e col cambio si
+       erano spente. Da qui ripartono. Rispettano il consenso qui sopra: prima
+       del sì solo ping anonimi senza cookie, dopo il sì la misura completa. -->
+  <script>
+    (function () {
+      if (!/(^|\.)agriturismobeatilla\.it$/.test(location.hostname)) return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-83CBVSLWWY';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-83CBVSLWWY');
+    })();
+  </script>
+
   <style>
     :root {
       --bg: #FAF8F4; --text: #1A1A18; --accent: #7A6A52;
