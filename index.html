@@ -401,7 +401,10 @@
       try {
         var scelta = localStorage.getItem('beatilla-lingua');
         var italiano = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().indexOf('it') === 0;
-        if (scelta === 'en' || (!scelta && !italiano)) location.replace('en/');
+        /* si portano dietro parametri e ancora: senza, il codice del clic
+           pubblicitario (gclid) andrebbe perso e Ads non saprebbe più quali
+           annunci portano prenotazioni */
+        if (scelta === 'en' || (!scelta && !italiano)) location.replace('en/' + location.search + location.hash);
       } catch (e) {}
     })();
   </script>

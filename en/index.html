@@ -402,7 +402,9 @@
       try {
         var scelta = localStorage.getItem('beatilla-lingua');
         var italiano = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().indexOf('it') === 0;
-        if (scelta === 'it' || (!scelta && italiano)) location.replace('../');
+        /* come sulla pagina italiana: parametri e ancora si conservano,
+           altrimenti si perde il codice del clic pubblicitario */
+        if (scelta === 'it' || (!scelta && italiano)) location.replace('../' + location.search + location.hash);
       } catch (e) {}
     })();
   </script>
