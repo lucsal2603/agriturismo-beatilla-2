@@ -107,25 +107,44 @@
     })();
   </script>
 
-  <!-- ============ DAIRECT — VISIBILITÀ AI (solo dominio ufficiale, solo col consenso) ============ -->
-  <!-- Script scelto dal cliente (Takyon S.r.l.). NON è un tag Google: il
-       Consent Mode non lo governa, quindi il cancello è nostro. Parte solo
-       su agriturismobeatilla.it e solo se l'ospite ha acconsentito a
-       statistica E marketing: assegna un identificativo che dura 400 giorni
-       e carica un Google Analytics del fornitore. Se il sì arriva col
-       banner, riparte da solo senza ricaricare la pagina. -->
+  <!-- ============ DAIRECT — VISIBILITÀ AI (solo dominio ufficiale) ============ -->
+  <!-- Script scelto dal cliente (Takyon S.r.l.). Due componenti separate,
+       come descritte dalla documentazione del fornitore (FAQ tecniche, p.8):
+       1) OTTIMIZZAZIONE: adegua titoli, descrizioni e dati strutturati per
+          farsi leggere dalle AI. Verificata da noi: nessun dato raccolto,
+          niente cookie né memorizzazioni → parte SEMPRE, per tutti i
+          visitatori del dominio ufficiale.
+       2) ANALISI: contatore del fornitore — identificativo che dura fino a
+          90 giorni e un Google Analytics di Takyon con relativi cookie →
+          parte SOLO dopo il consenso a statistica E marketing. Se il sì
+          arriva col banner, riparte da solo senza ricaricare la pagina. -->
   <script>
     (function () {
+      var dominioUfficiale = /(^|\.)agriturismobeatilla\.it$/.test(location.hostname);
+
+      /* — tag di OTTIMIZZAZIONE: sempre attivo sul dominio ufficiale — */
+      if (dominioUfficiale) {
+        !function(d,l,s,siteIds){
+          try {
+            s=d.createElement("script");s.async=1;s.defer=1;
+            var p=l.pathname.replace(/\/$/,"")||"/";
+            s.src="https://pub-4a9d406ff5ec4891bd46509d7e113045.r2.dev/"+siteIds+p+".js";
+            s.onerror=function(){console.log("dAIrect optimization tag detected. Waiting for the first optimization.")};
+            (d.head||d.documentElement).appendChild(s);
+          } catch(e){console.log("dAIrect optimization tag detected. Waiting for the first optimization.")}
+        }(document,location,0,"019ce180-8a5e-7000-96c3-c3e45753244a");
+      }
+
+      /* — tag di ANALISI: solo col consenso a statistica e marketing — */
       var partito = false;
       window.avviaDairect = function () {
         if (partito) return;
-        if (!/(^|\.)agriturismobeatilla\.it$/.test(location.hostname)) return;
+        if (!dominioUfficiale) return;
         var v = null;
         try { v = JSON.parse(localStorage.getItem('beatilla-consenso')); } catch (e) {}
         if (!v || typeof v.quando !== 'number' || Date.now() - v.quando >= 31536000000) return;
         if (!v.statistica || !v.marketing) return;
         partito = true;
-        /* — i due tag di dAirect, come consegnati dal fornitore — */
         !function(w,d,s,n,c){
           try {
             var f=w[n]=w[n]||function(){(f.q=f.q||[]).push(arguments)};
@@ -138,15 +157,6 @@
             else (d.head||d.documentElement).appendChild(x);
           } catch(e){console.log("dAIrect analytics tag detected. Waiting for the first event.")}
         }(window,document,"script","ax","019ce180-8a5e-7000-96c3-c3e45753244a");
-        !function(d,l,s,siteIds){
-          try {
-            s=d.createElement("script");s.async=1;s.defer=1;
-            var p=l.pathname.replace(/\/$/,"")||"/";
-            s.src="https://pub-4a9d406ff5ec4891bd46509d7e113045.r2.dev/"+siteIds+p+".js";
-            s.onerror=function(){console.log("dAIrect optimization tag detected. Waiting for the first optimization.")};
-            (d.head||d.documentElement).appendChild(s);
-          } catch(e){console.log("dAIrect optimization tag detected. Waiting for the first optimization.")}
-        }(document,location,0,"019ce180-8a5e-7000-96c3-c3e45753244a");
       };
       window.avviaDairect();
     })();
@@ -197,14 +207,18 @@
     <p>
       Su scelta del Titolare, il Sito integra lo script <strong>dAirect</strong> (fornito da
       <em>Takyon S.r.l.</em>) per migliorare la leggibilità dei contenuti della struttura da
-      parte di motori di ricerca e assistenti di Intelligenza Artificiale. Lo script si attiva
-      soltanto dopo il consenso prestato tramite il banner cookie e, quando attivo, assegna al
-      dispositivo un identificativo conservato fino a 400 giorni, registra le pagine visitate e
-      le interazioni e trasmette tali dati a Takyon S.r.l., caricando inoltre una misurazione
-      Google Analytics del fornitore. Takyon S.r.l. opera quale autonomo titolare del
-      trattamento per i dati trattati sui propri sistemi.
+      parte di motori di ricerca e assistenti di Intelligenza Artificiale. Lo script è composto
+      da due componenti distinte. La componente di <strong>ottimizzazione</strong> adegua
+      titoli, descrizioni e dati strutturati delle pagine: non raccoglie dati personali, non
+      utilizza cookie né altre forme di memorizzazione sul dispositivo ed è pertanto attiva per
+      tutti i visitatori. La componente di <strong>analisi</strong> si attiva soltanto dopo il
+      consenso prestato tramite il banner cookie e, quando attiva, assegna al dispositivo un
+      identificativo conservato fino a 90 giorni, registra le pagine visitate e le interazioni
+      e trasmette tali dati a Takyon S.r.l., caricando inoltre una misurazione Google Analytics
+      del fornitore. Takyon S.r.l. opera quale autonomo titolare del trattamento per i dati
+      trattati sui propri sistemi.
     </p>
-    <p class="base">Base giuridica: Consenso espresso dell'interessato tramite il banner cookie (<em>Art. 6.1.a GDPR</em>).</p>
+    <p class="base">Base giuridica: per la componente di analisi, consenso espresso dell'interessato tramite il banner cookie (<em>Art. 6.1.a GDPR</em>); la componente di ottimizzazione non comporta trattamento di dati personali.</p>
 
 
     <h3>B. Gestione delle richieste di contatto e informazioni (Email, Form, WhatsApp)</h3>
