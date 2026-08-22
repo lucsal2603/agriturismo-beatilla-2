@@ -26,6 +26,7 @@
   <!-- ===================== SEO · LINGUA & PERFORMANCE (LCP) ===================== -->
   <link rel="alternate" hreflang="it" href="https://www.agriturismobeatilla.it/" />
   <link rel="alternate" hreflang="en" href="https://www.agriturismobeatilla.it/en/" />
+  <link rel="alternate" hreflang="de" href="https://www.agriturismobeatilla.it/de/" />
   <link rel="alternate" hreflang="x-default" href="https://www.agriturismobeatilla.it/en/" />
   <link rel="preload" as="image" href="../img/logo-beatilla.png" fetchpriority="high" />
   <link rel="preload" as="image" href="../img/frammenti-animali.webp" imagesrcset="../img/frammenti-animali-800.webp 800w, ../img/frammenti-animali.webp 1600w" imagesizes="100vw" fetchpriority="high" />
@@ -405,16 +406,19 @@
        quindi nessun dato dei visitatori esce dal sito. -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <script>
-    /* Lingua automatica: dispositivo in italiano → versione italiana, salvo
-       scelta manuale (memorizzata). La geografia non conta: uno straniero in
-       Italia resta sull'inglese. */
+    /* Lingua automatica: italiano → versione italiana, tedesco → versione
+       tedesca, ogni altra lingua resta qui. La scelta fatta a mano
+       (memorizzata) vince sempre sul rilevamento. */
     (function () {
       try {
         var scelta = localStorage.getItem('beatilla-lingua');
-        var italiano = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase().indexOf('it') === 0;
+        var parlata = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+        var rilevata = parlata.indexOf('it') === 0 ? 'it' : (parlata.indexOf('de') === 0 ? 'de' : 'en');
+        var destinazione = (scelta === 'it' || scelta === 'en' || scelta === 'de') ? scelta : rilevata;
         /* come sulla pagina italiana: parametri e ancora si conservano,
            altrimenti si perde il codice del clic pubblicitario */
-        if (scelta === 'it' || (!scelta && italiano)) location.replace('../' + location.search + location.hash);
+        if (destinazione === 'it') location.replace('../' + location.search + location.hash);
+        else if (destinazione === 'de') location.replace('../de/' + location.search + location.hash);
       } catch (e) {}
     })();
   </script>
@@ -642,6 +646,34 @@
     }
     .nav.scrolled .nav__lang:hover { background: rgba(26,26,24,.09); border-color: var(--accent); color: var(--accent); }
     .nav__lang::after { display: none !important; } /* niente filo sotto: è una pastiglia, non una voce di menu */
+    .nav__lang + .nav__lang { margin-left: calc(clamp(1rem, 2.1vw, 2.4rem) * -1 + .45rem); } /* le due pastiglie viaggiano appaiate */
+
+    /* ============ SIPARIO CAMBIO LINGUA ============
+       Al clic su una lingua un telo color carta sale a coprire la pagina
+       con il saluto nella lingua di destinazione, poi si naviga davvero. */
+    .sipario-lingua {
+      position: fixed; inset: 0; z-index: 4000;
+      background: var(--bg);
+      display: grid; place-items: center;
+      transform: translateY(101%);
+      transition: transform .55s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .sipario-lingua.attivo { transform: translateY(0); pointer-events: auto; }
+    .sipario-lingua__parola {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(2.6rem, 8vw, 5.5rem); color: var(--text); line-height: 1;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .4s ease .22s, transform .5s cubic-bezier(0.22, 1, 0.36, 1) .22s;
+    }
+    .sipario-lingua.attivo .sipario-lingua__parola { opacity: 1; transform: translateY(0); }
+    .sipario-lingua__firma {
+      position: absolute; bottom: clamp(1.4rem, 4vh, 2.6rem);
+      font-size: .72rem; letter-spacing: .26em; text-transform: uppercase; color: var(--accent);
+      opacity: 0; transition: opacity .4s ease .38s;
+    }
+    .sipario-lingua.attivo .sipario-lingua__firma { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) { .sipario-lingua { display: none; } }
     /* A tendina aperta si mostra la pillola VERA della barra (quota 1000), non
        la copia dentro la tendina (quota 990): quella spariva sotto lo sfondo
        pieno della barra dopo lo scorrimento. */
@@ -1427,7 +1459,7 @@
       <a href="#servizi">Amenities</a>
       <a href="#workshop">Art Studio</a>
       <a href="#cosa-visitare">What to visit</a>
-      <a class="nav__lang" data-lingua="it" href="../" aria-label="Versione italiana">IT</a>
+      <a class="nav__lang" data-lingua="it" href="../" aria-label="Versione italiana">IT</a><a class="nav__lang" data-lingua="de" href="../de/" aria-label="Deutsche Version">DE</a>
       <a class="nav__cta" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=en" target="_blank" rel="noopener">Book now</a>
     </nav>
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
@@ -2243,7 +2275,31 @@
        anche alle visite successive */
     document.addEventListener('click', (e) => {
       const a = e.target.closest('[data-lingua]');
-      if (a) { try { localStorage.setItem('beatilla-lingua', a.getAttribute('data-lingua')); } catch (err) {} }
+      if (!a) return;
+      try { localStorage.setItem('beatilla-lingua', a.getAttribute('data-lingua')); } catch (err) {}
+      /* sipario di passaggio: il telo sale col saluto nella lingua scelta,
+         poi si naviga. Con le animazioni ridotte si naviga e basta. */
+      if (prefersReduced) return;
+      e.preventDefault();
+      const saluti = { it: 'Benvenuti', en: 'Welcome', de: 'Willkommen' };
+      const lingua = a.getAttribute('data-lingua');
+      let sipario = document.getElementById('siparioLingua');
+      if (!sipario) {
+        sipario = document.createElement('div');
+        sipario.id = 'siparioLingua';
+        sipario.className = 'sipario-lingua';
+        sipario.innerHTML = '<span class="sipario-lingua__parola"></span><span class="sipario-lingua__firma">Agriturismo Beatilla</span>';
+        document.body.appendChild(sipario);
+      }
+      sipario.querySelector('.sipario-lingua__parola').textContent = saluti[lingua] || '';
+      requestAnimationFrame(() => { requestAnimationFrame(() => { sipario.classList.add('attivo'); }); });
+      const destinazione = a.href;
+      setTimeout(() => { location.href = destinazione; }, 850);
+    });
+    /* tornando indietro dalla cache del browser il sipario non deve restare chiuso */
+    window.addEventListener('pageshow', () => {
+      const s = document.getElementById('siparioLingua');
+      if (s) s.classList.remove('attivo');
     });
 
     /* Con il risparmio dati attivo il video non si scarica: resta la foto */
