@@ -411,6 +411,9 @@
        (memorizzata) vince sempre sul rilevamento. */
     (function () {
       try {
+        /* il rimando automatico vive solo sul dominio ufficiale: sulle
+           anteprime (github.io) la lingua si cambia solo con le pastiglie */
+        if (!/(^|\.)agriturismobeatilla\.it$/.test(location.hostname)) return;
         var scelta = localStorage.getItem('beatilla-lingua');
         var parlata = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
         var rilevata = parlata.indexOf('it') === 0 ? 'it' : (parlata.indexOf('de') === 0 ? 'de' : 'en');
@@ -2295,7 +2298,12 @@
       sipario.querySelector('.sipario-lingua__parola').textContent = saluti[lingua] || '';
       requestAnimationFrame(() => { requestAnimationFrame(() => { sipario.classList.add('attivo'); }); });
       const destinazione = a.href;
-      setTimeout(() => { location.href = destinazione; }, 850);
+      /* si naviga quando il telo ha DAVVERO finito di salire (con rete di
+         sicurezza a tempo, se la transizione non arrivasse mai) */
+      let navigato = false;
+      const naviga = () => { if (navigato) return; navigato = true; location.href = destinazione; };
+      sipario.addEventListener("transitionend", (ev) => { if (ev.propertyName === "transform") setTimeout(naviga, 200); });
+      setTimeout(naviga, 1400);
     });
     /* tornando indietro dalla cache del browser il sipario non deve restare chiuso */
     window.addEventListener('pageshow', () => {
