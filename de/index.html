@@ -648,7 +648,35 @@
     }
     .nav.scrolled .nav__lang:hover { background: rgba(26,26,24,.09); border-color: var(--accent); color: var(--accent); }
     .nav__lang::after { display: none !important; } /* niente filo sotto: è una pastiglia, non una voce di menu */
-    .nav__lang + .nav__lang { margin-left: calc(clamp(1rem, 2.1vw, 2.4rem) * -1 + .45rem); } /* le due pastiglie viaggiano appaiate */
+    /* ---- Selettore a tendina: una pastiglia sola, le lingue si aprono sotto.
+            Le prossime lingue si aggiungeranno qui dentro, la barra non cresce. ---- */
+    .nav__lingua { position: relative; display: inline-flex; }
+    .nav__lingua-bottone { cursor: pointer; font-family: var(--sans); display: inline-flex; align-items: center; gap: .42em; color: inherit; }
+    .nav__lingua-freccia { width: .62em; height: auto; transition: transform .35s var(--ease); }
+    .nav__lingua-bottone[aria-expanded="true"] .nav__lingua-freccia { transform: rotate(180deg); }
+    .nav__lingua-tendina {
+      position: absolute; top: calc(100% + .6rem); right: 0; min-width: 10.5rem;
+      background: var(--bg); color: var(--text);
+      border: 1px solid rgba(26,26,24,.14); border-radius: 14px;
+      box-shadow: 0 18px 44px rgba(26,26,24,.16);
+      padding: .45rem; display: grid; gap: .1rem; z-index: 40;
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: opacity .3s var(--ease), transform .45s var(--ease), visibility .3s;
+    }
+    .nav__lingua-tendina.aperta { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav__links .nav__lingua-voce {
+      display: block; padding: .62rem .95rem; border-radius: 9px;
+      font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--text); white-space: nowrap;
+      transition: background .25s var(--ease), color .25s var(--ease);
+    }
+    .nav__lingua-voce::after { display: none !important; } /* niente filo sotto nemmeno qui */
+    .nav__links a.nav__lingua-voce:hover, .nav__links a.nav__lingua-voce:focus-visible { background: rgba(122,106,82,.12); color: var(--accent); }
+    .nav__links .nav__lingua-voce--attuale { color: var(--accent); position: relative; padding-left: 2rem; cursor: default; }
+    .nav__lingua-voce--attuale::before {
+      content: ""; position: absolute; left: .95rem; top: 50%; width: .38rem; height: .38rem;
+      border-radius: 50%; background: var(--accent); transform: translateY(-50%);
+    }
 
     /* ============ SIPARIO CAMBIO LINGUA ============
        Al clic su una lingua un telo color carta sale a coprire la pagina
@@ -1351,7 +1379,7 @@
          il logo si stringe quel tanto che basta perché la pillola non lo tocchi. */
       body.menu-open .nav__brand img { height: clamp(24px, 6.4vw, 32px); }
       body.menu-open .nav__links { display: flex; align-items: center; margin-left: auto; margin-right: 18px; }
-      body.menu-open .nav__links > *:not(.nav__lang) { display: none; }
+      body.menu-open .nav__links > *:not(.nav__lang):not(.nav__lingua) { display: none; }
       body.menu-open .nav__links .nav__lang {
         font-family: var(--sans);
         font-size: .66rem; letter-spacing: .14em; line-height: 1;
@@ -1461,7 +1489,14 @@
       <a href="#servizi">Ausstattung</a>
       <a href="#workshop">Art Studio</a>
       <a href="#cosa-visitare">Sehenswertes</a>
-      <a class="nav__lang" data-lingua="it" href="../" aria-label="Versione italiana">IT</a><a class="nav__lang" data-lingua="en" href="../en/" aria-label="English version">EN</a>
+      <div class="nav__lingua" id="navLingua">
+        <button class="nav__lang nav__lingua-bottone" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Sprache wechseln">DE<svg class="nav__lingua-freccia" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav__lingua-tendina" role="menu" aria-label="Sprache der Website">
+          <a class="nav__lingua-voce" role="menuitem" data-lingua="it" href="../" hreflang="it">Italiano</a>
+          <a class="nav__lingua-voce" role="menuitem" data-lingua="en" href="../en/" hreflang="en">English</a>
+          <span class="nav__lingua-voce nav__lingua-voce--attuale" aria-current="true">Deutsch</span>
+        </div>
+      </div>
       <a class="nav__cta" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=de" target="_blank" rel="noopener">Buchen</a>
     </nav>
     <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navOverlay">
@@ -2302,6 +2337,24 @@
       if (s) s.classList.remove('attivo');
     });
 
+    /* La tendina della lingua: si apre sotto la pastiglia, si chiude con un
+       clic fuori, con Esc o tornando dalla cache. Le voci dentro portano
+       data-lingua: al clic valgono le regole di sempre (scelta memorizzata
+       + sipario di passaggio). */
+    const selettoreLingua = document.getElementById('navLingua');
+    if (selettoreLingua) {
+      const bottoneLingua = selettoreLingua.querySelector('.nav__lingua-bottone');
+      const tendinaLingua = selettoreLingua.querySelector('.nav__lingua-tendina');
+      const chiudiTendina = () => { tendinaLingua.classList.remove('aperta'); bottoneLingua.setAttribute('aria-expanded', 'false'); };
+      bottoneLingua.addEventListener('click', () => {
+        const aperta = tendinaLingua.classList.toggle('aperta');
+        bottoneLingua.setAttribute('aria-expanded', String(aperta));
+      });
+      document.addEventListener('click', (e) => { if (!selettoreLingua.contains(e.target)) chiudiTendina(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') chiudiTendina(); });
+      window.addEventListener('pageshow', chiudiTendina);
+    }
+
     /* Con il risparmio dati attivo il video non si scarica: resta la foto */
     const RISPARMIO_DATI = !!(navigator.connection && navigator.connection.saveData);
     /* Quello che deve partire quando la schermata di caricamento si toglie
@@ -2516,6 +2569,11 @@
       inner.className = 'nav__overlay-links';
       inner.setAttribute('aria-label', 'Menü');
       inner.innerHTML = links.innerHTML;
+      /* il selettore della lingua vive solo nella barra (a menu aperto resta
+         la pastiglia vera accanto alla X): via la copia, che duplicherebbe
+         l'id e resterebbe comunque senza orecchie */
+      const copiaLingua = inner.querySelector('.nav__lingua');
+      if (copiaLingua) copiaLingua.remove();
       overlay.appendChild(inner);
       document.body.appendChild(overlay);
       const open = () => {
