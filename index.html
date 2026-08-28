@@ -657,7 +657,7 @@
     .nav__lingua-freccia { width: .62em; height: auto; transition: transform .35s var(--ease); }
     .nav__lingua-bottone[aria-expanded="true"] .nav__lingua-freccia { transform: rotate(180deg); }
     .nav__lingua-tendina {
-      position: absolute; top: calc(100% + .6rem); right: 0; min-width: 10.5rem;
+      position: absolute; top: calc(100% + .6rem); right: 0;
       background: var(--bg); color: var(--text);
       border: 1px solid rgba(26,26,24,.14); border-radius: 14px;
       box-shadow: 0 18px 44px rgba(26,26,24,.16);
@@ -667,9 +667,9 @@
     }
     .nav__lingua-tendina.aperta { opacity: 1; visibility: visible; transform: translateY(0); }
     .nav__links .nav__lingua-voce {
-      display: block; padding: .62rem .95rem; border-radius: 9px;
-      font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--text); white-space: nowrap;
+      display: block; padding: .55rem 1.1rem; border-radius: 9px;
+      font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text); white-space: nowrap; text-align: center;
       transition: background .25s var(--ease), color .25s var(--ease);
     }
     .nav__lingua-voce::after { display: none !important; } /* niente filo sotto nemmeno qui */
@@ -1490,9 +1490,9 @@
       <div class="nav__lingua" id="navLingua">
         <button class="nav__lang nav__lingua-bottone" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Cambia lingua">IT<svg class="nav__lingua-freccia" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="nav__lingua-tendina" role="menu" aria-label="Lingua del sito">
-          <span class="nav__lingua-voce nav__lingua-voce--attuale" aria-current="true">Italiano</span>
-          <a class="nav__lingua-voce" role="menuitem" data-lingua="en" href="en/" hreflang="en">English</a>
-          <a class="nav__lingua-voce" role="menuitem" data-lingua="de" href="de/" hreflang="de">Deutsch</a>
+          <span class="nav__lingua-voce nav__lingua-voce--attuale" aria-current="true">IT</span>
+          <a class="nav__lingua-voce" role="menuitem" data-lingua="en" href="en/" hreflang="en" aria-label="English">EN</a>
+          <a class="nav__lingua-voce" role="menuitem" data-lingua="de" href="de/" hreflang="de" aria-label="Deutsch">DE</a>
         </div>
       </div>
       <a class="nav__cta" href="https://wubook.net/nneb/bk/?ep=efbd0f20&board=bb&o=2.0.0.0&c=EUR&lang=it" target="_blank" rel="noopener">Prenota</a>
