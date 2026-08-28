@@ -672,11 +672,7 @@
     }
     .nav__lingua-voce::after { display: none !important; } /* niente filo sotto nemmeno qui */
     .nav__links a.nav__lingua-voce:hover, .nav__links a.nav__lingua-voce:focus-visible { background: rgba(122,106,82,.12); color: var(--accent); }
-    .nav__links .nav__lingua-voce--attuale { color: var(--accent); position: relative; padding-left: 2rem; cursor: default; }
-    .nav__lingua-voce--attuale::before {
-      content: ""; position: absolute; left: .95rem; top: 50%; width: .38rem; height: .38rem;
-      border-radius: 50%; background: var(--accent); transform: translateY(-50%);
-    }
+    .nav__links .nav__lingua-voce--attuale { color: var(--accent); cursor: default; }
 
     /* ============ SIPARIO CAMBIO LINGUA ============
        Al clic su una lingua un telo color carta sale a coprire la pagina
